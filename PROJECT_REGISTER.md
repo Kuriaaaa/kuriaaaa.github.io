@@ -1,0 +1,48 @@
+# Chege John Brian Kuria — Project Register
+
+This register keeps every body of work and its documentation separate.
+
+## 01 — GymFlow
+
+**Type:** Full-stack software project  
+**Status:** Completed working project with formal documentation  
+**Technology:** Python, JavaScript, SQL, REST APIs
+
+Documents: complete submission, final report, implementation plan, test plan,
+user training manual, final presentation, and system access/test evidence guide.
+
+## 02 — Personal Portfolio
+
+**Type:** Professional website  
+**Status:** In active development  
+**Technology:** HTML5, CSS3, JavaScript, responsive UX
+
+Current artifacts: website source files, image assets, project register, and the
+downloadable project-document library. A CV, case-study PDF, and deployment
+guide can be added later.
+
+## 03 — DSA 4202 Assignment 2
+
+**Type:** Academic data-science project  
+**Title:** Predictive Modeling with Linear Methods  
+**Status:** Completed
+
+Documents: submission report, complete workflow PDF, and Jupyter notebook.
+
+## 04 — DSA 4202 Assignment 3
+
+**Type:** Academic data-science project  
+**Title:** Tree-Based Modeling  
+**Status:** Working assets complete; final submission exports pending
+
+Available locally: Python source, two datasets, and seven generated figures.
+These assets are not classified as Assignment 2 documents.
+
+## 05 — Opening Candle 2.67R
+
+**Type:** TradingView technical experiment  
+**Status:** Prototype and enhanced testing versions available  
+**Technology:** Pine Script
+
+These scripts remain separate from university submissions and production web
+applications.
