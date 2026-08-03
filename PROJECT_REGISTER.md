@@ -6,7 +6,7 @@ This register keeps every body of work and its documentation separate.
 
 **Type:** Full-stack software project  
 **Status:** Completed working project with formal documentation; public demo live  
-**Technology:** Python, JavaScript, SQL, REST APIs
+**Technology:** Python JSON API, JavaScript, SQLite development, PostgreSQL production support
 
 Live demo: https://kuriaaaa.github.io/gymflow-v1-demo/  
 Source: https://github.com/Kuriaaaa/gymflow-v1-demo
@@ -21,7 +21,7 @@ user training manual, final presentation, and system access/test evidence guide.
 ## 02 — Personal Portfolio
 
 **Type:** Professional website  
-**Status:** In active development  
+**Status:** Live and actively maintained
 **Technology:** HTML5, CSS3, JavaScript, responsive UX
 
 Current artifacts: website source files, image assets, project register, and the
