@@ -30,24 +30,35 @@ window.addEventListener('pointermove', event => {
 });
 
 const contactForm = document.querySelector('#contact-form');
-contactForm.addEventListener('submit', event => {
-  event.preventDefault();
+contactForm.addEventListener('submit', () => {
   if (!contactForm.reportValidity()) return;
-
-  const data = new FormData(contactForm);
-  const name = String(data.get('name') || '');
-  const email = String(data.get('email') || '');
-  const message = String(data.get('message') || '');
-  const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
-  const body = encodeURIComponent(
-    `Hello John,\n\n${message}\n\nFrom: ${name}\nEmail: ${email}`
-  );
-
-  document.querySelector('#form-status').textContent =
-    'Your email application is opening with the message prepared.';
-  window.location.href =
-    `mailto:johnkuria6996@gmail.com?subject=${subject}&body=${body}`;
+  document.querySelector('#form-status').textContent = 'Sending your message securely…';
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  submitButton.textContent = 'Sending…';
 });
+
+const query = new URLSearchParams(window.location.search);
+if (query.get('message') === 'sent') {
+  document.querySelector('#form-status').textContent = 'Thank you. Your message has been sent successfully.';
+}
+
+document.querySelectorAll('[data-copy-email]').forEach(button => button.addEventListener('click', async () => {
+  const email = button.dataset.copyEmail;
+  try {
+    await navigator.clipboard.writeText(email);
+    button.querySelector('span').textContent = 'Copied';
+    document.querySelector('#form-status').textContent = `${email} copied to your clipboard.`;
+  } catch {
+    document.querySelector('#form-status').textContent = `Email: ${email}`;
+  }
+}));
+
+document.querySelectorAll('[data-contact-message]').forEach(link => link.addEventListener('click', () => {
+  const message = document.querySelector('#contact-form textarea[name="message"]');
+  message.value = link.dataset.contactMessage;
+  window.setTimeout(() => message.focus(), 450);
+}));
 
 const rolePreviewImage = document.querySelector('#role-preview-image');
 const rolePreviewLink = document.querySelector('#role-preview-link');
