@@ -21,3 +21,69 @@
 @media(max-width:900px){.hero:before{background:linear-gradient(180deg,rgba(244,248,251,.95) 0%,rgba(244,248,251,.84) 46%,rgba(217,242,255,.66) 100%),url("assets/office-development-studio.webp") 62% center/cover no-repeat}}
 @media(max-width:600px){.hero:before,.hero:after{inset:70px 0 0}}
 @media(prefers-reduced-motion:reduce){.hero:before{animation:none;transform:scale(1.035)}}
+
+/* 2026 portfolio redesign: warm studio palette */
+:root{--ink:#1b1916;--navy:#171512;--blue:#d88350;--blue-deep:#a94f2f;--paper:#f2eadf;--white:#fffaf2;--muted:#6f675e;--line:#d6c9b8;--forest:#2f6b57;--sage:#a6b59b;--cream:#fffaf2}
+body{background:var(--paper)}
+.site-header{background:rgba(242,234,223,.91);border-bottom-color:rgba(27,25,22,.11)}
+.brand>span{background:var(--ink);color:var(--blue)}
+.nav-links a:after{background:var(--forest)}
+.header-cta{border-color:var(--forest);color:var(--forest)}
+h1 em,h2 em,.register-intro h3 em{color:var(--blue-deep)}
+.eyebrow>span{background:var(--blue-deep)}
+.button.primary{background:var(--forest);color:var(--cream);border-radius:999px}
+.button:hover{box-shadow:0 14px 34px rgba(47,107,87,.22)}
+.portrait-frame{border-radius:220px 220px 18px 18px;box-shadow:0 35px 80px rgba(27,25,22,.25)}
+.floating-card{background:var(--cream);border-left-color:var(--blue);box-shadow:0 18px 50px rgba(27,25,22,.16)}
+.marquee{background:var(--forest);color:var(--cream)}
+.section-label span,.project-type,.register-number,.register-meta,.compact-docs a b,.case-study dt{color:var(--blue-deep)}
+.education-card .edu-icon{background:var(--forest);color:var(--cream)}
+.skills{background:var(--navy)}
+.section-label.light{border-color:#3b3731}
+.skill-grid,.skill-card,.skill-card:first-child{border-color:#3b3731}
+.skill-card:hover,.skill-card:target{background:#242e28}
+.skill-icon{color:var(--blue)}
+.tags span,.additional-tech span{border-color:#4b4941}
+.work{background:#e8dfd2}
+.work:before{color:rgba(169,79,47,.055)}
+.project.featured{display:block;padding-top:70px}
+.project.featured .project-info{max-width:1180px;margin:0 auto}
+.project.featured .project-info>p:not(.project-type){max-width:780px}
+.project.featured .project-info>ul{max-width:760px}
+.project.featured .project-stack,.project.featured .project-actions{max-width:900px}
+.project-stack span{border-color:#b9aa97}
+.demo-note{background:var(--cream);border-left-color:var(--forest)}
+.demo-note>span{background:#dce9e1;color:#245d4b}
+.project-source{border-color:var(--forest);color:var(--forest);border-radius:999px}
+.interface-showcase{margin-top:48px;padding:clamp(20px,3vw,42px);background:var(--navy);border-radius:20px;box-shadow:0 28px 70px rgba(27,25,22,.2)}
+.showcase-heading h4{font-size:clamp(20px,2.4vw,30px)}
+.showcase-heading small,.interface-showcase>p:last-child{color:#aaa195}
+.role-tabs{margin:26px 0 20px}
+.role-tabs button{border-color:#575047;color:#c8bfb3;padding:10px 16px}
+.role-tabs button.active,.role-tabs button:hover{background:var(--blue);border-color:var(--blue);color:var(--ink)}
+.role-preview{background:#0f0e0c;border:1px solid #3b3731;border-radius:12px}
+.role-preview img{aspect-ratio:1.44/1;object-fit:contain;object-position:center;background:#0f0e0c}
+.case-study{background:var(--cream);border-top-color:var(--blue-deep);box-shadow:0 14px 35px rgba(27,25,22,.08)}
+.availability-note{background:var(--cream)}
+.category.academic{background:#e6d8c8;color:#884429}.category.experiment{background:#dfe6db;color:#315f4f}
+.portfolio-preview{background:var(--forest)}
+.mini-brand{border-color:var(--blue);color:var(--blue)}
+.portfolio-preview strong{color:#f3bb8e}.orbit{border-color:rgba(216,131,80,.35)}
+.journey{background:var(--cream)}
+.timeline div:before{background:var(--blue-deep);border-color:#ead8c7}.timeline span{color:var(--blue-deep)}
+.contact{background:var(--blue);color:var(--ink)}
+.contact:before{background:linear-gradient(90deg,var(--blue),rgba(216,131,80,.74)),url("assets/john-kuria-professional.png?v=20260803") center 34%/cover no-repeat}
+.contact:after{background:linear-gradient(90deg,var(--blue) 0%,var(--blue) 55%,rgba(166,181,155,.76) 100%)}
+.contact-form{background:rgba(255,250,242,.46);border-color:rgba(27,25,22,.2)}
+.contact-form input,.contact-form textarea{background:rgba(255,250,242,.68)}
+footer{background:var(--navy);color:#aaa195}footer .brand>span{background:var(--blue);color:var(--ink)}
+.cursor-glow{background:rgba(216,131,80,.11)}
+.architecture-flow{background:rgba(255,250,242,.55);border-color:rgba(27,25,22,.15)}
+.architecture-flow a{border-color:rgba(27,25,22,.15)}
+.architecture-flow a:hover{background:rgba(255,250,242,.9)}
+.architecture-flow small,.nav-links a.active{color:var(--forest)}
+.architecture-flow a:not(:last-child):after{color:var(--blue-deep)}
+.hero:before{background:linear-gradient(90deg,rgba(242,234,223,.97) 0%,rgba(242,234,223,.91) 45%,rgba(166,181,155,.43) 100%),url("assets/office-development-studio.webp") center/cover no-repeat}
+.hero:after{background:linear-gradient(115deg,transparent 55%,rgba(216,131,80,.1))}
+@media(max-width:900px){.nav-links.open{background:var(--paper)}.hero:before{background:linear-gradient(180deg,rgba(242,234,223,.96) 0%,rgba(242,234,223,.86) 46%,rgba(166,181,155,.5) 100%),url("assets/office-development-studio.webp") 62% center/cover no-repeat}}
+@media(max-width:600px){.interface-showcase{border-radius:14px}.role-tabs{display:grid;grid-template-columns:1fr 1fr}.role-tabs button{width:100%}.role-preview img{aspect-ratio:1/1;object-fit:contain;object-position:center top}}
