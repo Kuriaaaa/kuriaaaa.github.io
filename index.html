@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260803b">
+  <link rel="stylesheet" href="styles.css?v=20260803c">
 </head>
 <body>
   <div class="cursor-glow" aria-hidden="true"></div>
@@ -112,6 +112,19 @@
             <a class="button primary" href="https://kuriaaaa.github.io/gymflow-v1-demo/" target="_blank" rel="noopener noreferrer">Open live demo <span>↗</span></a>
             <a class="button project-source" href="https://github.com/Kuriaaaa/gymflow-v1-demo" target="_blank" rel="noopener noreferrer">View source code <span>↗</span></a>
           </div>
+          <div class="interface-showcase">
+            <div class="showcase-heading"><div><p class="project-type">Role interface gallery</p><h4>See what each user can access</h4></div><small>Fictional demonstration data</small></div>
+            <div class="role-tabs" role="group" aria-label="Choose a GymFlow role screenshot">
+              <button class="active" type="button" data-role-image="assets/gymflow-gallery/owner-workspace.png" data-role-label="Owner workspace: revenue metrics, member registration, memberships, payments, attendance, scheduling, workouts and expenses." aria-pressed="true">Owner</button>
+              <button type="button" data-role-image="assets/gymflow-gallery/receptionist-workspace.png" data-role-label="Receptionist workspace: member registration, memberships, sandbox payments, attendance and session scheduling." aria-pressed="false">Receptionist</button>
+              <button type="button" data-role-image="assets/gymflow-gallery/trainer-workspace.png" data-role-label="Trainer workspace: assigned members, schedules and workout-plan tools without financial access." aria-pressed="false">Trainer</button>
+              <button type="button" data-role-image="assets/gymflow-gallery/member-workspace.png" data-role-label="Member workspace: personal membership, attendance, sessions, workouts, payments and progress." aria-pressed="false">Member</button>
+            </div>
+            <a id="role-preview-link" class="role-preview" href="assets/gymflow-gallery/owner-workspace.png" target="_blank" rel="noopener noreferrer" aria-label="Open full owner workspace screenshot">
+              <img id="role-preview-image" src="assets/gymflow-gallery/owner-workspace.png" alt="GymFlow owner workspace demonstration" width="1440" height="1000" loading="lazy">
+            </a>
+            <p id="role-preview-caption">Owner workspace: revenue metrics, member registration, memberships, payments, attendance, scheduling, workouts and expenses.</p>
+          </div>
           <div class="case-study">
             <p class="project-type">Case study</p>
             <dl>
@@ -124,17 +137,12 @@
             </dl>
           </div>
           <div class="project-documents">
-            <div class="document-heading"><span>Full project documentation</span><small>7 verified files</small></div>
-            <a href="assets/documents/gymflow/GymFlow-Complete-Submission.pdf" target="_blank" rel="noopener noreferrer"><span><b>Complete submission</b><small>Combined project package</small></span><i>PDF ↗</i></a>
-            <a href="assets/documents/gymflow/GymFlow-Final-Report.pdf" target="_blank" rel="noopener noreferrer"><span><b>Final report</b><small>Analysis, design and implementation</small></span><i>PDF ↗</i></a>
-            <a href="assets/documents/gymflow/GymFlow-Implementation-Plan.pdf" target="_blank" rel="noopener noreferrer"><span><b>Implementation plan</b><small>Delivery stages and rollout</small></span><i>PDF ↗</i></a>
-            <a href="assets/documents/gymflow/GymFlow-Test-Plan.pdf" target="_blank" rel="noopener noreferrer"><span><b>Test plan</b><small>Testing and acceptance approach</small></span><i>PDF ↗</i></a>
-            <a href="assets/documents/gymflow/GymFlow-User-Training-Manual.pdf" target="_blank" rel="noopener noreferrer"><span><b>User training manual</b><small>Instructions for system users</small></span><i>PDF ↗</i></a>
-            <details>
-              <summary>View remaining GymFlow documents <span>+</span></summary>
-              <a href="assets/documents/gymflow/GymFlow-Final-Presentation.pdf" target="_blank" rel="noopener noreferrer"><span><b>Final presentation</b><small>Project presentation deck</small></span><i>PDF ↗</i></a>
-              <a href="assets/documents/gymflow/GymFlow-System-Access-Guide.pdf" target="_blank" rel="noopener noreferrer"><span><b>System access & test evidence guide</b><small>Access and verification evidence</small></span><i>PDF ↗</i></a>
-            </details>
+            <div class="document-heading"><span>Reviewer documentation</span><small>Controlled access</small></div>
+            <div class="protected-docs">
+              <span class="lock-mark" aria-hidden="true">↗</span>
+              <div><b>Available to verified reviewers on request</b><p>The final report, implementation plan, test plan, training manual, presentation and access evidence are not distributed as public downloads.</p></div>
+            </div>
+            <a class="document-request" href="mailto:johnkuria6996@gmail.com?subject=GymFlow%20reviewer%20document%20request"><span><b>Request reviewer access</b><small>State your organization and reason for review</small></span><i>Email ↗</i></a>
           </div>
         </div>
       </article>
@@ -206,6 +214,6 @@
   </main>
 
   <footer><a class="brand" href="#home"><span>JK</span> John Kuria</a><p>Designed & built with intention · <span id="year"></span></p><div class="footer-links"><a href="https://github.com/Kuriaaaa" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:johnkuria6996@gmail.com">Email ↗</a><a href="#home">Back to top ↑</a></div></footer>
-  <script src="script.js?v=20260803b"></script>
+  <script src="script.js?v=20260803c"></script>
 </body>
 </html>

@@ -48,3 +48,24 @@ contactForm.addEventListener('submit', event => {
   window.location.href =
     `mailto:johnkuria6996@gmail.com?subject=${subject}&body=${body}`;
 });
+
+const rolePreviewImage = document.querySelector('#role-preview-image');
+const rolePreviewLink = document.querySelector('#role-preview-link');
+const rolePreviewCaption = document.querySelector('#role-preview-caption');
+const roleTabs = document.querySelectorAll('[data-role-image]');
+
+roleTabs.forEach(button => button.addEventListener('click', () => {
+  const role = button.textContent.trim();
+  const image = button.dataset.roleImage;
+  const label = button.dataset.roleLabel;
+
+  roleTabs.forEach(tab => {
+    tab.classList.toggle('active', tab === button);
+    tab.setAttribute('aria-pressed', String(tab === button));
+  });
+  rolePreviewImage.src = image;
+  rolePreviewImage.alt = `GymFlow ${role.toLowerCase()} workspace demonstration`;
+  rolePreviewLink.href = image;
+  rolePreviewLink.setAttribute('aria-label', `Open full ${role.toLowerCase()} workspace screenshot`);
+  rolePreviewCaption.textContent = label;
+}));

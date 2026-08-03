@@ -15,8 +15,10 @@ The hosted edition uses fictional seed data and browser-local storage so it can
 be explored safely. The original Python and SQLite V1 remains the authoritative
 full system.
 
-Documents: complete submission, final report, implementation plan, test plan,
-user training manual, final presentation, and system access/test evidence guide.
+Reviewer documents: complete submission, final report, implementation plan,
+test plan, user training manual, final presentation, and system access/test
+evidence guide. These are held outside the public site and supplied only after
+a reviewer request is verified.
 
 ## 02 — Personal Portfolio
 
