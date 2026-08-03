@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260803d">
+  <link rel="stylesheet" href="styles.css?v=20260803f">
 </head>
 <body>
   <div class="cursor-glow" aria-hidden="true"></div>
@@ -40,6 +40,7 @@
 
   <main>
     <section class="hero section" id="home">
+      <canvas class="architecture-canvas" id="architecture-canvas" aria-hidden="true"></canvas>
       <div class="hero-copy reveal">
         <p class="eyebrow"><span></span> Available for opportunities</p>
         <h1>I build software that <em>moves ideas forward.</em></h1>
@@ -53,6 +54,12 @@
           <div><strong>2026</strong><span>Graduating August</span></div>
           <div><strong>Full-stack</strong><span>Development focus</span></div>
         </div>
+        <nav class="architecture-flow" aria-label="Explore my development architecture">
+          <a href="#cap-frontend"><small>01</small><b>Interface</b><span>Responsive experiences</span></a>
+          <a href="#cap-backend"><small>02</small><b>API</b><span>Secure application logic</span></a>
+          <a href="#cap-data"><small>03</small><b>Data</b><span>Structured information</span></a>
+          <a href="#cap-delivery"><small>04</small><b>Delivery</b><span>Tested and deployed</span></a>
+        </nav>
       </div>
       <div class="hero-visual reveal">
         <div class="portrait-frame">
@@ -85,10 +92,10 @@
       <div class="section-label light reveal"><span>02</span> What I do</div>
       <div class="skills-heading reveal"><h2>Capabilities built for the <em>real world.</em></h2><p>From the first idea to a working product, I focus on solutions that are usable, maintainable and ready to grow.</p></div>
       <div class="skill-grid">
-        <article class="skill-card reveal"><span class="skill-number">01</span><div class="skill-icon">⌘</div><h3>Frontend Development</h3><p>Responsive, accessible interfaces that look sharp and feel effortless across devices.</p><div class="tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div></article>
-        <article class="skill-card reveal"><span class="skill-number">02</span><div class="skill-icon">⌁</div><h3>Backend & APIs</h3><p>Secure application logic, authentication and REST APIs that keep products working reliably.</p><div class="tags"><span>Python</span><span>Flask</span><span>Django</span><span>Node.js</span><span>PHP</span></div></article>
-        <article class="skill-card reveal"><span class="skill-number">03</span><div class="skill-icon">◫</div><h3>Data & Systems</h3><p>Structured databases, role-based workflows and dashboards that turn data into action.</p><div class="tags"><span>SQL</span><span>SQLite</span><span>MySQL</span><span>System Design</span></div></article>
-        <article class="skill-card reveal"><span class="skill-number">04</span><div class="skill-icon">◇</div><h3>Product Delivery</h3><p>Testing, debugging, documentation and deployment practices for dependable software.</p><div class="tags"><span>Git</span><span>GitHub</span><span>Testing</span><span>Deployment</span></div></article>
+        <article class="skill-card reveal" id="cap-frontend"><span class="skill-number">01</span><div class="skill-icon">⌘</div><h3>Frontend Development</h3><p>Responsive, accessible interfaces that look sharp and feel effortless across devices.</p><div class="tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div></article>
+        <article class="skill-card reveal" id="cap-backend"><span class="skill-number">02</span><div class="skill-icon">⌁</div><h3>Backend & APIs</h3><p>Secure application logic, authentication and REST APIs that keep products working reliably.</p><div class="tags"><span>Python</span><span>Flask</span><span>Django</span><span>Node.js</span><span>PHP</span></div></article>
+        <article class="skill-card reveal" id="cap-data"><span class="skill-number">03</span><div class="skill-icon">◫</div><h3>Data & Systems</h3><p>Structured databases, role-based workflows and dashboards that turn data into action.</p><div class="tags"><span>SQL</span><span>SQLite</span><span>MySQL</span><span>System Design</span></div></article>
+        <article class="skill-card reveal" id="cap-delivery"><span class="skill-number">04</span><div class="skill-icon">◇</div><h3>Product Delivery</h3><p>Testing, debugging, documentation and deployment practices for dependable software.</p><div class="tags"><span>Git</span><span>GitHub</span><span>Testing</span><span>Deployment</span></div></article>
       </div>
       <p class="additional-tech reveal"><b>Additional programming experience</b><span>Java</span><span>C#</span><span>C++</span></p>
     </section>
@@ -219,6 +226,6 @@
   </main>
 
   <footer><a class="brand" href="#home"><span>JK</span> John Kuria</a><p>Designed & built with intention · <span id="year"></span></p><div class="footer-links"><a href="https://github.com/Kuriaaaa" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/chege-john-brian-kuria-7909b9426/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="#contact">Contact ↓</a><a href="#home">Back to top ↑</a></div></footer>
-  <script src="script.js?v=20260803d"></script>
+  <script src="script.js?v=20260803f"></script>
 </body>
 </html>
