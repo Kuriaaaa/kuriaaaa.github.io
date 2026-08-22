@@ -112,11 +112,37 @@ h1{max-width:750px;font-size:clamp(3.8rem,7vw,7.7rem);line-height:.89;letter-spa
 .contact:before{background:linear-gradient(90deg,var(--acid),rgba(200,240,75,.76)),url("assets/john-kuria-professional.png?v=20260803") center 34%/cover no-repeat}
 .contact:after{background:linear-gradient(90deg,var(--acid) 0%,var(--acid) 55%,rgba(140,124,240,.54) 100%)}
 .contact-form{background:rgba(255,253,244,.57);border-color:rgba(16,21,19,.22)}
-.contact-form input,.contact-form textarea{background:rgba(255,253,244,.78)}
+.contact-form input,.contact-form textarea,.contact-form select{background:rgba(255,253,244,.78)}
+.contact-form select{width:100%;border:0;border-bottom:1px solid rgba(8,22,40,.36);padding:13px 14px;font:500 14px "DM Sans",sans-serif;color:var(--ink);outline:none;border-radius:0}
+.contact-form .form-row+.form-row{margin-top:22px}
+.optional{font-size:8px;opacity:.65;margin-left:5px}
 .contact .button.primary{background:var(--ink);color:var(--acid)}
 footer{background:var(--ink);color:var(--muted-dark)}
 footer .brand>span{background:var(--acid);color:var(--ink)}
+.footer-links button{border:0;background:none;color:inherit;font:inherit;cursor:pointer;padding:0}
 .cursor-glow{background:rgba(140,124,240,.13)}
+
+.cookie-banner{position:fixed;z-index:80;left:24px;right:24px;bottom:24px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:28px;max-width:1180px;margin:auto;padding:22px 24px;background:var(--ink);color:var(--white);border:1px solid #3d493f;border-top:4px solid var(--acid);border-radius:12px;box-shadow:0 24px 80px rgba(0,0,0,.3)}
+.cookie-banner[hidden]{display:none}
+.cookie-banner strong{font:800 16px Manrope}
+.cookie-banner p{max-width:670px;margin:6px 0 0;color:var(--muted-dark);font-size:12px;line-height:1.55}
+.cookie-actions,.cookie-dialog-actions{display:flex;gap:8px;flex-wrap:wrap}
+.cookie-primary,.cookie-secondary{border-radius:8px;padding:11px 14px;font:800 10px Manrope;text-transform:uppercase;letter-spacing:.5px;cursor:pointer}
+.cookie-primary{border:1px solid var(--acid);background:var(--acid);color:var(--ink)}
+.cookie-secondary{border:1px solid #657067;background:transparent;color:inherit}
+.cookie-dialog{width:min(620px,calc(100% - 32px));padding:0;border:1px solid var(--dark-line);border-radius:14px;background:var(--paper);color:var(--ink);box-shadow:0 30px 100px rgba(0,0,0,.42)}
+.cookie-dialog::backdrop{background:rgba(16,21,19,.72);backdrop-filter:blur(5px)}
+.cookie-dialog form{padding:28px}
+.cookie-dialog-head{display:flex;align-items:start;justify-content:space-between;gap:20px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.cookie-dialog-head small{color:var(--violet);font:800 9px Manrope;text-transform:uppercase;letter-spacing:1px}
+.cookie-dialog-head h2{margin:5px 0 0;font-size:27px;letter-spacing:-1px}
+.cookie-dialog-head button{border:0;background:none;font-size:30px;cursor:pointer}
+.cookie-choice{display:grid;grid-template-columns:1fr auto;align-items:center;gap:25px;padding:22px 0;border-bottom:1px solid var(--line)}
+.cookie-choice strong{font:800 13px Manrope}
+.cookie-choice p,.cookie-note{margin:5px 0 0;color:var(--muted);font-size:11px;line-height:1.55}
+.cookie-choice input{width:20px;height:20px;accent-color:var(--violet)}
+.cookie-note{padding:15px;background:var(--paper-2);border-radius:8px}
+.cookie-dialog-actions{justify-content:flex-end;margin-top:22px}.cookie-dialog .cookie-secondary{color:var(--ink);border-color:var(--ink)}
 
 @media(max-width:1000px){
   .progress-board{grid-template-columns:1fr 1fr}
@@ -140,5 +166,7 @@ footer .brand>span{background:var(--acid);color:var(--ink)}
   .register-card{padding:25px 20px}
   .research-result{grid-template-columns:1fr;gap:6px}
   .portrait-frame{height:500px}
+  .cookie-banner{left:12px;right:12px;bottom:12px;grid-template-columns:1fr;gap:16px;padding:20px}
+  .cookie-actions{display:grid;grid-template-columns:1fr 1fr}.cookie-actions .cookie-primary{grid-column:1/-1;grid-row:1}
 }
 @media(prefers-reduced-motion:reduce){.progress-board i:after{animation:none}}

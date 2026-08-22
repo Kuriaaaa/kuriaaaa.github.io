@@ -6,7 +6,7 @@
   <meta name="description" content="Portfolio of Chege John Brian Kuria, a software developer building web applications, APIs, databases and operational systems.">
   <meta name="theme-color" content="#101513">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self' https://formsubmit.co; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; object-src 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self' https://formsubmit.co; connect-src 'self' https://*.clarity.ms https://c.bing.com; img-src 'self' data: https://*.clarity.ms https://c.bing.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://www.clarity.ms; object-src 'self'; upgrade-insecure-requests">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kuriaaaa.github.io/">
   <meta property="og:title" content="Chege John Brian Kuria | Software Developer">
@@ -221,7 +221,7 @@
       <p class="eyebrow reveal"><span></span> Contact</p>
       <h2 class="reveal">Available for software<br><em>development opportunities.</em></h2>
       <button class="email-link reveal" type="button" data-copy-email="johnkuria6996@gmail.com">johnkuria6996@gmail.com <span>Copy</span></button>
-      <form class="contact-form reveal" id="contact-form" action="https://formsubmit.co/johnkuria6996@gmail.com" method="post" accept-charset="UTF-8">
+      <form class="contact-form reveal clarity-mask" id="contact-form" action="https://formsubmit.co/johnkuria6996@gmail.com" method="post" accept-charset="UTF-8">
         <input type="hidden" name="_subject" value="New portfolio enquiry">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="true">
@@ -230,6 +230,10 @@
         <div class="form-row">
           <label>Your name<input name="name" type="text" autocomplete="name" required placeholder="Jane Doe"></label>
           <label>Your email<input name="email" type="email" autocomplete="email" required placeholder="jane@example.com"></label>
+        </div>
+        <div class="form-row">
+          <label>Organization <span class="optional">Optional</span><input name="organization" type="text" autocomplete="organization" placeholder="Company or team"></label>
+          <label>Enquiry type<select name="enquiry_type" required><option value="" selected disabled>Select one</option><option>Employment opportunity</option><option>Freelance project</option><option>Internship</option><option>Technical collaboration</option><option>Project review</option></select></label>
         </div>
         <label>What would you like to discuss?<textarea name="message" rows="4" required placeholder="Tell me about the role, project or collaboration..."></textarea></label>
         <div class="form-action">
@@ -241,7 +245,23 @@
     </section>
   </main>
 
-  <footer><a class="brand" href="#home"><span>JK</span> John Kuria</a><p>Designed & built with intention · <span id="year"></span></p><div class="footer-links"><a href="https://github.com/Kuriaaaa" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/chege-john-brian-kuria-7909b9426/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="#contact">Contact ↓</a><a href="#home">Back to top ↑</a></div></footer>
-  <script src="script.js?v=20260822a"></script>
+  <footer><a class="brand" href="#home"><span>JK</span> John Kuria</a><p>Designed & built with intention · <span id="year"></span></p><div class="footer-links"><a href="https://github.com/Kuriaaaa" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/chege-john-brian-kuria-7909b9426/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="#contact">Contact ↓</a><button type="button" data-cookie-settings>Cookie settings</button><a href="#home">Back to top ↑</a></div></footer>
+
+  <aside class="cookie-banner" id="cookie-banner" aria-labelledby="cookie-title" hidden>
+    <div><strong id="cookie-title">Your privacy, your choice.</strong><p>Essential storage remembers this choice. Optional analytics will power anonymous usage insights and heatmaps only when you allow it.</p></div>
+    <div class="cookie-actions"><button type="button" class="cookie-secondary" data-cookie-reject>Essential only</button><button type="button" class="cookie-secondary" data-cookie-manage>Manage</button><button type="button" class="cookie-primary" data-cookie-accept>Allow analytics</button></div>
+  </aside>
+
+  <dialog class="cookie-dialog" id="cookie-dialog" aria-labelledby="cookie-dialog-title">
+    <form method="dialog">
+      <div class="cookie-dialog-head"><div><small>Privacy controls</small><h2 id="cookie-dialog-title">Cookie preferences</h2></div><button type="button" aria-label="Close cookie settings" data-cookie-close>×</button></div>
+      <div class="cookie-choice"><div><strong>Essential storage</strong><p>Remembers your privacy choice and keeps basic site functions available.</p></div><input type="checkbox" checked disabled aria-label="Essential storage is always active"></div>
+      <div class="cookie-choice"><div><strong>Analytics and heatmaps</strong><p>Helps identify which sections and controls visitors use. Contact-form fields remain masked.</p></div><input id="analytics-consent" type="checkbox" aria-label="Allow analytics and heatmaps"></div>
+      <p class="cookie-note" id="analytics-status">Analytics is currently inactive until the site owner connects a Microsoft Clarity project.</p>
+      <div class="cookie-dialog-actions"><button type="button" class="cookie-secondary" data-cookie-reject>Use essential only</button><button type="button" class="cookie-primary" data-cookie-save>Save preferences</button></div>
+    </form>
+  </dialog>
+  <script src="analytics-config.js?v=20260822a"></script>
+  <script src="script.js?v=20260822b"></script>
 </body>
 </html>
