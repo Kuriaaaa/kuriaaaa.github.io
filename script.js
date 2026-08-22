@@ -90,7 +90,7 @@ function drawArchitecture(time = 0) {
 
   architectureContext.clearRect(0, 0, width, height);
   architectureContext.lineWidth = 1;
-  architectureContext.strokeStyle = 'rgba(47, 107, 87, .16)';
+  architectureContext.strokeStyle = 'rgba(140, 124, 240, .2)';
   architectureContext.beginPath();
   points.forEach((point, index) => {
     if (index === 0) architectureContext.moveTo(point.x, point.y);
@@ -102,14 +102,14 @@ function drawArchitecture(time = 0) {
     const radius = 4 + ((index % 2) ? pulse : -pulse) * .22;
     architectureContext.beginPath();
     architectureContext.arc(point.x, point.y, radius, 0, Math.PI * 2);
-    architectureContext.fillStyle = index === 2 ? 'rgba(169, 79, 47, .78)' : 'rgba(216, 131, 80, .58)';
+    architectureContext.fillStyle = index === 2 ? 'rgba(200, 240, 75, .88)' : 'rgba(140, 124, 240, .64)';
     architectureContext.fill();
     const distance = Math.hypot(point.x - architecturePointer.x, point.y - architecturePointer.y);
     if (distance < 230) {
       architectureContext.beginPath();
       architectureContext.moveTo(point.x, point.y);
       architectureContext.lineTo(architecturePointer.x, architecturePointer.y);
-      architectureContext.strokeStyle = `rgba(47, 107, 87, ${Math.max(0, .24 - distance / 1100)})`;
+      architectureContext.strokeStyle = `rgba(200, 240, 75, ${Math.max(0, .28 - distance / 1000)})`;
       architectureContext.stroke();
     }
   });
@@ -168,4 +168,22 @@ roleTabs.forEach(button => button.addEventListener('click', () => {
   rolePreviewLink.href = image;
   rolePreviewLink.setAttribute('aria-label', `Open full ${role.toLowerCase()} workspace screenshot`);
   rolePreviewCaption.textContent = label;
+}));
+
+const projectFilters = [...document.querySelectorAll('[data-project-filter]')];
+const filterableProjects = [...document.querySelectorAll('[data-project-category]')];
+
+projectFilters.forEach(button => button.addEventListener('click', () => {
+  const selectedCategory = button.dataset.projectFilter;
+
+  projectFilters.forEach(filter => {
+    const selected = filter === button;
+    filter.classList.toggle('active', selected);
+    filter.setAttribute('aria-pressed', String(selected));
+  });
+
+  filterableProjects.forEach(project => {
+    const visible = selectedCategory === 'all' || project.dataset.projectCategory === selectedCategory;
+    project.classList.toggle('filtered-out', !visible);
+  });
 }));

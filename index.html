@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio of Chege John Brian Kuria, a software developer building web applications, APIs, databases and operational systems.">
-  <meta name="theme-color" content="#171512">
+  <meta name="theme-color" content="#101513">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self' https://formsubmit.co; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; object-src 'self'; upgrade-insecure-requests">
   <meta property="og:type" content="website">
@@ -26,6 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20260803h">
+  <link rel="stylesheet" href="final-presentation.css?v=20260822a">
 </head>
 <body>
   <div class="cursor-glow" aria-hidden="true"></div>
@@ -50,7 +51,7 @@
           <button class="text-link" type="button" data-copy-email="johnkuria6996@gmail.com">Copy email address <span>□</span></button>
         </div>
         <div class="hero-stats">
-          <div><strong>02</strong><span>Featured projects</span></div>
+          <div><strong>06</strong><span>Projects documented</span></div>
           <div><strong>2026</strong><span>Graduating August</span></div>
           <div><strong>Full-stack</strong><span>Development focus</span></div>
         </div>
@@ -86,6 +87,12 @@
           </div>
         </div>
       </div>
+      <div class="progress-board reveal" aria-label="Current professional progress">
+        <div><small>01</small><strong>GymFlow V1</strong><span>Core system complete · pilot hardening in progress</span><i style="--progress:92%"></i></div>
+        <div><small>02</small><strong>Portfolio</strong><span>Live · final presentation maintained</span><i style="--progress:96%"></i></div>
+        <div><small>03</small><strong>Market research tools</strong><span>Shadow testing · no live execution</span><i style="--progress:68%"></i></div>
+        <div><small>04</small><strong>Degree</strong><span>Completion period · August 2026</span><i style="--progress:95%"></i></div>
+      </div>
     </section>
 
     <section class="skills section" id="skills">
@@ -103,12 +110,18 @@
     <section class="work section" id="work">
       <div class="section-label reveal"><span>03</span> Project portfolio</div>
       <div class="work-heading reveal"><h2>Selected software projects</h2><p>Applications and technical work showing the problems addressed, implementation choices and current status.</p></div>
-      <article class="project featured reveal">
+      <div class="project-controls reveal" role="group" aria-label="Filter projects">
+        <button class="active" type="button" data-project-filter="all" aria-pressed="true">All work <span>06</span></button>
+        <button type="button" data-project-filter="software" aria-pressed="false">Software <span>02</span></button>
+        <button type="button" data-project-filter="research" aria-pressed="false">Research <span>02</span></button>
+        <button type="button" data-project-filter="academic" aria-pressed="false">Academic <span>02</span></button>
+      </div>
+      <article class="project featured reveal" data-project-category="software">
         <div class="project-info">
-          <p class="project-type">Live public demo · Actively maintained · 2026</p><h3>GymFlow</h3>
+          <div class="project-title-row"><div><p class="project-type">01 · Production-oriented software</p><h3>GymFlow V1</h3></div><span class="project-state live">Live demo</span></div>
           <p>A gym operations platform designed for owners, receptionists, trainers and members. Its live React and TypeScript showcase uses fictional data stored only in the visitor's browser, while the complete V1 is backed by a modular Python API and SQL persistence.</p>
           <div class="demo-note"><span>Live</span><p><b>Public demo edition</b> Fictional data · No real payments · Data stays in your browser</p></div>
-          <ul><li>Role-aware owner, receptionist, trainer and member workflows</li><li>Member registration, memberships, payments and attendance</li><li>Trainer schedules and workout assignments</li><li>Owner expenses and operational summaries</li></ul>
+          <ul><li>Role-aware owner, receptionist, trainer and member workflows</li><li>Secure sessions, forced password replacement and account controls</li><li>Memberships, attendance, schedules, workouts, payments and reporting</li><li>Installable PWA, request tracing, backups and deployment readiness checks</li></ul>
           <div class="project-stack"><span>React</span><span>TypeScript</span><span>Browser-local demo</span><span>Python API</span><span>SQLite</span><span>PostgreSQL-ready</span></div>
           <div class="project-actions">
             <a class="button primary" href="https://kuriaaaa.github.io/gymflow-v1-demo/" target="_blank" rel="noopener noreferrer">Open live demo <span>↗</span></a>
@@ -148,7 +161,7 @@
           </div>
         </div>
       </article>
-      <article class="project portfolio-project reveal">
+      <article class="project portfolio-project reveal" data-project-category="software">
         <div class="portfolio-preview"><span class="mini-brand">JK</span><p>A central record of my<br><strong>projects, capabilities and progress.</strong></p><div class="orbit one"></div><div class="orbit two"></div></div>
         <div class="project-info"><p class="project-type">Portfolio website · 2026</p><h3>Personal Portfolio</h3><p>This responsive website documents my software projects, technical capabilities, education and availability. I designed, developed and deployed it through GitHub Pages.</p><div class="project-stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive Design</span></div><span class="status"><i></i> Live · Actively maintained</span></div>
       </article>
@@ -159,8 +172,24 @@
           <p>Academic projects and technical experiments are recorded independently from production applications. Each entry states exactly what it is, its status, and the documents currently available.</p>
         </div>
         <div class="register-list">
-          <article class="register-card reveal">
-            <div class="register-top"><span class="register-number">03</span><span class="category academic">Academic project</span></div>
+          <article class="register-card research-feature reveal" data-project-category="research">
+            <div class="register-top"><span class="register-number">03</span><span class="category research">Decision-support research</span></div>
+            <h3>AI KUSH Market Open Strategy</h3>
+            <p class="register-meta">Python + Pine Script · Shadow testing · Non-executing</p>
+            <p>A non-executing XAUUSD decision-support system that evaluates multi-timeframe market context, records decisions locally and delivers monitoring notifications without placing broker orders.</p>
+            <div class="project-stack"><span>Python</span><span>Pine Script v6</span><span>SQLite</span><span>API Integration</span><span>Monitoring</span></div>
+            <div class="research-result"><b>Current evidence</b><span>Private validation results do not yet satisfy the release gate. The system remains shadow-only while rules, costs and holdout testing are improved.</span></div>
+          </article>
+          <article class="register-card reveal" data-project-category="research">
+            <div class="register-top"><span class="register-number">04</span><span class="category research">Strategy research</span></div>
+            <h3>Opening Candle 2.67R</h3>
+            <p class="register-meta">TradingView · Pine Script v6 · Logic validated</p>
+            <p>A controlled XAUUSD research workflow for defining session ranges, testing confirmation rules, calculating risk-based quantity and evaluating predefined targets.</p>
+            <div class="project-stack"><span>Pine Script</span><span>TradingView</span><span>Risk Modeling</span><span>Validation Protocol</span></div>
+            <div class="research-result pending"><b>Release gate</b><span>TradingView compilation acceptance, broker-cost calibration, holdout testing and paper-forward reconciliation remain pending. No profitability claim is made.</span></div>
+          </article>
+          <article class="register-card reveal" data-project-category="academic">
+            <div class="register-top"><span class="register-number">05</span><span class="category academic">Academic project</span></div>
             <h3>Predictive Modeling with Linear Methods</h3>
             <p class="register-meta">DSA 4202 · Assignment 2 · Completed</p>
             <p>Classification of medical appointment no-shows and regression analysis of concrete strength using Logistic Regression, Linear SVC, Ridge and Lasso models.</p>
@@ -171,21 +200,13 @@
               <a href="assets/documents/data-science/assignment-2/DSA4202-Assignment-2-Notebook.ipynb" download><span>Workflow notebook</span><b>IPYNB ↓</b></a>
             </div>
           </article>
-          <article class="register-card reveal">
-            <div class="register-top"><span class="register-number">04</span><span class="category academic">Academic project</span></div>
+          <article class="register-card reveal" data-project-category="academic">
+            <div class="register-top"><span class="register-number">06</span><span class="category academic">Academic project</span></div>
             <h3>Tree-Based Modeling</h3>
             <p class="register-meta">DSA 4202 · Assignment 3 · Analysis complete</p>
             <p>Classification and regression work using Decision Trees, Random Forest and Gradient Boosting on COVID-risk and automobile-price datasets.</p>
             <div class="project-stack"><span>Python</span><span>Decision Trees</span><span>Random Forest</span><span>Visualization</span></div>
             <div class="availability-note"><i></i><span><b>Technical work completed</b>Source code, two datasets and seven generated figures are complete. A polished public case study will be added after the final academic submission is prepared.</span></div>
-          </article>
-          <article class="register-card reveal">
-            <div class="register-top"><span class="register-number">05</span><span class="category experiment">Technical experiment</span></div>
-            <h3>Opening Candle 2.67R Strategy</h3>
-            <p class="register-meta">TradingView · Pine Script · Prototype</p>
-            <p>A multi-session strategy prototype for Asian, London and New York opening-candle signals, with configurable risk multiples, filters and confirmation logic.</p>
-            <div class="project-stack"><span>Pine Script</span><span>TradingView</span><span>Strategy Testing</span></div>
-            <div class="availability-note"><i></i><span><b>Private technical prototype</b>The strategy code is retained as a technical experiment; a public write-up will follow after testing and documentation are complete.</span></div>
           </article>
         </div>
       </div>
@@ -193,7 +214,7 @@
 
     <section class="journey section">
       <div class="section-label reveal"><span>04</span> Education and current focus</div>
-      <div class="journey-grid"><div class="reveal"><h2>Current development<br><em>and career direction.</em></h2><p>I am strengthening my full-stack development, application security, testing and production deployment skills.</p></div><div class="timeline reveal"><div><span>Current</span><h3>Maintaining live projects</h3><p>Developing and documenting GymFlow and this professional portfolio.</p></div><div><span>August 2026</span><h3>Degree completion</h3><p>Completing my BSc. in Software Development at KCA University.</p></div><div><span>Available for</span><h3>Software development opportunities</h3><p>Junior developer roles, internships, freelance projects and technical collaborations.</p></div></div></div>
+      <div class="journey-grid"><div class="reveal"><h2>Current development<br><em>and career direction.</em></h2><p>I am strengthening full-stack delivery, application security, automated testing, monitoring and production deployment.</p></div><div class="timeline reveal"><div><span>Current</span><h3>Hardening GymFlow V1</h3><p>Maintaining the live demonstration while preparing the full system for a controlled pilot deployment.</p></div><div><span>August 2026</span><h3>Degree completion period</h3><p>Completing my BSc. in Software Development at KCA University.</p></div><div><span>Research</span><h3>Validating market-analysis tools</h3><p>Running shadow tests and documenting negative as well as positive evidence before any broader use.</p></div><div><span>Available for</span><h3>Software development opportunities</h3><p>Junior developer roles, internships, freelance projects and technical collaborations.</p></div></div></div>
     </section>
 
     <section class="contact section" id="contact">
@@ -221,6 +242,6 @@
   </main>
 
   <footer><a class="brand" href="#home"><span>JK</span> John Kuria</a><p>Designed & built with intention · <span id="year"></span></p><div class="footer-links"><a href="https://github.com/Kuriaaaa" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/chege-john-brian-kuria-7909b9426/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="#contact">Contact ↓</a><a href="#home">Back to top ↑</a></div></footer>
-  <script src="script.js?v=20260803h"></script>
+  <script src="script.js?v=20260822a"></script>
 </body>
 </html>
