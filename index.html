@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-KE">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,17 +29,18 @@
   <link rel="stylesheet" href="final-presentation.css?v=20260822a">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="cursor-glow" aria-hidden="true"></div>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="John Kuria home"><span>JK</span> John Kuria</a>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="#about">About</a><a href="#skills">Expertise</a><a href="#work">Work</a><a href="#contact">Contact</a>
     </nav>
     <div class="header-actions"><a href="https://github.com/Kuriaaaa" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/chege-john-brian-kuria-7909b9426/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="header-cta" href="#contact">Contact <span>↓</span></a></div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero section" id="home">
       <canvas class="architecture-canvas" id="architecture-canvas" aria-hidden="true"></canvas>
       <div class="hero-copy reveal">
@@ -220,8 +221,11 @@
     <section class="contact section" id="contact">
       <p class="eyebrow reveal"><span></span> Contact</p>
       <h2 class="reveal">Available for software<br><em>development opportunities.</em></h2>
-      <button class="email-link reveal" type="button" data-copy-email="johnkuria6996@gmail.com">johnkuria6996@gmail.com <span>Copy</span></button>
-      <form class="contact-form reveal clarity-mask" id="contact-form" action="https://formsubmit.co/johnkuria6996@gmail.com" method="post" accept-charset="UTF-8">
+      <div class="direct-contact reveal">
+        <button class="email-link" type="button" data-copy-email="johnkuria6996@gmail.com">johnkuria6996@gmail.com <span>Copy</span></button>
+        <a class="phone-link" href="tel:+254717246699" aria-label="Call John Kuria on plus two five four seven one seven two four six six nine nine">+254 717 246 699 <span>Call</span></a>
+      </div>
+      <form class="contact-form reveal" id="contact-form" action="https://formsubmit.co/johnkuria6996@gmail.com" method="post" accept-charset="UTF-8" data-clarity-mask="true">
         <input type="hidden" name="_subject" value="New portfolio enquiry">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="true">
@@ -236,8 +240,9 @@
           <label>Enquiry type<select name="enquiry_type" required><option value="" selected disabled>Select one</option><option>Employment opportunity</option><option>Freelance project</option><option>Internship</option><option>Technical collaboration</option><option>Project review</option></select></label>
         </div>
         <label>What would you like to discuss?<textarea name="message" rows="4" required placeholder="Tell me about the role, project or collaboration..."></textarea></label>
+        <label class="form-consent"><input name="privacy_acknowledgement" type="checkbox" value="consented" required><span>I have read the <a href="privacy.html" target="_blank" rel="noopener noreferrer">privacy notice</a> and consent to this enquiry being transmitted through FormSubmit, which may process it outside Kenya, so John can respond.</span></label>
         <div class="form-action">
-          <p id="form-status" role="status">Your name, email and message are processed by FormSubmit and used only to reply to your enquiry.</p>
+          <p id="form-status" role="status">Your details are processed by FormSubmit and used only to assess and reply to your enquiry.</p>
           <button class="button primary" type="submit">Send enquiry <span>↗</span></button>
         </div>
       </form>
@@ -245,7 +250,7 @@
     </section>
   </main>
 
-  <footer><a class="brand" href="#home"><span>JK</span> John Kuria</a><p>Designed & built with intention · <span id="year"></span></p><div class="footer-links"><a href="https://github.com/Kuriaaaa" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/chege-john-brian-kuria-7909b9426/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="#contact">Contact ↓</a><button type="button" data-cookie-settings>Cookie settings</button><a href="#home">Back to top ↑</a></div></footer>
+  <footer><a class="brand" href="#home"><span>JK</span> John Kuria</a><p>Reviewed August 2026 · Next review August 2027</p><div class="footer-links"><a href="https://github.com/Kuriaaaa" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/chege-john-brian-kuria-7909b9426/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="privacy.html">Privacy</a><button type="button" data-cookie-settings>Cookie settings</button><a href="#home">Back to top ↑</a></div></footer>
 
   <aside class="cookie-banner" id="cookie-banner" aria-labelledby="cookie-title" hidden>
     <div><strong id="cookie-title">Your privacy, your choice.</strong><p>Essential storage remembers this choice. Optional analytics will power anonymous usage insights and heatmaps only when you allow it.</p></div>
@@ -262,6 +267,7 @@
     </form>
   </dialog>
   <script src="analytics-config.js?v=20260822b"></script>
-  <script src="script.js?v=20260822b"></script>
+  <script src="privacy-controls.js?v=20260822a"></script>
+  <script src="script.js?v=20260822c"></script>
 </body>
 </html>

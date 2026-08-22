@@ -16,6 +16,8 @@
 }
 
 body{background:var(--paper);color:var(--ink)}
+.skip-link{position:fixed;z-index:120;left:16px;top:12px;padding:11px 15px;background:var(--acid);color:var(--ink);font:800 11px Manrope;transform:translateY(-160%);transition:transform .2s}
+.skip-link:focus{transform:translateY(0)}
 .site-header{height:78px;background:rgba(238,234,221,.88);border-color:rgba(16,21,19,.12)}
 .brand>span{background:var(--ink);color:var(--acid);border-radius:8px}
 .nav-links a:after{background:var(--acid-dark)}
@@ -116,6 +118,13 @@ h1{max-width:750px;font-size:clamp(3.8rem,7vw,7.7rem);line-height:.89;letter-spa
 .contact-form select{width:100%;border:0;border-bottom:1px solid rgba(8,22,40,.36);padding:13px 14px;font:500 14px "DM Sans",sans-serif;color:var(--ink);outline:none;border-radius:0}
 .contact-form .form-row+.form-row{margin-top:22px}
 .optional{font-size:8px;opacity:.65;margin-left:5px}
+.direct-contact{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;margin-top:35px}
+.direct-contact .email-link{margin-top:0}
+.phone-link{display:inline-flex;gap:18px;align-items:center;color:var(--ink);border-bottom:2px solid var(--ink);padding:0 0 8px;font:800 clamp(1.1rem,2vw,1.75rem) Manrope;text-decoration:none}
+.phone-link span{font-size:9px;text-transform:uppercase;letter-spacing:1px}
+.form-consent{display:grid!important;grid-template-columns:auto 1fr;align-items:start;gap:10px!important;margin-top:20px!important;text-transform:none!important;letter-spacing:0!important;font-weight:500!important;font-size:11px!important;line-height:1.5}
+.form-consent input{width:18px;height:18px;padding:0;accent-color:var(--violet)}
+.form-consent a{color:inherit;font-weight:800}
 .contact .button.primary{background:var(--ink);color:var(--acid)}
 footer{background:var(--ink);color:var(--muted-dark)}
 footer .brand>span{background:var(--acid);color:var(--ink)}
@@ -144,6 +153,23 @@ footer .brand>span{background:var(--acid);color:var(--ink)}
 .cookie-note{padding:15px;background:var(--paper-2);border-radius:8px}
 .cookie-dialog-actions{justify-content:flex-end;margin-top:22px}.cookie-dialog .cookie-secondary{color:var(--ink);border-color:var(--ink)}
 
+.privacy-page{background:var(--paper)}
+.privacy-header{position:static}
+.privacy-main{max-width:1000px;margin:auto;padding:90px 6.5vw 120px}
+.privacy-hero{padding-bottom:55px;border-bottom:1px solid var(--ink)}
+.privacy-hero .eyebrow{color:var(--violet);font:800 10px Manrope;text-transform:uppercase;letter-spacing:1px}
+.privacy-hero h1{max-width:850px;margin:18px 0 25px;font-size:clamp(3.2rem,7vw,6.5rem)}
+.privacy-hero p{max-width:720px;color:var(--muted);line-height:1.75}
+.privacy-content{display:grid;grid-template-columns:220px 1fr;gap:70px;padding-top:65px}
+.privacy-index{position:sticky;top:30px;align-self:start;display:grid;gap:12px}
+.privacy-index a{color:var(--muted);font:700 11px Manrope;text-decoration:none}.privacy-index a:hover{color:var(--violet)}
+.privacy-sections{display:grid;gap:48px}
+.privacy-sections section{scroll-margin-top:30px}
+.privacy-sections h2{margin:0 0 14px;font-size:25px;letter-spacing:-.8px}
+.privacy-sections p,.privacy-sections li{color:#535b55;font-size:14px;line-height:1.75}
+.privacy-sections ul{padding-left:20px}.privacy-sections a{color:#5547b4;font-weight:700}
+.privacy-callout{padding:22px;border-left:4px solid var(--acid-dark);background:var(--paper-2)}
+
 @media(max-width:1000px){
   .progress-board{grid-template-columns:1fr 1fr}
   .project-register{grid-template-columns:1fr}
@@ -154,6 +180,7 @@ footer .brand>span{background:var(--acid);color:var(--ink)}
   .hero:before{background:linear-gradient(180deg,rgba(238,234,221,.97),rgba(238,234,221,.84) 48%,rgba(16,21,19,.32)),url("assets/office-development-studio.webp") 62% center/cover no-repeat}
   .portrait-frame{height:600px;max-width:620px}
   .nav-links.open{background:var(--paper)}
+  .privacy-content{grid-template-columns:1fr;gap:40px}.privacy-index{position:static;grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:600px){
   .section{padding:85px 6vw}
