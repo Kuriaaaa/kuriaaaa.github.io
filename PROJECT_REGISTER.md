@@ -30,6 +30,9 @@ Current public artifacts: website source files, approved image assets, project
 register, and reviewed academic documents. Private project materials and
 credentials are excluded from the public repository.
 
+Education status: academic phase completed in 2026; KCA University graduation
+scheduled for March 2027.
+
 ## 03 — AI KUSH Market Open Strategy
 
 **Type:** Private decision-support research

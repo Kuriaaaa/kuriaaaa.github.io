@@ -1,7 +1,7 @@
 # Portfolio maintenance record
 
-Last full review: 22 August 2026  
-Planned next review: August 2027  
+Last full review: 24 August 2026
+Planned next review: August 2027
 Production: https://kuriaaaa.github.io/
 
 ## Stable architecture
