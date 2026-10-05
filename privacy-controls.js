@@ -21,16 +21,30 @@ function loadClarity() {
   document.head.append(script);
 }
 
+function readStoredConsent() {
+  try {
+    return JSON.parse(localStorage.getItem(CONSENT_KEY));
+  } catch {
+    try { localStorage.removeItem(CONSENT_KEY); } catch { /* storage unavailable */ }
+    return null;
+  }
+}
+
+function writeStoredConsent(value) {
+  try {
+    localStorage.setItem(CONSENT_KEY, JSON.stringify(value));
+  } catch { /* storage blocked: the choice still applies for this page view */ }
+}
+
 function saveConsent(analytics) {
-  localStorage.setItem(CONSENT_KEY, JSON.stringify({ analytics, updated: new Date().toISOString() }));
+  writeStoredConsent({ analytics, updated: new Date().toISOString() });
   cookieBanner.hidden = true;
   if (cookieDialog.open) cookieDialog.close();
   if (analytics) loadClarity();
   else if (window.clarity) window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
 }
 
-let storedConsent = null;
-try { storedConsent = JSON.parse(localStorage.getItem(CONSENT_KEY)); } catch { localStorage.removeItem(CONSENT_KEY); }
+const storedConsent = readStoredConsent();
 if (storedConsent) {
   analyticsConsent.checked = Boolean(storedConsent.analytics);
   if (storedConsent.analytics) loadClarity();

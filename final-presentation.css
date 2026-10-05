@@ -60,6 +60,10 @@ h1{max-width:750px;font-size:clamp(3.8rem,7vw,7.7rem);line-height:.89;letter-spa
 .progress-board i{position:absolute;left:25px;right:25px;bottom:24px;height:5px;background:#d2cdbc;overflow:hidden}
 .progress-board i:after{content:"";display:block;width:var(--progress);height:100%;background:linear-gradient(90deg,var(--violet),var(--acid));transform-origin:left;animation:progress-in 1.4s ease both}
 @keyframes progress-in{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.progress-board i{--progress:100%}
+.progress-board i[data-progress="82"]{--progress:82%}
+.progress-board i[data-progress="96"]{--progress:96%}
+.progress-board i[data-progress="100"]{--progress:100%}
 
 .skills{background:var(--ink)}
 .skill-grid,.skill-card,.skill-card:first-child{border-color:var(--dark-line)}
@@ -111,11 +115,13 @@ h1{max-width:750px;font-size:clamp(3.8rem,7vw,7.7rem);line-height:.89;letter-spa
 .timeline div:before{background:var(--violet);border-color:#dcd5ff}
 .timeline span{color:#5a4dc0}
 .contact{background:var(--acid);color:var(--ink)}
-.contact:before{background:linear-gradient(90deg,var(--acid),rgba(200,240,75,.76)),url("assets/john-kuria-professional.png?v=20260803") center 34%/cover no-repeat}
+.contact:before{background:linear-gradient(90deg,var(--acid),rgba(200,240,75,.76)),url("assets/john-kuria-professional.jpg?v=20261005") center 34%/cover no-repeat}
 .contact:after{background:linear-gradient(90deg,var(--acid) 0%,var(--acid) 55%,rgba(140,124,240,.54) 100%)}
 .contact-form{background:rgba(255,253,244,.57);border-color:rgba(16,21,19,.22)}
 .contact-form input,.contact-form textarea,.contact-form select{background:rgba(255,253,244,.78)}
 .contact-form select{width:100%;border:0;border-bottom:1px solid rgba(8,22,40,.36);padding:13px 14px;font:500 14px "DM Sans",sans-serif;color:var(--ink);outline:none;border-radius:0}
+.contact-form select:focus{border-bottom-color:var(--ink);box-shadow:0 2px 0 var(--ink)}
+.contact-form select:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .contact-form .form-row+.form-row{margin-top:22px}
 .optional{font-size:8px;opacity:.65;margin-left:5px}
 .direct-contact{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;margin-top:35px}
