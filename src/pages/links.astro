@@ -1,0 +1,48 @@
+---
+// Link-in-bio page for TikTok, Instagram, X and YouTube profiles.
+import { Image } from 'astro:assets';
+import { getBuilds } from '../lib/work';
+import Base from '../layouts/Base.astro';
+import Socials from '../components/Socials.astro';
+import portrait from '../assets/portrait.jpg';
+import { site } from '../site';
+
+const latest = (await getBuilds())[0];
+---
+
+<Base title="Links" description={`${site.name} — all links in one place.`} bare>
+  <div class="ambient">
+    <div class="links-page">
+      <div class="avatar-ring">
+        <Image class="avatar" src={portrait} alt={site.name} width={204} height={204} loading="eager" />
+      </div>
+      <h1 class="links-name">{site.name}</h1>
+      <p class="muted">
+        {site.role} · {site.location}
+      </p>
+      <p class="label links-handle">@{site.handle}</p>
+      <div class="links-list">
+        {latest && (
+          <a class="btn btn-primary" href={`/builds/${latest.id}/`}>
+            Latest build: {latest.data.title}
+          </a>
+        )}
+        <a class:list={['btn', { 'btn-primary': !latest }]} href="/">
+          Portfolio
+        </a>
+        <a class="btn" href="/work/gymflow/">
+          GymFlow — gym management system
+        </a>
+        <a class="btn" href="/work/brimotors/">
+          Brimotors — car showroom platform
+        </a>
+        <a class="btn" href="/contact/">
+          Hire me / work with me
+        </a>
+      </div>
+      <div class="links-socials">
+        <Socials />
+      </div>
+    </div>
+  </div>
+</Base>

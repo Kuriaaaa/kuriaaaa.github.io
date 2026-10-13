@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import Socials from '../components/Socials.astro';
+
+const skills = [
+  {
+    group: 'frontend',
+    theme: 'emerald',
+    items: ['HTML & CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS'],
+  },
+  { group: 'backend', theme: 'cyan', items: ['Python', 'Node.js', 'REST APIs', 'Authentication', 'M-Pesa Daraja'] },
+  { group: 'data', theme: 'violet', items: ['PostgreSQL', 'SQLite', 'SQL', 'pandas', 'scikit-learn'] },
+  { group: 'delivery', theme: 'amber', items: ['Git & GitHub', 'Automated testing', 'CI/CD', 'Docker'] },
+];
+---
+
+<Base title="About" description="About John Kuria, a software developer in Nairobi.">
+  <section class="section ambient">
+    <div class="container split">
+      <div>
+        <span class="label">
+          <span class="n">~/</span>about
+        </span>
+        <h1 class="page-title">
+          Hi, I'm <span class="grad">John.</span>
+        </h1>
+      </div>
+      <div class="prose">
+        <p class="lead">I build software that businesses use every day — not demos that sit in a folder.</p>
+        <p>
+          My work runs from the screen a receptionist taps to the database behind it: interfaces, APIs, payments, access
+          control and the tests that keep it all honest. I like problems where getting it right saves someone real time
+          or money.
+        </p>
+        <p>
+          I'm finishing a BSc in Software Development at KCA University and graduate in March 2027. I'm open to junior
+          developer roles, internships and freelance projects in Nairobi or remotely.
+        </p>
+        <Socials />
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container split">
+      <div>
+        <span class="label">
+          <span class="n">01</span>// toolkit
+        </span>
+        <h2 class="page-title">What I work with.</h2>
+      </div>
+      <div class="skills">
+        {skills.map((s) => (
+          <div class={`skill-group t-${s.theme}`}>
+            <h3>// {s.group}</h3>
+            <ul class="tags">
+              {s.items.map((i) => (
+                <li>{i}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

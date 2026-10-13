@@ -1,70 +1,23 @@
-# Chege John Brian Kuria — Project Register
+# Project register — John Kuria
 
-This register keeps every body of work and its documentation separate.
+Each body of work and where it stands. Published case studies live in `src/content/work/`.
 
-## 01 — GymFlow
+## GymFlow — published
 
-**Type:** Full-stack software project  
-**Status:** Core V1 complete; public demo live; pilot hardening in progress
-**Technology:** Python JSON API, JavaScript, SQLite development, PostgreSQL production support, installable PWA
+Gym operations platform with owner, reception, trainer and member workspaces.
+Live demo: https://kuriaaaa.github.io/gymflow-v1-demo/ · Source: https://github.com/Kuriaaaa/gymflow-v1-demo
+The public demo uses fictional, browser-local data. Reviewer documents are supplied on verified request only.
 
-Live demo: https://kuriaaaa.github.io/gymflow-v1-demo/  
-Source: https://github.com/Kuriaaaa/gymflow-v1-demo
+## Brimotors — published
 
-The hosted edition uses fictional seed data and browser-local storage so it can
-be explored safely. The original Python and SQLite V1 remains the authoritative
-full system.
+Showroom website and staff back office for Brimotors Limited, Kiambu Road (client project, launching).
+Source is private. Portfolio screenshots use demo stock only.
 
-Reviewer documents: complete submission, final report, implementation plan,
-test plan, user training manual, final presentation, and system access/test
-evidence guide. These are held outside the public site and supplied only after
-a reviewer request is verified.
+## Predicting missed appointments (DSA 4202 Assignment 2) — draft
 
-## 02 — Personal Portfolio
+Coursework. Hidden from the site until rebuilt as a standalone project with runnable code
+(see the notes in `src/content/work/predictive-modeling.md`).
 
-**Type:** Professional website  
-**Status:** Live and actively maintained
-**Technology:** HTML5, CSS3, JavaScript, responsive UX
+## Tree-based modelling (DSA 4202 Assignment 3) — not published
 
-Current public artifacts: website source files, approved image assets, project
-register, and reviewed academic documents. Private project materials and
-credentials are excluded from the public repository.
-
-Education status: academic phase completed in 2026; KCA University graduation
-scheduled for March 2027.
-
-## 03 — AI KUSH Market Open Strategy
-
-**Type:** Private decision-support research
-**Status:** Shadow testing; not approved for live execution
-**Technology:** Python, Pine Script v6, SQLite, API integration, monitoring
-
-Only a high-level capability summary is public. Strategy rules, credentials,
-data, private results, journals, and notification configuration remain outside
-the portfolio repository.
-
-## 04 — Opening Candle 2.67R
-
-**Type:** TradingView strategy research
-**Status:** Logic validated; platform acceptance and forward testing pending
-**Technology:** Pine Script v6, TradingView
-
-No profitability claim is made. Code and detailed validation evidence remain
-private.
-
-## 05 — DSA 4202 Assignment 2
-
-**Type:** Academic data-science project  
-**Title:** Predictive Modeling with Linear Methods  
-**Status:** Completed
-
-Documents: submission report, complete workflow PDF, and Jupyter notebook.
-
-## 06 — DSA 4202 Assignment 3
-
-**Type:** Academic data-science project  
-**Title:** Tree-Based Modeling  
-**Status:** Working assets complete; final submission exports pending
-
-Available locally: Python source, two datasets, and seven generated figures.
-These assets are not classified as Assignment 2 documents.
+Working assets exist locally; not yet submitted.

@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'work'>;
+  featured?: boolean;
+  eager?: boolean;
+}
+const { project, featured = false, eager = false } = Astro.props;
+const { title, summary, kind, year, stack, cover, coverAlt, highlight, theme } = project.data;
+---
+
+<a class:list={['card', `t-${theme}`, { featured }]} href={`/work/${project.id}/`}>
+  {cover ? (
+    <div class="card-media">
+      <Image
+        src={cover}
+        alt={coverAlt ?? ''}
+        widths={[640, 960, 1280]}
+        sizes={featured ? '(max-width: 860px) 100vw, 650px' : '(max-width: 860px) 100vw, 550px'}
+        loading={eager ? 'eager' : 'lazy'}
+      />
+    </div>
+  ) : (
+    <div class="card-media placeholder" aria-hidden="true">
+      <strong>{highlight?.value ?? kind}</strong>
+      {highlight && <small>{highlight.label}</small>}
+    </div>
+  )}
+  <div class="card-body">
+    <div class="card-meta">
+      <span class="kind">{kind}</span>
+      <span>{year}</span>
+    </div>
+    <h3>{title}</h3>
+    <p>{summary}</p>
+    <ul class="tags">
+      {stack.slice(0, 4).map((t) => (
+        <li>{t}</li>
+      ))}
+    </ul>
+    <span class="link-arrow">Read case study →</span>
+  </div>
+</a>
