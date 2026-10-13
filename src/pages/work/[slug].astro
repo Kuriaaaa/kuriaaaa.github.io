@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { render } from 'astro:content';
 import { getWork } from '../../lib/work';
 import Base from '../../layouts/Base.astro';
+import CaseDepth from '../../components/CaseDepth.astro';
 
 export async function getStaticPaths() {
   const work = await getWork();
@@ -54,6 +55,16 @@ const d = project.data;
           <dd>{d.stack.join(', ')}</dd>
         </div>
       </dl>
+      {d.metrics.length > 0 && (
+        <ul class="metrics">
+          {d.metrics.map((m) => (
+            <li>
+              <strong>{m.value}</strong>
+              <span>{m.label}</span>
+            </li>
+          ))}
+        </ul>
+      )}
     </header>
 
     {d.cover && (
@@ -74,6 +85,8 @@ const d = project.data;
         <Content />
       </div>
     </div>
+
+    <CaseDepth data={d} />
 
     {d.gallery.length > 1 && (
       <section class="container section-tight" aria-label="Screens">

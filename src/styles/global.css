@@ -1130,3 +1130,213 @@ p {
     gap: 0.6rem 1rem;
   }
 }
+
+/* ---------- Case study depth ---------- */
+.depth-title {
+  margin: 0.9rem 0 2rem;
+}
+
+.metrics {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+}
+.metrics li {
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--c) 30%, var(--line));
+  background: linear-gradient(160deg, color-mix(in srgb, var(--c) 12%, transparent), transparent 70%), var(--surface);
+}
+.metrics strong {
+  display: block;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--c);
+}
+.metrics span {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* Architecture: stacked layers joined by arrows */
+.arch {
+  display: grid;
+  gap: 0;
+}
+.arch-layer {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+}
+.arch-layer:first-child {
+  border-color: color-mix(in srgb, var(--c) 50%, var(--line-strong));
+}
+.arch-name {
+  font: 500 0.8rem/1.3 var(--mono);
+  color: var(--c);
+}
+.arch-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.arch-items li {
+  font-size: 0.9rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+}
+.arch-arrow {
+  justify-self: center;
+  width: 2px;
+  height: 26px;
+  background: linear-gradient(var(--c), transparent);
+  position: relative;
+}
+.arch-arrow::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: color-mix(in srgb, var(--c) 60%, transparent);
+  border-bottom: 0;
+}
+.arch-caption {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  max-width: 70ch;
+}
+
+/* Decisions */
+.decisions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.decisions li {
+  padding: 1.5rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  display: grid;
+  gap: 0.6rem;
+  align-content: start;
+}
+.decision-n {
+  font: 500 0.8rem/1 var(--mono);
+  color: var(--c);
+}
+.decisions h3 {
+  font-size: 1.1rem;
+}
+.decisions p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Timeline */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid var(--line-strong);
+}
+.timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 150px 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.8rem 0 0.8rem 1.5rem;
+}
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 1.15rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 12px var(--c);
+}
+.timeline li.pending::before {
+  background: var(--bg);
+  border: 2px solid var(--line-strong);
+  box-shadow: none;
+}
+.timeline .when {
+  font: 500 0.8rem/1.4 var(--mono);
+  color: var(--muted);
+}
+.timeline .state {
+  font: 500 0.72rem/1 var(--mono);
+  color: var(--c);
+}
+.timeline li.pending .state,
+.timeline li.pending .what {
+  color: var(--muted);
+}
+
+/* Code in case studies */
+.content pre {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1.1rem 1.25rem;
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--line-strong);
+  background: var(--bg-2);
+  font: 400 0.82rem/1.65 var(--mono);
+  color: var(--ink);
+}
+.content code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+}
+.content :not(pre) > code {
+  padding: 0.1rem 0.35rem;
+  border-radius: 5px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 860px) {
+  .arch-layer {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  .timeline li {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}
+.timeline .what a {
+  font-weight: 600;
+  text-decoration: none;
+}
+.timeline .what a:hover {
+  color: var(--c);
+}

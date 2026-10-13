@@ -11,6 +11,24 @@ const skills = [
   { group: 'backend', theme: 'cyan', items: ['Python', 'Node.js', 'REST APIs', 'Authentication', 'M-Pesa Daraja'] },
   { group: 'data', theme: 'violet', items: ['PostgreSQL', 'SQLite', 'SQL', 'pandas', 'scikit-learn'] },
   { group: 'delivery', theme: 'amber', items: ['Git & GitHub', 'Automated testing', 'CI/CD', 'Docker'] },
+  { group: 'business systems', theme: 'rose', items: ['Odoo ERP', 'Data auditing', 'Excel reporting', 'PowerShell'] },
+];
+
+const experience = [
+  {
+    when: 'Sep – Oct 2026',
+    title: 'Industrial attachment — ERP audit & data quality',
+    where: 'Brimat Ventures Group',
+    href: '/work/brimat-erp/',
+  },
+  {
+    when: '2026',
+    title: 'Full-stack developer (client project)',
+    where: 'Brimotors Limited',
+    href: '/work/brimotors/',
+  },
+  { when: '2026', title: 'Founder & developer', where: 'GymFlow', href: '/work/gymflow/' },
+  { when: 'Graduating 2027', title: 'BSc Software Development', where: 'KCA University', href: '' },
 ];
 ---
 
@@ -41,11 +59,33 @@ const skills = [
     </div>
   </section>
 
+  <section class="section-tight">
+    <div class="container split">
+      <div>
+        <span class="label">
+          <span class="n">01</span>// experience
+        </span>
+        <h2 class="page-title">Where I've worked.</h2>
+      </div>
+      <ol class="timeline t-cyan">
+        {experience.map((e) => (
+          <li>
+            <span class="when">{e.when}</span>
+            <span class="what">
+              {e.href ? <a href={e.href}>{e.title}</a> : e.title}
+              <span class="muted"> · {e.where}</span>
+            </span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
   <section class="section band">
     <div class="container split">
       <div>
         <span class="label">
-          <span class="n">01</span>// toolkit
+          <span class="n">02</span>// toolkit
         </span>
         <h2 class="page-title">What I work with.</h2>
       </div>

@@ -21,6 +21,17 @@ const work = defineCollection({
       gallery: z.array(z.object({ src: image(), alt: z.string(), caption: z.string() })).default([]),
       highlight: z.object({ value: z.string(), label: z.string() }).optional(),
       links: z.array(z.object({ label: z.string(), href: z.string() })).default([]),
+
+      // Depth sections, rendered after the written case study.
+      metrics: z.array(z.object({ value: z.coerce.string(), label: z.string() })).default([]),
+      architecture: z
+        .object({
+          caption: z.string(),
+          layers: z.array(z.object({ name: z.string(), items: z.array(z.string()) })),
+        })
+        .optional(),
+      decisions: z.array(z.object({ title: z.string(), body: z.string() })).default([]),
+      timeline: z.array(z.object({ when: z.string(), title: z.string(), done: z.boolean().default(true) })).default([]),
     }),
 });
 

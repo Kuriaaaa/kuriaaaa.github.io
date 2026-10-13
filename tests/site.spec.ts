@@ -5,6 +5,7 @@ const pages = [
   '/work/',
   '/work/gymflow/',
   '/work/brimotors/',
+  '/work/brimat-erp/',
   '/about/',
   '/contact/',
   '/links/',
