@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site';
+---
+
+<Base title="Privacy" description="How this website handles your information.">
+  <section class="section">
+    <div class="container legal">
+      <span class="label">
+        <span class="n">~/</span>privacy
+      </span>
+      <h1 class="page-title">Privacy notice</h1>
+      <p class="lead">
+        Short version: this site has no tracking, no analytics and no cookies. The only information I receive is what
+        you choose to send me.
+      </p>
+
+      <h2>Who is responsible</h2>
+      <p>
+        {site.legalName} ("John Kuria") runs this website and decides how messages sent through it are used. Contact:{' '}
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>What is collected</h2>
+      <ul>
+        <li>
+          <strong>Contact form:</strong> your name, email, topic and message. These are sent through FormSubmit, which
+          may process them outside Kenya, and delivered to my email.
+        </li>
+        <li>
+          <strong>WhatsApp, email or social links:</strong> if you use them, that platform's own privacy policy applies.
+        </li>
+        <li>
+          <strong>Hosting:</strong> GitHub Pages may log basic technical data, such as IP addresses, to keep the site
+          secure.
+        </li>
+      </ul>
+
+      <h2>How it is used</h2>
+      <p>
+        Only to read and reply to your message. It is never sold or used for marketing. Messages are kept for up to 12
+        months after our last contact unless an ongoing project needs them longer.
+      </p>
+
+      <h2>Your rights</h2>
+      <p>
+        Under Kenya's Data Protection Act, 2019 you can ask to see, correct or delete your information, or object to its
+        use. Email me with the subject "Privacy request". You can also complain to the Office of the Data Protection
+        Commissioner.
+      </p>
+
+      <h2>Providers</h2>
+      <ul>
+        <li>
+          <a
+            href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub privacy statement
+          </a>
+        </li>
+        <li>
+          <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">
+            FormSubmit privacy policy
+          </a>
+        </li>
+      </ul>
+
+      <p class="muted">Last updated 13 October 2026.</p>
+    </div>
+  </section>
+</Base>

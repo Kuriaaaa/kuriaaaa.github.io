@@ -1,0 +1,32 @@
+---
+import { getBuilds } from '../../lib/work';
+import Base from '../../layouts/Base.astro';
+
+const builds = await getBuilds();
+const fmt = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+---
+
+<Base title="Builds" description="Build log: what John Kuria is building, episode by episode.">
+  <section class="section">
+    <div class="container">
+      <span class="label">
+        <span class="n">~/</span>builds
+      </span>
+      <h1 class="page-title">Build log.</h1>
+      <p class="lead">Every build I share on video, written up with the code and the result.</p>
+      {builds.length === 0 ? (
+        <p class="page-actions muted">The first episode is coming soon.</p>
+      ) : (
+        <ul class="build-list">
+          {builds.map((b) => (
+            <li>
+              <time datetime={b.data.date.toISOString()}>{fmt.format(b.data.date)}</time>
+              <a href={`/builds/${b.id}/`}>{b.data.title}</a>
+              <p class="muted">{b.data.summary}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+</Base>

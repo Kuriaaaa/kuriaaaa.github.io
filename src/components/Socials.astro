@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+import { socials, site } from '../site';
+
+interface Props {
+  email?: boolean;
+}
+const { email = true } = Astro.props;
+---
+
+<ul class="socials" role="list">
+  {email && (
+    <li>
+      <a class="social" href={`mailto:${site.email}`} aria-label="Email" title="Email">
+        <Icon name="mail" />
+      </a>
+    </li>
+  )}
+  {socials.map((s) => (
+    <li>
+      <a class="social" href={s.url} target="_blank" rel="noopener noreferrer me" aria-label={s.label} title={s.label}>
+        <Icon name={s.id} />
+      </a>
+    </li>
+  ))}
+</ul>

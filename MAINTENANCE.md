@@ -1,41 +1,37 @@
 # Portfolio maintenance record
 
-Last full review: 24 August 2026
+Last full review: 13 October 2026 (v2 rebuild)
 Planned next review: August 2027
 Production: https://kuriaaaa.github.io/
 
-## Stable architecture
+## Architecture
 
-- Static HTML, CSS and JavaScript hosted through GitHub Pages.
-- No package manager, build command, server runtime or database is required.
-- HTTPS is provided by GitHub Pages.
+- Astro static site, built and deployed by `.github/workflows/deploy.yml` to GitHub Pages.
+  Repository setting required: **Settings → Pages → Source: GitHub Actions**.
+- Every push and pull request runs format check, type check, build and Playwright tests; only `main` deploys.
 - Contact delivery depends on FormSubmit activation for `johnkuria6996@gmail.com`.
-- Optional analytics uses Microsoft Clarity project `y6bwcb8vh1` after consent.
+- No analytics, cookies or third-party scripts. A Content-Security-Policy is generated at build time.
 - Public files must never include `.env`, passwords, API tokens, private reports,
-  production databases or real GymFlow member information.
+  production databases or real client or GymFlow member data.
 
-## August 2027 review checklist
+## Annual review checklist
 
-1. Confirm the home page, privacy page, GymFlow demo, GitHub and LinkedIn links.
-2. Send one contact-form test and confirm delivery; do not batch automated tests.
-3. Review the public email address and telephone number.
-4. Update graduation, availability, project status and screenshots.
-5. Review the privacy notice, retention periods and third-party provider links.
-6. Verify analytics remains consent-gated and contact fields remain masked.
-7. Check Kenya ODPC guidance and whether controller registration is required.
-8. Inspect GitHub Pages HTTPS, browser console errors, broken images and mobile overflow.
-9. Run a secret scan before every public push.
-10. Update `sitemap.xml`, review dates and this record.
+1. Run `npm run verify` and fix anything it reports.
+2. Send one contact-form test and confirm delivery.
+3. Update graduation, availability, project status and screenshots.
+4. Check every social link in `src/site.ts` still points to an active account.
+5. Review the privacy notice and provider links; check Kenya ODPC guidance.
+6. Update `npm` dependencies one major version at a time and rerun `npm run verify`.
+7. Run a secret scan before every public push.
 
 ## Safe publishing
 
 ```text
 git status
-git diff --check
+npm run verify
 git add <reviewed files only>
 git commit -m "Describe the portfolio update"
 git push origin main
 ```
 
-Never use broad staging before checking untracked files. Wait for GitHub Pages
-to deploy, then verify the live URL in a private browser window.
+Wait for the GitHub Actions run to pass, then check the live URL in a private window.

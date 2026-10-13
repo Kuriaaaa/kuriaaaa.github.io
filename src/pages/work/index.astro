@@ -1,0 +1,24 @@
+---
+import { getWork } from '../../lib/work';
+import Base from '../../layouts/Base.astro';
+import WorkCard from '../../components/WorkCard.astro';
+
+const work = await getWork();
+---
+
+<Base title="Work" description="Software, client and data projects by John Kuria.">
+  <section class="section ambient">
+    <div class="container">
+      <span class="label">
+        <span class="n">~/</span>work
+      </span>
+      <h1 class="page-title">Things I've built.</h1>
+      <p class="lead">Products and client systems — each with what I built and what it achieved.</p>
+      <div class="work-grid page-grid">
+        {work.map((project) => (
+          <WorkCard project={project} />
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

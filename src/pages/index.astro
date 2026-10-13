@@ -1,0 +1,148 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import WorkCard from '../components/WorkCard.astro';
+import Socials from '../components/Socials.astro';
+import portrait from '../assets/portrait.jpg';
+import { site } from '../site';
+import { getWork, getBuilds } from '../lib/work';
+
+const work = await getWork();
+const builds = (await getBuilds()).slice(0, 3);
+const stack = ['TypeScript', 'React', 'Next.js', 'Python', 'PostgreSQL', 'M-Pesa Daraja'];
+---
+
+<Base>
+  <section class="hero ambient">
+    <div class="container">
+      <div>
+        <p class="status">available for roles &amp; freelance</p>
+        <h1>
+          I build software for <span class="grad">real operations.</span>
+        </h1>
+        <p class="lead">
+          I'm John, a software developer in Nairobi. I build web apps, APIs and databases for businesses that run on
+          them — from gym front desks to car showrooms.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/work/">
+            See my work →
+          </a>
+          <a class="btn" href="/contact/">
+            Get in touch
+          </a>
+        </div>
+        <Socials />
+      </div>
+      <div class="hero-visual">
+        <div class="portrait-ring">
+          <Image
+            class="portrait"
+            src={portrait}
+            alt="John Kuria"
+            widths={[320, 640, 800]}
+            sizes="(max-width: 860px) 300px, 420px"
+            loading="eager"
+          />
+        </div>
+        <div class="code-card" aria-hidden="true">
+          <div class="dots">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+          <pre><span class="tok-k">const</span> <span class="tok-v">john</span> = {'{'}
+  <span class="tok-p">based</span>: <span class="tok-s">'Nairobi'</span>,
+  <span class="tok-p">builds</span>: [<span class="tok-s">'apps'</span>, <span class="tok-s">'APIs'</span>, <span class="tok-s">'data'</span>],
+  <span class="tok-p">ships</span>: <span class="tok-k">true</span>,
+{'}'}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stack-strip" aria-label="Core stack">
+    <div class="container">
+      <span class="label">
+        <span class="n">~/</span>stack
+      </span>
+      {stack.map((s, i) => (
+        <>
+          {i > 0 && <span class="sep">/</span>}
+          <b>{s}</b>
+        </>
+      ))}
+    </div>
+  </div>
+
+  <section class="section" id="work" aria-labelledby="work-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="label">
+            <span class="n">01</span>// selected work
+          </span>
+          <h2 id="work-title">Real systems, real users.</h2>
+        </div>
+        <a class="link-arrow" href="/work/">
+          All projects →
+        </a>
+      </div>
+      <div class="work-grid">
+        {work.map((project, i) => (
+          <WorkCard project={project} featured eager={i === 0} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {builds.length > 0 && (
+    <section class="section" aria-labelledby="builds-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="label">
+              <span class="n">02</span>// latest builds
+            </span>
+            <h2 id="builds-title">Building in public.</h2>
+          </div>
+          <a class="link-arrow" href="/builds/">
+            All builds →
+          </a>
+        </div>
+        <ul class="build-list">
+          {builds.map((b) => (
+            <li>
+              <a href={`/builds/${b.id}/`}>{b.data.title}</a>
+              <p class="muted">{b.data.summary}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <section class="section cta-wrap" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta-panel">
+        <div>
+          <span class="label">
+            <span class="n">$</span>let's build
+          </span>
+          <h2 id="cta-title" class="page-title">
+            Have a project or role in mind?
+          </h2>
+          <p class="lead cta-sub">Tell me what you are building or hiring for.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/contact/">
+            Start a conversation →
+          </a>
+          <a class="btn" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer">
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
