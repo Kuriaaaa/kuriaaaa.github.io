@@ -5,7 +5,7 @@ kind: research
 status: Research · not traded
 year: "2026"
 stack: [Pine Script v6, TradingView]
-order: 6
+order: 7
 ---
 
 A structured research workflow:

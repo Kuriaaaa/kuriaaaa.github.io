@@ -5,7 +5,7 @@ import { kindLabel } from '../../site';
 
 const all = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
 const groups = [
-  { title: 'Products & client work', kinds: ['product', 'client'] },
+  { title: 'Professional work', kinds: ['experience', 'product', 'client'] },
   { title: 'Academic', kinds: ['academic'] },
   { title: 'Research & experiments', kinds: ['research'] },
 ];

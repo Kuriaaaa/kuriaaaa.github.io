@@ -1,0 +1,96 @@
+---
+// One-page A4 CV. See README "CV" for regenerating public/cv.pdf.
+import '@fontsource-variable/manrope';
+import '@fontsource-variable/dm-sans';
+import '../styles/cv.css';
+import { site } from '../site';
+---
+<!doctype html>
+<html lang="en-KE">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {import.meta.env.PROD && <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'" />}
+    <title>CV | {site.name}</title>
+    <meta name="description" content={`CV of ${site.name}, ${site.role}.`} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <p class="screen-only bar"><a href="/">← Portfolio</a> <a href="/cv.pdf">Download PDF</a></p>
+    <main class="page">
+      <header>
+        <h1>{site.name}</h1>
+        <p class="role">Software Developer · Kiambu, Kenya</p>
+        <ul class="contact">
+          <li>+254 717 246 699</li>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><a href="https://kuriaaaa.github.io">kuriaaaa.github.io</a></li>
+          <li><a href={site.github}>github.com/Kuriaaaa</a></li>
+          <li><a href={site.linkedin}>linkedin.com/in/chege-john-brian-kuria</a></li>
+        </ul>
+      </header>
+
+      <section>
+        <h2>Profile</h2>
+        <p>I build and fix the systems businesses run on: web applications, APIs, databases and ERP data. I built a gym management platform end to end and a dealership platform for a client. During my attachment I cleaned a four-company Odoo ERP. I'm looking for a junior developer or ERP/systems role in Nairobi or remote.</p>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+
+        <article>
+          <div class="head"><h3>ERP Audit &amp; Data Quality Trainee <span>· Brimat Ventures Group, Nairobi</span></h3><time>Sep – Oct 2026</time></div>
+          <p class="sub">Industrial attachment. One Odoo 19 Enterprise system is shared by four computer retail and wholesale companies.</p>
+          <ul>
+            <li>Audited the shared ERP end to end (stock, sales, purchasing, invoicing, POS, email and HR). Set a baseline used for weekly progress reports to the CEO.</li>
+            <li>Cleared 427 customer records that shared 125 phone numbers, leaving no real duplicates. Set a phone-number check so new duplicates are caught.</li>
+            <li>Restructured a 6,600-item product catalogue:
+              <ul>
+                <li>sorted 1,000+ uncategorised products into the right categories</li>
+                <li>standardised 3,200+ product names with rule-based scripts</li>
+                <li>merged 542 duplicate product cards into 240, keeping stock, serial numbers and order history</li>
+              </ul>
+            </li>
+            <li>Checked 900+ draft supplier bills against purchase orders and goods receipts. Designed a standard supplier-upload template so goods can't be received twice.</li>
+            <li>Built automated Excel reports in PowerShell. Wrote role guides, decks and support tickets for management, finance, stores and HR.</li>
+          </ul>
+        </article>
+
+        <article>
+          <div class="head"><h3>Independent Software Developer</h3><time>2026 – present</time></div>
+          <p class="sub"><b>GymFlow</b>: gym management platform (my own product)</p>
+          <ul>
+            <li>Built separate workspaces for owners, front desk, trainers and members. They cover memberships, check-ins, class bookings with waitlists, payments and reports.</li>
+            <li>Python JSON API on PostgreSQL (Neon). 86 automated tests run in GitHub Actions against a real PostgreSQL database, and the app deploys to Render only when they pass. Two-factor sign-in, plus nightly off-site backups with tested restores.</li>
+          </ul>
+          <p class="sub"><b>Car dealership platform</b>: client project</p>
+          <ul>
+            <li>Showroom website and back office: Excel stock import, photo and video galleries, test-drive booking, M-Pesa deposits that reserve a car, and staff roles with two-factor sign-in.</li>
+            <li>Next.js 16, TypeScript, PostgreSQL with Drizzle, Docker, Cloudflare R2, CI with CodeQL code scanning.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <article>
+          <div class="head"><h3>BSc Software Development <span>· KCA University, Main Campus, Nairobi</span></h3><time>Graduating Mar 2027</time></div>
+          <p class="sub">Coursework complete, including data science (predictive modelling with linear and tree-based methods).</p>
+        </article>
+      </section>
+
+      <section class="skills">
+        <h2>Skills</h2>
+        <dl>
+          <div><dt>Languages</dt><dd>Python, TypeScript, JavaScript, SQL, Java, C#</dd></div>
+          <div><dt>Web</dt><dd>React, Next.js, Astro, REST APIs, HTML and CSS</dd></div>
+          <div><dt>Data</dt><dd>PostgreSQL, SQLite, Drizzle ORM, pandas, scikit-learn, Excel</dd></div>
+          <div><dt>Delivery</dt><dd>Git, GitHub Actions, Docker, Render, PowerShell</dd></div>
+          <div><dt>ERP</dt><dd>Odoo 19: Inventory, Sales, Purchase, Accounting, POS, HR; JSON-RPC</dd></div>
+        </dl>
+      </section>
+
+      <p class="refs">References available on request.</p>
+    </main>
+  </body>
+</html>

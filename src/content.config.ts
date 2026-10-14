@@ -8,7 +8,7 @@ const work = defineCollection({
     title: z.string(),
     // One sentence a recruiter can read in five seconds.
     summary: z.string(),
-    kind: z.enum(['product', 'client', 'academic', 'research']),
+    kind: z.enum(['experience', 'product', 'client', 'academic', 'research']),
     status: z.string(),
     year: z.string(),
     stack: z.array(z.string()),

@@ -5,8 +5,8 @@ kind: academic
 status: Completed
 year: "2026"
 stack: [Python, pandas, scikit-learn, Jupyter]
-featured: true
-order: 3
+featured: false
+order: 4
 links:
   - { label: Report (PDF), href: "/documents/dsa4202/DSA4202-Assignment-2-Submission.pdf" }
   - { label: Full workflow (PDF), href: "/documents/dsa4202/DSA4202-Assignment-2-Workflow.pdf" }

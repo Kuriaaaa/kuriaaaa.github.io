@@ -25,3 +25,14 @@ front matter, and set `featured: true` to show it on the homepage (keep it to th
 The site ships no JavaScript, cookies or analytics. The Content-Security-Policy is
 in `src/layouts/Base.astro`. Old maintenance notes are in `legacy-notes/` and are
 not published.
+
+## CV
+
+The CV is `src/pages/cv.astro` (styles in `src/styles/cv.css`) and is served at `/cv/`.
+After editing it, run `npm run dev` and regenerate the PDF:
+
+```
+"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --headless=new --no-pdf-header-footer --print-to-pdf="public\cv.pdf" http://localhost:4321/cv/
+```
+
+Check it is still one page before committing.

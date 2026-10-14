@@ -5,7 +5,7 @@ kind: academic
 status: Analysis complete · write-up in progress
 year: "2026"
 stack: [Python, scikit-learn, Random Forest, Gradient Boosting]
-order: 4
+order: 5
 ---
 
 Coursework for DSA 4202. It compares single trees with ensemble methods on two datasets:

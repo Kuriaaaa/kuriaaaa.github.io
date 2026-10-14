@@ -5,7 +5,7 @@ kind: research
 status: Research · alerts only
 year: "2026"
 stack: [Python, SQLite, Pine Script, Push notifications]
-order: 5
+order: 6
 ---
 
 A personal research tool. It reads market context across several timeframes and records each decision to a local journal. It then sends notifications to a phone. It does not connect to a broker and makes no trading claims.

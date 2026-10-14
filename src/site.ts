@@ -16,6 +16,7 @@ export const site = {
 };
 
 export const kindLabel = {
+  experience: 'Work experience',
   product: 'Product',
   client: 'Client project',
   academic: 'Academic',
