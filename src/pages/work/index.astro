@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { kindLabel } from '../../site';
+
+const all = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+const groups = [
+  { title: 'Products & client work', kinds: ['product', 'client'] },
+  { title: 'Academic', kinds: ['academic'] },
+  { title: 'Research & experiments', kinds: ['research'] },
+];
+---
+<Base title="Work" description="Every project by Chege John Brian Kuria: products, client builds, coursework and research.">
+  <div class="wrap case-head">
+    <p class="eyebrow">All projects</p>
+    <h1>Work</h1>
+  </div>
+  <div class="wrap work-index">
+    {groups.map((g) => (
+      <section class="group">
+        <h2>{g.title}</h2>
+        <ul class="list">
+          {all.filter((e) => g.kinds.includes(e.data.kind)).map((e) => (
+            <li>
+              <a href={`/work/${e.id}/`}>
+                <h3>{e.data.title}</h3>
+                <span class="meta"><span class={`badge kind-${e.data.kind}`}>{kindLabel[e.data.kind]}</span>{e.data.year}</span>
+                <p>{e.data.summary}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Base>

@@ -1,0 +1,38 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { kindLabel } from '../../site';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('work');
+  return entries.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<Base title={d.title} description={d.summary} image={d.cover}>
+  <div class="wrap case-head">
+    <a class="back" href="/work/">← All projects</a>
+    <h1>{d.title}</h1>
+    <p class="lead">{d.summary}</p>
+    {d.links.length > 0 && (
+      <div class="actions">
+        {d.links.map((l, i) => (
+          <a class={i === 0 ? 'button primary' : 'button'} href={l.href} rel={l.href.startsWith('http') ? 'noopener' : undefined}>{l.label} ↗</a>
+        ))}
+      </div>
+    )}
+    <dl class="facts">
+      <div><dt>Type</dt><dd>{kindLabel[d.kind]}</dd></div>
+      <div><dt>Status</dt><dd>{d.status}</dd></div>
+      <div><dt>Year</dt><dd>{d.year}</dd></div>
+      <div><dt>Stack</dt><dd>{d.stack.join(', ')}</dd></div>
+    </dl>
+  </div>
+  <article class="wrap prose">
+    <Content />
+    <p><a class="back" href="/work/">← All projects</a></p>
+  </article>
+</Base>
