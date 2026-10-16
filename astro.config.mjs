@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Change `site` when the custom domain (briankuria.me / *.is-a.dev) is live.
+// Custom domain from is-a.dev (is-a-dev/register#56844).
 export default defineConfig({
-  site: 'https://kuriaaaa.github.io',
+  site: 'https://chege.is-a.dev',
   trailingSlash: 'ignore',
   devToolbar: { enabled: false },
   // Never inline assets as data: URIs; the CSP only allows files from this site.
