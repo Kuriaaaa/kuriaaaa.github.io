@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Illustration of a car listing page with a test-drive booking card">
+  <rect width="800" height="500" fill="#101513"/>
+  <rect x="60" y="56" width="680" height="388" rx="18" fill="#1a211d" stroke="#2d3631"/>
+  <rect x="60" y="56" width="680" height="44" rx="18" fill="#222b26"/>
+  <circle cx="88" cy="78" r="6" fill="#ef896f"/><circle cx="108" cy="78" r="6" fill="#c8f04b"/><circle cx="128" cy="78" r="6" fill="#8c7cf0"/>
+  <rect x="90" y="124" width="380" height="220" rx="12" fill="#eeeadd"/>
+  <path d="M140 290c8-34 28-52 62-58l46-36c14-11 30-16 48-16h70c18 0 34 7 46 20l30 32c34 4 54 22 58 58z" fill="#101513"/>
+  <path d="M262 214l26-20h56l28 30h-110z" fill="#8c7cf0"/>
+  <circle cx="210" cy="292" r="24" fill="#101513" stroke="#c8f04b" stroke-width="8"/>
+  <circle cx="380" cy="292" r="24" fill="#101513" stroke="#c8f04b" stroke-width="8"/>
+  <rect x="90" y="360" width="220" height="16" rx="8" fill="#eeeadd"/>
+  <rect x="90" y="388" width="150" height="12" rx="6" fill="#5a6058"/>
+  <rect x="500" y="124" width="210" height="96" rx="12" fill="#222b26"/>
+  <rect x="520" y="146" width="120" height="12" rx="6" fill="#a3aaa1"/>
+  <rect x="520" y="172" width="170" height="28" rx="14" fill="#c8f04b"/>
+  <rect x="500" y="236" width="210" height="140" rx="12" fill="#222b26"/>
+  <g fill="#2d3631">
+    <rect x="520" y="258" width="34" height="26" rx="6"/><rect x="562" y="258" width="34" height="26" rx="6"/><rect x="604" y="258" width="34" height="26" rx="6" fill="#8c7cf0"/><rect x="646" y="258" width="34" height="26" rx="6"/>
+    <rect x="520" y="292" width="34" height="26" rx="6"/><rect x="562" y="292" width="34" height="26" rx="6"/><rect x="604" y="292" width="34" height="26" rx="6"/><rect x="646" y="292" width="34" height="26" rx="6"/>
+  </g>
+  <rect x="520" y="334" width="160" height="22" rx="11" fill="#eeeadd"/>
+</svg>

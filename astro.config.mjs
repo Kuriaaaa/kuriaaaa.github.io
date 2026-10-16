@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://kuriaaaa.github.io',
   trailingSlash: 'ignore',
+  devToolbar: { enabled: false },
   integrations: [sitemap({ filter: (page) => !page.includes('/404') })],
   build: {
     // Keep every stylesheet external so the strict CSP (style-src 'self') holds.

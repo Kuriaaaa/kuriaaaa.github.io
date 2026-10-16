@@ -2,11 +2,13 @@
 title: Multi-company ERP clean-up
 summary: Audited and cleaned one Odoo 19 Enterprise system shared by four computer retail and wholesale companies. Customer, product and supplier data now work as one reliable record.
 kind: experience
-status: Industrial attachment · Sep–Oct 2026
+status: Industrial attachment · Sep – Oct 2026
 year: "2026"
 stack: [Odoo 19, Python/JSON-RPC, PowerShell, Excel automation, Data quality]
 featured: true
 order: 3
+cover: /images/covers/erp.svg
+coverAlt: Diagram of a warehouse and three shops sharing one ERP database
 ---
 
 **Role:** ERP audit and data-quality trainee, Brimat Ventures Group (industrial attachment, 7 Sep – 30 Oct 2026). I reported to the Director and the CEO.

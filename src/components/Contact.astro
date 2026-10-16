@@ -11,6 +11,7 @@ const thanks = new URL('/thanks/', Astro.site).href;
     <div class="contact-grid">
       <ul class="contact-links">
         <li><a href={site.whatsapp} rel="noopener">WhatsApp <small>+254 717 246 699</small></a></li>
+        <li><a href={`mailto:${site.email}`}>Email <small>{site.email}</small></a></li>
         <li><a href={site.linkedin} rel="noopener">LinkedIn <small>Connect</small></a></li>
         <li><a href={site.github} rel="noopener">GitHub <small>See the code</small></a></li>
       </ul>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Diagram of four companies connected to one shared ERP database">
+  <rect width="800" height="500" fill="#eeeadd"/>
+  <g stroke="#101513" stroke-width="3" fill="none" stroke-dasharray="2 10" stroke-linecap="round">
+    <path d="M190 130 C 300 130, 330 250, 400 250"/><path d="M610 130 C 500 130, 470 250, 400 250"/>
+    <path d="M190 370 C 300 370, 330 250, 400 250"/><path d="M610 370 C 500 370, 470 250, 400 250"/>
+  </g>
+  <g font-family="Manrope, DM Sans, sans-serif" font-weight="800" font-size="18" fill="#101513">
+    <rect x="80" y="92" width="200" height="76" rx="14" fill="#fffdf4" stroke="#cfc9b9" stroke-width="2"/><text x="104" y="138">Warehouse</text>
+    <rect x="520" y="92" width="200" height="76" rx="14" fill="#fffdf4" stroke="#cfc9b9" stroke-width="2"/><text x="544" y="138">Shop 1</text>
+    <rect x="80" y="332" width="200" height="76" rx="14" fill="#fffdf4" stroke="#cfc9b9" stroke-width="2"/><text x="104" y="378">Shop 2</text>
+    <rect x="520" y="332" width="200" height="76" rx="14" fill="#fffdf4" stroke="#cfc9b9" stroke-width="2"/><text x="544" y="378">Shop 3</text>
+  </g>
+  <g transform="translate(400 250)">
+    <ellipse cx="0" cy="-46" rx="70" ry="20" fill="#c8f04b" stroke="#101513" stroke-width="3"/>
+    <path d="M-70 -46v92c0 11 31 20 70 20s70-9 70-20v-92" fill="#c8f04b" stroke="#101513" stroke-width="3"/>
+    <path d="M-70 -15c0 11 31 20 70 20s70-9 70-20M-70 16c0 11 31 20 70 20s70-9 70-20" fill="none" stroke="#101513" stroke-width="3"/>
+  </g>
+  <text x="400" y="352" text-anchor="middle" font-family="Manrope, DM Sans, sans-serif" font-weight="800" font-size="16" fill="#5b4bd1" letter-spacing="2">ONE CLEAN RECORD</text>
+</svg>

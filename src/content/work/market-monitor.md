@@ -8,7 +8,7 @@ stack: [Python, SQLite, Pine Script, Push notifications]
 order: 6
 ---
 
-A personal research tool. It reads market context across several timeframes and records each decision to a local journal. It then sends notifications to a phone. It does not connect to a broker and makes no trading claims.
+A personal research tool. It reads market context across several timeframes and records each decision to a local journal. It then sends notifications to a phone. It deliberately has no connection to a broker.
 
 The engineering is the interesting part:
 - signed-in sessions

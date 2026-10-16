@@ -5,13 +5,13 @@ import { kindLabel } from '../site';
 interface Props { entry: CollectionEntry<'work'> }
 const { entry } = Astro.props;
 const { title, summary, kind, status, cover, coverAlt, stack } = entry.data;
-const initials = title.split(' ').slice(0, 2).map((w) => w[0]).join('');
+
 ---
 <article class="card">
   {cover ? (
     <div class="card-cover"><img src={cover} alt={coverAlt ?? ''} width="1425" height="990" loading="lazy" /></div>
   ) : (
-    <div class="card-cover placeholder" aria-hidden="true">{initials}</div>
+    <div class="card-cover placeholder" aria-hidden="true"></div>
   )}
   <div class="card-body">
     <div class="meta"><span class={`badge kind-${kind}`}>{kindLabel[kind]}</span><span>{status}</span></div>

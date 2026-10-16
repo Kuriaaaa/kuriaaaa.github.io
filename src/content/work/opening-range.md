@@ -14,4 +14,4 @@ A structured research workflow:
 - size each position from a fixed risk
 - check results on data held back from testing
 
-No profitability claim is made. The code is private.
+It is an exercise in testing trading rules properly before trusting them, not a trading product. The code is private.
