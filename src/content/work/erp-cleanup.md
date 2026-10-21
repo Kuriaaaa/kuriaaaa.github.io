@@ -29,10 +29,14 @@ Four companies share one Odoo system: a central warehouse and three shops. Over 
   - More than 1,000 uncategorised products went into the right categories.
   - One "accessories" bucket was split into 10 groups.
   - More than 3,200 names were standardised with rule-based scripts (BRAND SERIES MODEL).
-  - 542 duplicate product cards were merged into 240, keeping their stock, serial numbers and order history.
+  - More than 840 duplicate product cards were merged into about 365, keeping their stock, serial numbers and order history.
+  - 726 unused products were archived after a live check for stock, open orders and recent sales.
+  - Processor speeds were added to more than 1,700 computer names, taken from each card's own supplier data.
 - **Purchasing and stock.** I checked more than 900 draft supplier bills against purchase orders and goods receipts. I also reconciled supplier stock uploads and designed a standard import template so goods can't be received twice.
+- **Workflow faults.** I traced why cancelled stock requests left open orders behind, and why customer repairs stayed in sellable stock. I wrote change requests for the module developer and a step-by-step guide for the technician.
+- **Sales, costing and controls.** I audited a management sales report unit by unit, tracing every serial number back to its purchase. This showed how hand-typed product costs and open price editing at the tills distorted profit. I proposed average costing, a minimum-margin report and a cash-out procedure for the tills.
 - **People and access.** I reviewed point-of-sale access rights and wrote an Odoo role guide for the HR lead.
-- **Reporting.** I built automated Excel reports with PowerShell, plus progress decks, staff guides and support tickets for management, finance and stores.
+- **Reporting.** I built automated Excel reports with PowerShell, plus progress decks, plain-language guides and support tickets for management, finance and stores.
 
 ## How I worked
 
