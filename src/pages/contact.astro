@@ -6,34 +6,40 @@ const thanks = new URL('/thanks/', Astro.site).href;
 const linkedin = socials.find((s) => s.id === 'linkedin');
 ---
 
-<Base title="Contact" description="Get in touch with John Kuria about a role or software project.">
-  <section class="section ambient">
+<Base title="Contact" description="Hire or collaborate with John Kuria — projects, roles and build partnerships.">
+  <section class="page-head">
     <div class="container split">
       <div>
         <span class="label">
           <span class="n">~/</span>contact
         </span>
-        <h1 class="page-title">Let's talk.</h1>
-        <p class="lead">Roles, freelance projects or collaborations — send a message and I'll get back to you.</p>
-        <ul class="contact-list contact-direct">
+        <h1 class="page-title">Let's build.</h1>
+        <p class="lead">
+          A project, a role, or a build you need help finishing — tell me a little about it and I'll get back to you.
+        </p>
+        <ul class="direct">
           <li>
-            <span class="label">email</span>
+            <span class="label">Email</span>
             <a href={`mailto:${site.email}`}>{site.email}</a>
           </li>
           <li>
-            <span class="label">whatsapp</span>
+            <span class="label">WhatsApp</span>
             <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer">
-              Message me
+              Message me ↗
             </a>
           </li>
           {linkedin && (
             <li>
-              <span class="label">linkedin</span>
+              <span class="label">LinkedIn</span>
               <a href={linkedin.url} target="_blank" rel="noopener noreferrer">
-                Connect
+                Connect ↗
               </a>
             </li>
           )}
+          <li>
+            <span class="label">Based</span>
+            <span>{site.location} · remote worldwide</span>
+          </li>
         </ul>
       </div>
       <form class="form" action={`https://formsubmit.co/${site.email}`} method="post">
@@ -58,14 +64,21 @@ const linkedin = socials.find((s) => s.id === 'linkedin');
             <option value="" selected disabled>
               Choose one
             </option>
+            <option>Build a system for my business</option>
+            <option>M-Pesa or payments integration</option>
+            <option>Help on an existing build</option>
+            <option>ERP or data clean-up</option>
             <option>Job or internship</option>
-            <option>Freelance project</option>
-            <option>Collaboration</option>
             <option>Something else</option>
           </select>
         </label>
         <label>
-          Message<textarea name="message" required></textarea>
+          Message
+          <textarea
+            name="message"
+            placeholder="What does the business do, what's not working, and when do you need it?"
+            required
+          ></textarea>
         </label>
         <label class="consent">
           <input type="checkbox" name="consent" value="yes" required />
@@ -76,7 +89,7 @@ const linkedin = socials.find((s) => s.id === 'linkedin');
         </label>
         <div>
           <button class="btn btn-primary" type="submit">
-            Send message
+            Send message →
           </button>
         </div>
       </form>

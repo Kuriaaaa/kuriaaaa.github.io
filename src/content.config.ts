@@ -7,10 +7,14 @@ const work = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      short: z.string().optional(),
       summary: z.string(),
       kind: z.string(),
       year: z.string(),
       status: z.string(),
+      sector: z.string(),
+      stage: z.enum(['live', 'pilot', 'building', 'engagement']),
+      source: z.enum(['public', 'private']).default('private'),
       role: z.string(),
       stack: z.array(z.string()),
       order: z.number(),

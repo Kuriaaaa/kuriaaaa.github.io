@@ -1,148 +1,115 @@
 ---
-import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import WorkCard from '../components/WorkCard.astro';
+import SystemsMap from '../components/SystemsMap.astro';
+import Ledger from '../components/Ledger.astro';
 import Socials from '../components/Socials.astro';
-import portrait from '../assets/portrait.jpg';
 import { site } from '../site';
-import { getWork, getBuilds } from '../lib/work';
+import { getWork } from '../lib/work';
 
 const work = await getWork();
-const builds = (await getBuilds()).slice(0, 3);
-const stack = ['TypeScript', 'React', 'Next.js', 'Python', 'PostgreSQL', 'M-Pesa Daraja'];
+
+const protocol = [
+  { title: 'Map', body: 'Sit with the people who will use it and write down how the work really runs.' },
+  { title: 'Build', body: 'Ship a working slice fast, then grow it with your team watching.' },
+  { title: 'Harden', body: 'Tests, roles, backups and security checks before any real data goes in.' },
+  { title: 'Hand over', body: 'Docs, training and a system your staff can run without me.' },
+];
 ---
 
 <Base>
-  <section class="hero ambient">
-    <div class="container">
+  <section class="hero">
+    <div class="container hero-grid">
       <div>
-        <p class="status">available for roles &amp; freelance</p>
+        <span class="status-pill">
+          <span class="pulse" aria-hidden="true"></span>Open for projects &amp; roles
+        </span>
         <h1>
-          I build software for <span class="grad">real operations.</span>
+          I build software for <span class="mark">real operations.</span>
         </h1>
         <p class="lead">
-          I'm John, a software developer in Nairobi. I build web apps, APIs and databases for businesses that run on
-          them — from gym front desks to car showrooms.
+          I'm John, a full-stack developer in Nairobi. Gym front desks, car showrooms, retail ERPs, business messaging —
+          I design, build and harden the systems they run on.
         </p>
         <div class="btn-row">
-          <a class="btn btn-primary" href="/work/">
-            See my work →
+          <a class="btn btn-primary" href="/services/">
+            Work with me →
           </a>
-          <a class="btn" href="/contact/">
-            Get in touch
+          <a class="btn" href="/work/">
+            Open the dossiers
           </a>
         </div>
-        <Socials />
-      </div>
-      <div class="hero-visual">
-        <div class="portrait-ring">
-          <Image
-            class="portrait"
-            src={portrait}
-            alt="John Kuria"
-            widths={[320, 640, 800]}
-            sizes="(max-width: 860px) 300px, 420px"
-            loading="eager"
-          />
-        </div>
-        <div class="code-card" aria-hidden="true">
-          <div class="dots">
-            <i></i>
-            <i></i>
-            <i></i>
-          </div>
-          <pre><span class="tok-k">const</span> <span class="tok-v">john</span> = {'{'}
-  <span class="tok-p">based</span>: <span class="tok-s">'Nairobi'</span>,
-  <span class="tok-p">builds</span>: [<span class="tok-s">'apps'</span>, <span class="tok-s">'APIs'</span>, <span class="tok-s">'data'</span>],
-  <span class="tok-p">ships</span>: <span class="tok-k">true</span>,
-{'}'}</pre>
+        <div class="hero-meta">
+          <span>
+            <b>{work.length}</b> systems
+          </span>
+          <span>
+            <b>M-Pesa</b> integrated
+          </span>
+          <span>
+            <b>Nairobi</b> · remote OK
+          </span>
         </div>
       </div>
+      <SystemsMap work={work} />
     </div>
   </section>
 
-  <div class="stack-strip" aria-label="Core stack">
-    <div class="container">
-      <span class="label">
-        <span class="n">~/</span>stack
-      </span>
-      {stack.map((s, i) => (
-        <>
-          {i > 0 && <span class="sep">/</span>}
-          <b>{s}</b>
-        </>
-      ))}
-    </div>
-  </div>
-
-  <section class="section" id="work" aria-labelledby="work-title">
+  <section class="section ruled" aria-labelledby="work-title">
     <div class="container">
       <div class="section-head">
-        <div>
-          <span class="label">
-            <span class="n">01</span>// selected work
-          </span>
-          <h2 id="work-title">Real systems, real users.</h2>
-        </div>
+        <span class="label">
+          <span class="n">§01</span>The ledger
+        </span>
+        <h2 id="work-title">Systems in the field.</h2>
         <a class="link-arrow" href="/work/">
-          All projects →
+          All dossiers →
         </a>
       </div>
-      <div class="work-grid">
-        {work.map((project, i) => (
-          <WorkCard project={project} featured eager={i === 0} />
-        ))}
-      </div>
+      <Ledger work={work} />
     </div>
   </section>
 
-  {builds.length > 0 && (
-    <section class="section" aria-labelledby="builds-title">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="label">
-              <span class="n">02</span>// latest builds
-            </span>
-            <h2 id="builds-title">Building in public.</h2>
-          </div>
-          <a class="link-arrow" href="/builds/">
-            All builds →
-          </a>
-        </div>
-        <ul class="build-list">
-          {builds.map((b) => (
-            <li>
-              <a href={`/builds/${b.id}/`}>{b.data.title}</a>
-              <p class="muted">{b.data.summary}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  )}
-
-  <section class="section cta-wrap" aria-labelledby="cta-title">
+  <section class="section ruled" aria-labelledby="protocol-title">
     <div class="container">
-      <div class="cta-panel">
-        <div>
-          <span class="label">
-            <span class="n">$</span>let's build
-          </span>
-          <h2 id="cta-title" class="page-title">
-            Have a project or role in mind?
-          </h2>
-          <p class="lead cta-sub">Tell me what you are building or hiring for.</p>
-        </div>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="/contact/">
-            Start a conversation →
-          </a>
-          <a class="btn" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer">
-            WhatsApp
-          </a>
-        </div>
+      <div class="section-head">
+        <span class="label">
+          <span class="n">§02</span>Protocol
+        </span>
+        <h2 id="protocol-title">How a build runs.</h2>
+        <a class="link-arrow" href="/workflow/">
+          My workflow →
+        </a>
+      </div>
+      <ol class="protocol">
+        {protocol.map((s, i) => (
+          <li>
+            <span class="step">STEP {String(i + 1).padStart(2, '0')}</span>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="container">
+      <div>
+        <span class="label">$ ./start-project</span>
+        <h2 id="cta-title">Your business, running on software that fits.</h2>
+        <p>Tell me what you're building — a new system, a payment flow, or extra hands on yours.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/contact/">
+          Start a project →
+        </a>
+        <a class="btn" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer">
+          WhatsApp
+        </a>
       </div>
     </div>
   </section>
+  <div class="container">
+    <Socials />
+  </div>
 </Base>

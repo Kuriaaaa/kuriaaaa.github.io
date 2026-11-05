@@ -1,12 +1,15 @@
 ---
 title: Brimat ERP clean-up
+short: Brimat ERP
 summary: An 8-week industrial attachment auditing and repairing the Odoo ERP shared by a four-company computer retail group.
 kind: Industrial attachment
 year: '2026'
 status: In progress · Sep–Oct 2026
+sector: Retail ERP
+stage: engagement
 role: ERP audit & data-quality trainee, reporting to the CEO
 stack: [Odoo 19 Enterprise, PowerShell, Excel, Data analysis]
-order: 3
+order: 4
 theme: cyan
 highlight:
   value: 427 → 0

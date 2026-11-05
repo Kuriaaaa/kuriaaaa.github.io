@@ -3,37 +3,49 @@ import { Image } from 'astro:assets';
 import { render } from 'astro:content';
 import { getWork } from '../../lib/work';
 import Base from '../../layouts/Base.astro';
-import CaseDepth from '../../components/CaseDepth.astro';
+import Stage from '../../components/Stage.astro';
 
 export async function getStaticPaths() {
   const work = await getWork();
   return work.map((project, i) => ({
     params: { slug: project.id },
-    props: { project, next: work[(i + 1) % work.length] },
+    props: { project, index: i, next: work[(i + 1) % work.length] },
   }));
 }
 
-const { project, next } = Astro.props;
+const { project, index, next } = Astro.props;
 const { Content } = await render(project);
 const d = project.data;
+const no = String(index + 1).padStart(2, '0');
+const done = d.timeline.filter((t) => t.done).length;
+const pct = d.timeline.length ? Math.round((done / d.timeline.length) * 100) : 0;
+
+const toc = [
+  { id: 'brief', label: 'Brief' },
+  ...(d.architecture ? [{ id: 'architecture', label: 'Architecture' }] : []),
+  ...(d.decisions.length ? [{ id: 'decisions', label: 'Decisions' }] : []),
+  ...(d.timeline.length ? [{ id: 'changelog', label: 'Changelog' }] : []),
+  ...(d.gallery.length > 1 ? [{ id: 'screens', label: 'Screens' }] : []),
+];
 ---
 
 <Base title={d.title} description={d.summary}>
-  <article class={`t-${d.theme}`}>
-    <header class="case-hero container">
-      <a class="link-arrow back" href="/work/">
-        ← cd ../work
-      </a>
-      <span class="label">
-        <span class="n">{d.year}</span>// {d.kind.toLowerCase()}
-      </span>
+  <article>
+    <header class="dossier-head container">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/work/">Dossiers</a>
+        <span aria-hidden="true">/</span>
+        <span>No. {no}</span>
+        <span aria-hidden="true">/</span>
+        <span>{d.kind}</span>
+      </nav>
       <h1>
         {d.title}
         <span class="dot">.</span>
       </h1>
       <p class="lead">{d.summary}</p>
       {d.links.length > 0 && (
-        <div class="btn-row case-links">
+        <div class="btn-row page-actions">
           {d.links.map((l, i) => (
             <a class:list={['btn', { 'btn-primary': i === 0 }]} href={l.href} target="_blank" rel="noopener noreferrer">
               {l.label} ↗
@@ -41,20 +53,53 @@ const d = project.data;
           ))}
         </div>
       )}
-      <dl class="facts">
+
+      <dl class="spec">
         <div>
+          <dt>Sector</dt>
+          <dd>{d.sector}</dd>
+        </div>
+        <div>
+          <dt>Stage</dt>
+          <dd>
+            <Stage stage={d.stage} />
+          </dd>
+        </div>
+        <div>
+          <dt>Year</dt>
+          <dd>{d.year}</dd>
+        </div>
+        <div>
+          <dt>Source</dt>
+          <dd>{d.source === 'public' ? 'Public' : 'Private — walkthrough on request'}</dd>
+        </div>
+        <div class="wide">
           <dt>Role</dt>
           <dd>{d.role}</dd>
         </div>
-        <div>
+        <div class="wide">
           <dt>Status</dt>
           <dd>{d.status}</dd>
         </div>
-        <div>
+        <div class="full">
           <dt>Stack</dt>
-          <dd>{d.stack.join(', ')}</dd>
+          <dd>{d.stack.join(' · ')}</dd>
         </div>
       </dl>
+
+      {d.timeline.length > 0 && (
+        <div class="progress">
+          <span>Roadmap</span>
+          <svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true">
+            <rect class="track" width="100" height="10" />
+            <rect class="fill" width={pct} height="10" />
+          </svg>
+          <span>
+            {done}/{d.timeline.length} milestones
+          </span>
+        </div>
+      )}
+
       {d.metrics.length > 0 && (
         <ul class="metrics">
           {d.metrics.map((m) => (
@@ -69,43 +114,136 @@ const d = project.data;
 
     {d.cover && (
       <div class="container">
-        <Image
-          class="case-cover"
-          src={d.cover}
-          alt={d.coverAlt ?? ''}
-          widths={[800, 1280, 1920]}
-          sizes="(max-width: 1100px) 100vw, 1080px"
-          loading="eager"
-        />
+        <figure class="plate">
+          <Image
+            class="cover"
+            src={d.cover}
+            alt={d.coverAlt ?? ''}
+            widths={[800, 1280, 1920]}
+            sizes="(max-width: 1220px) 100vw, 1180px"
+            loading="eager"
+          />
+          <figcaption>
+            <span>
+              Fig. {no}.1 — {d.coverAlt}
+            </span>
+            <span>{d.title}</span>
+          </figcaption>
+        </figure>
       </div>
     )}
 
-    <div class="container section-tight">
-      <div class="content">
-        <Content />
+    <div class="container dossier-body">
+      <aside class="toc" aria-label="On this page">
+        <span class="label">Contents</span>
+        <ol>
+          {toc.map((t) => (
+            <li>
+              <a href={`#${t.id}`}>{t.label}</a>
+            </li>
+          ))}
+        </ol>
+      </aside>
+
+      <div>
+        <section class="block" id="brief" aria-label="Brief">
+          <div class="content">
+            <Content />
+          </div>
+        </section>
+
+        {d.architecture && (
+          <section class="block" id="architecture" aria-labelledby="arch-title">
+            <span class="label">
+              <span class="n">§A</span>Architecture
+            </span>
+            <h2 id="arch-title">How it fits together</h2>
+            <ol class="flow-diagram">
+              {d.architecture.layers.map((layer) => (
+                <li>
+                  <span class="layer">{layer.name}</span>
+                  <ul>
+                    {layer.items.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ol>
+            <p class="flow-caption">{d.architecture.caption}</p>
+          </section>
+        )}
+
+        {d.decisions.length > 0 && (
+          <section class="block" id="decisions" aria-labelledby="decisions-title">
+            <span class="label">
+              <span class="n">§B</span>Decision records
+            </span>
+            <h2 id="decisions-title">Calls I made, and why</h2>
+            <ol class="adr">
+              {d.decisions.map((x, i) => (
+                <li>
+                  <span class="adr-id">
+                    <b>ADR-{String(i + 1).padStart(2, '0')}</b>
+                    <span>Accepted</span>
+                  </span>
+                  <h3>{x.title}</h3>
+                  <p>{x.body}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        {d.timeline.length > 0 && (
+          <section class="block" id="changelog" aria-labelledby="changelog-title">
+            <span class="label">
+              <span class="n">§C</span>Changelog
+            </span>
+            <h2 id="changelog-title">How it unfolded</h2>
+            <ol class="changelog">
+              {d.timeline.map((t) => (
+                <li class={t.done ? 'done' : 'next'}>
+                  <span class="tick" aria-label={t.done ? 'Done' : 'Next'}>
+                    {t.done ? '✓' : ''}
+                  </span>
+                  <span class="when">{t.when}</span>
+                  <span class="what">{t.title}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        {d.gallery.length > 1 && (
+          <section class="block" id="screens" aria-labelledby="screens-title">
+            <span class="label">
+              <span class="n">§D</span>Screens
+            </span>
+            <h2 id="screens-title">On screen</h2>
+            <div class="gallery">
+              {d.gallery.slice(1).map((g, i) => (
+                <figure class="plate">
+                  <Image src={g.src} alt={g.alt} widths={[640, 1080]} sizes="(max-width: 760px) 100vw, 480px" />
+                  <figcaption>
+                    <span>
+                      Fig. {no}.{i + 2}
+                    </span>
+                    <span>{g.caption}</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </div>
 
-    <CaseDepth data={d} />
-
-    {d.gallery.length > 1 && (
-      <section class="container section-tight" aria-label="Screens">
-        <div class="gallery">
-          {d.gallery.slice(1).map((g) => (
-            <figure>
-              <Image src={g.src} alt={g.alt} widths={[640, 1080]} sizes="(max-width: 820px) 100vw, 530px" />
-              <figcaption>{g.caption}</figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
-    )}
-
-    <nav class="container section-tight next-project" aria-label="Next project">
-      <span class="label">
-        <span class="n">→</span>next project
-      </span>
-      <a href={`/work/${next.id}/`}>{next.data.title} →</a>
-    </nav>
+    <div class="container">
+      <a class="next-dossier" href={`/work/${next.id}/`}>
+        <span class="label">Next dossier</span>
+        <strong>{next.data.title} →</strong>
+      </a>
+    </div>
   </article>
 </Base>

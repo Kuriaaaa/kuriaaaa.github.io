@@ -4,6 +4,8 @@ summary: Linear models that predict medical appointment no-shows and concrete st
 kind: Data science
 year: '2026'
 status: Completed
+sector: Healthcare data
+stage: building
 role: Analysis and modelling
 stack: [Python, pandas, scikit-learn]
 order: 3

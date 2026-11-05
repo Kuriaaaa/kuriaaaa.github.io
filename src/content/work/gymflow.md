@@ -4,6 +4,9 @@ summary: One system for running a gym — memberships, attendance, schedules and
 kind: Product
 year: '2026'
 status: Pilot-ready · live demo
+sector: Fitness operations
+stage: pilot
+source: public
 role: Sole developer — design, frontend, API, database and testing
 stack: [React, TypeScript, Python, SQLite, PostgreSQL]
 order: 1

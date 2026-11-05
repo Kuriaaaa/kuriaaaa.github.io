@@ -1,38 +1,42 @@
 ---
+// A project as a dossier folder: tab, plate, summary and stage.
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import Stage from './Stage.astro';
 
 interface Props {
   project: CollectionEntry<'work'>;
-  featured?: boolean;
+  index: number;
   eager?: boolean;
 }
-const { project, featured = false, eager = false } = Astro.props;
-const { title, summary, kind, year, stack, cover, coverAlt, highlight, theme } = project.data;
+const { project, index, eager = false } = Astro.props;
+const { title, summary, kind, year, stack, cover, coverAlt, highlight, stage, source } = project.data;
 ---
 
-<a class:list={['card', `t-${theme}`, { featured }]} href={`/work/${project.id}/`}>
+<a class="dossier-card" href={`/work/${project.id}/`}>
+  <div class="tab">
+    <span>
+      Dossier {String(index + 1).padStart(2, '0')} · {kind}
+    </span>
+    <span>{year}</span>
+  </div>
   {cover ? (
-    <div class="card-media">
+    <div class="media">
       <Image
         src={cover}
         alt={coverAlt ?? ''}
         widths={[640, 960, 1280]}
-        sizes={featured ? '(max-width: 860px) 100vw, 650px' : '(max-width: 860px) 100vw, 550px'}
+        sizes="(max-width: 820px) 100vw, 580px"
         loading={eager ? 'eager' : 'lazy'}
       />
     </div>
   ) : (
-    <div class="card-media placeholder" aria-hidden="true">
+    <div class="media placeholder" aria-hidden="true">
       <strong>{highlight?.value ?? kind}</strong>
       {highlight && <small>{highlight.label}</small>}
     </div>
   )}
-  <div class="card-body">
-    <div class="card-meta">
-      <span class="kind">{kind}</span>
-      <span>{year}</span>
-    </div>
+  <div class="body">
     <h3>{title}</h3>
     <p>{summary}</p>
     <ul class="tags">
@@ -40,6 +44,9 @@ const { title, summary, kind, year, stack, cover, coverAlt, highlight, theme } =
         <li>{t}</li>
       ))}
     </ul>
-    <span class="link-arrow">Read case study →</span>
+    <div class="foot">
+      <Stage stage={stage} />
+      <span class="label">{source === 'public' ? 'Source public' : 'Source private'} · Open →</span>
+    </div>
   </div>
 </a>

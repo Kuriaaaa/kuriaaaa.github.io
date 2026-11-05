@@ -4,6 +4,8 @@ summary: Showroom website and back office for a car dealer on Kiambu Road — st
 kind: Client project
 year: '2026'
 status: Launching on brimotorslimited.co.ke
+sector: Automotive retail
+stage: building
 role: Full-stack developer — architecture, build, security and deployment
 stack: [Next.js, TypeScript, PostgreSQL, M-Pesa Daraja, Tailwind CSS]
 order: 2

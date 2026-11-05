@@ -1,0 +1,10 @@
+---
+import { stages, type Stage } from '../site';
+
+interface Props {
+  stage: Stage;
+}
+const { stage } = Astro.props;
+---
+
+<span class={`stage stage-${stage}`}>{stages[stage]}</span>

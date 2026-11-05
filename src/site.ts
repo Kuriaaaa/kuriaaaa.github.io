@@ -33,6 +33,16 @@ export const socials: Social[] = [
 
 export const nav = [
   { href: '/work/', label: 'Work' },
+  { href: '/services/', label: 'Services' },
+  { href: '/workflow/', label: 'Workflow' },
   { href: '/about/', label: 'About' },
-  { href: '/contact/', label: 'Contact' },
 ];
+
+/** Project stages, shown as coloured status chips across the site. */
+export const stages = {
+  live: 'Live',
+  pilot: 'Pilot-ready',
+  building: 'In build',
+  engagement: 'Engagement',
+} as const;
+export type Stage = keyof typeof stages;

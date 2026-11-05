@@ -1,0 +1,76 @@
+---
+// Fig. 1: every system I've built, wired to me, plus one open slot for the next client.
+// Pure SVG + CSS (no JavaScript), so it passes the strict CSP and works with motion turned off.
+import type { CollectionEntry } from 'astro:content';
+import { stages } from '../site';
+
+interface Props {
+  work: CollectionEntry<'work'>[];
+}
+const { work } = Astro.props;
+
+const W = 132;
+const H = 52;
+const slots = [
+  { x: 72, y: 56, d: 'M200 210 Q150 120 104 82' },
+  { x: 328, y: 56, d: 'M200 210 Q250 120 296 82' },
+  { x: 72, y: 210, d: 'M200 210 L138 210' },
+  { x: 328, y: 210, d: 'M200 210 L262 210' },
+  { x: 72, y: 364, d: 'M200 210 Q150 300 104 338' },
+  { x: 328, y: 364, d: 'M200 210 Q250 300 296 338' },
+];
+
+const nodes = [
+  ...work.slice(0, 5).map((p) => ({
+    href: `/work/${p.id}/`,
+    title: p.data.short ?? p.data.title,
+    sub: p.data.sector,
+    dot: `dot-${p.data.stage}`,
+    label: `${p.data.title} — ${p.data.sector}, ${stages[p.data.stage]}`,
+    open: false,
+  })),
+  {
+    href: '/services/',
+    title: 'Your system',
+    sub: 'Open slot',
+    dot: 'dot-open',
+    label: 'Your system — see services',
+    open: true,
+  },
+].map((n, i) => ({ ...n, ...slots[i] }));
+---
+
+<figure class="plate map">
+  <svg viewBox="0 0 400 420" role="group" aria-label="Systems map: projects connected to John Kuria">
+    {nodes.map((n) => (
+      <path class="edge" d={n.d} />
+    ))}
+    {nodes.map((n, i) => (
+      <path class:list={['flow', { slow: i % 2 === 1 }]} d={n.d} />
+    ))}
+    <circle class="ring" cx="200" cy="210" r="58"></circle>
+    <circle class="core" cx="200" cy="210" r="40"></circle>
+    <text class="core-text" x="200" y="216" text-anchor="middle">
+      JK
+    </text>
+    <text class="core-sub" x="200" y="290" text-anchor="middle">
+      NAIROBI · KE
+    </text>
+    {nodes.map((n) => (
+      <a class:list={['node', { open: n.open }]} href={n.href} aria-label={n.label}>
+        <rect x={n.x - W / 2} y={n.y - H / 2} width={W} height={H} rx="3" />
+        <circle class={n.dot} cx={n.x - W / 2 + 13} cy={n.y - 7} r="4" />
+        <text class="node-title" x={n.x - W / 2 + 24} y={n.y - 2}>
+          {n.title}
+        </text>
+        <text class="node-sub" x={n.x - W / 2 + 9} y={n.y + 16}>
+          {n.sub.toUpperCase()}
+        </text>
+      </a>
+    ))}
+  </svg>
+  <figcaption>
+    <span>Fig. 1 — Systems map</span>
+    <span>{work.length} built · 1 open</span>
+  </figcaption>
+</figure>
