@@ -1,38 +1,99 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import Stage from '../../components/Stage.astro';
 import { kindLabel } from '../../site';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('work');
-  return entries.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+  const entries = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+  return entries.map((entry, i) => ({
+    params: { id: entry.id },
+    props: { entry, index: i, next: entries[(i + 1) % entries.length] },
+  }));
 }
 
-const { entry } = Astro.props;
+const { entry, index, next } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
+const no = String(index + 1).padStart(2, '0');
 ---
-<Base title={d.title} description={d.summary} image={d.cover?.endsWith(".jpg") ? d.cover : undefined}>
-  <div class="wrap case-head">
-    <a class="back" href="/work/">← All projects</a>
-    <h1>{d.title}</h1>
-    <p class="lead">{d.summary}</p>
-    {d.links.length > 0 && (
-      <div class="actions">
-        {d.links.map((l, i) => (
-          <a class={i === 0 ? 'button primary' : 'button'} href={l.href} rel={l.href.startsWith('http') ? 'noopener' : undefined}>{l.label} ↗</a>
-        ))}
-      </div>
-    )}
-    <dl class="facts">
-      <div><dt>Type</dt><dd>{kindLabel[d.kind]}</dd></div>
-      <div><dt>Status</dt><dd>{d.status}</dd></div>
-      <div><dt>Year</dt><dd>{d.year}</dd></div>
-      <div><dt>Stack</dt><dd>{d.stack.join(', ')}</dd></div>
-    </dl>
-  </div>
-  <article class="wrap prose">
-    <Content />
-    <p><a class="back" href="/work/">← All projects</a></p>
+
+<Base title={d.title} description={d.summary} image={d.cover?.endsWith('.jpg') ? d.cover : undefined}>
+  <article>
+    <header class="dossier-head container">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/work/">Dossiers</a><span aria-hidden="true">/</span><span>No. {no}</span><span aria-hidden="true">/</span
+        ><span>{kindLabel[d.kind]}</span>
+      </nav>
+      <h1>{d.title}<span class="dot">.</span></h1>
+      <p class="lead">{d.summary}</p>
+      {
+        d.links.length > 0 && (
+          <div class="btn-row page-actions">
+            {d.links.map((l, i) => (
+              <a
+                class:list={['btn', { 'btn-primary': i === 0 }]}
+                href={l.href}
+                rel={l.href.startsWith('http') ? 'noopener' : undefined}
+              >
+                {l.label} ↗
+              </a>
+            ))}
+          </div>
+        )
+      }
+      <dl class="spec">
+        <div>
+          <dt>Sector</dt>
+          <dd>{d.sector}</dd>
+        </div>
+        <div>
+          <dt>Stage</dt>
+          <dd><Stage stage={d.stage} /></dd>
+        </div>
+        <div>
+          <dt>Type</dt>
+          <dd>{kindLabel[d.kind]}</dd>
+        </div>
+        <div>
+          <dt>Year</dt>
+          <dd>{d.year}</dd>
+        </div>
+        <div class="wide">
+          <dt>Status</dt>
+          <dd>{d.status}</dd>
+        </div>
+        <div class="wide">
+          <dt>Stack</dt>
+          <dd>{d.stack.join(' · ')}</dd>
+        </div>
+      </dl>
+    </header>
+
+    {
+      d.cover && (
+        <div class="container">
+          <figure class="plate">
+            <img class="cover" src={d.cover} alt={d.coverAlt ?? ''} width="1425" height="990" />
+            <figcaption>
+              <span>
+                Fig. {no}.1 — {d.coverAlt}
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+      )
+    }
+
+    <div class="container section">
+      <div class="content"><Content /></div>
+    </div>
+
+    <div class="container">
+      <a class="next-dossier" href={`/work/${next.id}/`}>
+        <span class="label">Next dossier</span>
+        <strong>{next.data.title} →</strong>
+      </a>
+    </div>
   </article>
 </Base>

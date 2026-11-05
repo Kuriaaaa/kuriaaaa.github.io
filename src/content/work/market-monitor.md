@@ -3,6 +3,8 @@ title: Market session monitor
 summary: Python service that watches gold-market sessions, logs every decision and sends phone alerts. It never places trades.
 kind: research
 status: Research · alerts only
+sector: Market research
+stage: research
 year: "2026"
 stack: [Python, SQLite, Pine Script, Push notifications]
 order: 6

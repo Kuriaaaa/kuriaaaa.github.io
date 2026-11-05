@@ -1,22 +1,25 @@
 ---
-import { site } from '../site';
+import { site, nav } from '../site';
 const path = Astro.url.pathname;
-const links = [
-  { href: '/work/', label: 'Work' },
-  { href: '/#experience', label: 'Experience' },
-  { href: '/#contact', label: 'Contact' },
-];
+const current = (href: string) => (path.startsWith(href) ? 'page' : undefined);
 ---
+
 <header class="site-header">
-  <div class="wrap">
+  <div class="container">
     <a class="brand" href="/" aria-label={`${site.name}, home`}>
-      <span class="brand-mark" aria-hidden="true">K</span>
+      <span class="brand-mark" aria-hidden="true">CK</span>
       <span class="brand-name">{site.name}</span>
     </a>
-    <nav class="nav" aria-label="Main">
-      {links.map((l) => (
-        <a href={l.href} aria-current={path.startsWith(l.href) && l.href !== '/' ? 'page' : undefined}>{l.label}</a>
-      ))}
+    <nav class="nav nav-desktop" aria-label="Main">
+      {nav.map((l) => <a href={l.href} aria-current={current(l.href)}>{l.label}</a>)}
+      <a class="nav-cta" href="/#contact">Hire me</a>
     </nav>
+    <details class="nav-toggle">
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Main (mobile)">
+        {nav.map((l) => <a href={l.href} aria-current={current(l.href)}>{l.label}</a>)}
+        <a class="nav-cta" href="/#contact">Hire me</a>
+      </nav>
+    </details>
   </div>
 </header>

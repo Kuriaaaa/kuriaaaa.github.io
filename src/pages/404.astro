@@ -1,11 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
+
 <Base title="Page not found" noindex>
-  <div class="wrap case-head">
-    <p class="eyebrow">Error 404</p>
-    <h1>This page doesn't exist.</h1>
-    <p class="lead">It may have moved when the site was rebuilt.</p>
-    <div class="actions"><a class="button primary" href="/">Home</a><a class="button" href="/work/">All projects</a></div>
-  </div>
+  <section class="page-head">
+    <div class="container">
+      <span class="label"><span class="n">404</span>Not found</span>
+      <h1 class="page-title">This page doesn't exist.</h1>
+      <p class="lead">It may have moved when the site was rebuilt.</p>
+      <div class="btn-row page-actions">
+        <a class="btn btn-primary" href="/">Home</a>
+        <a class="btn" href="/work/">All projects</a>
+      </div>
+    </div>
+  </section>
 </Base>

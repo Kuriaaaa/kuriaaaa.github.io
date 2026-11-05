@@ -1,0 +1,157 @@
+---
+import Base from '../layouts/Base.astro';
+
+const loop = [
+  { title: 'Spec', body: 'Write down what "done" means: users, rules, edge cases, the numbers that matter.' },
+  { title: 'Plan', body: 'Work through the plan with Claude against the real codebase before a line changes.' },
+  { title: 'Build', body: 'Small, reviewable diffs with Claude Code — features, migrations and the tests for them.' },
+  { title: 'Verify', body: 'Type checks, unit tests and browser tests run locally, then again in CI.' },
+  { title: 'Ship', body: 'I review every diff, CI deploys, and monitoring watches what went live.' },
+];
+
+const tools = [
+  {
+    name: 'Claude Code',
+    body: 'My pair programmer in the terminal and desktop app: reading unfamiliar code, building features, writing tests, running builds and reviewing diffs. This site was rebuilt in a Claude Code session.',
+  },
+  {
+    name: 'Claude API, inside products',
+    body: 'DevControl sends a stack trace and the matching source files to Claude, which explains the cause and proposes a fix. Suggestions only — nothing changes code on its own.',
+    href: '/work/devcontrol/',
+  },
+  {
+    name: 'Handover notes in the repo',
+    body: "My projects keep notes for humans and for Claude sessions — how to run it, what's done, what's next — so work picks up where it stopped.",
+  },
+];
+
+const principles = [
+  {
+    title: 'AI drafts, tests decide.',
+    body: 'Code is accepted when it passes the checks and my review, not because it looks right.',
+  },
+  {
+    title: 'Secrets stay out.',
+    body: 'Client data, keys and passwords never go into a prompt. Demos run on fictional data.',
+  },
+  {
+    title: 'Small diffs, always.',
+    body: 'Changes stay small enough to read in one sitting, so nothing slips past review.',
+  },
+];
+---
+
+<Base
+  title="Workflow"
+  description="How Chege John Brian Kuria builds: Claude Code and the Claude API as daily tools, with tests and human review deciding what ships."
+>
+  <section class="page-head">
+    <div class="container split">
+      <div>
+        <span class="label">
+          <span class="n">~/</span>workflow
+        </span>
+        <h1 class="page-title">Built with Claude. Verified by me.</h1>
+      </div>
+      <div>
+        <p class="lead">
+          AI lets one developer move like a small team. The trick is keeping the quality of a careful one. This is the
+          loop I use on every project.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight" aria-labelledby="loop-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">
+          <span class="n">§01</span>The loop
+        </span>
+        <h2 id="loop-title">Five steps, every change.</h2>
+      </div>
+      <ol class="protocol five">
+        {loop.map((s, i) => (
+          <li>
+            <span class="step">STEP {String(i + 1).padStart(2, '0')}</span>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="tools-title">
+    <div class="container split">
+      <div>
+        <span class="label">
+          <span class="n">§02</span>Toolkit
+        </span>
+        <h2 id="tools-title" class="page-title">
+          Where Claude fits.
+        </h2>
+        <pre
+          class="terminal"
+          aria-label="Example release checks"
+        ><span class="c"># checks before this site ships</span>
+<span class="p">$</span> npm run build
+  ✓ static     every page, zero JavaScript
+  ✓ csp        strict, self-hosted fonts only</pre>
+      </div>
+      <ul class="cv">
+        {tools.map((t) => (
+          <li>
+            <span class="when">{t.name}</span>
+            <span>
+              {t.body}
+              {t.href && (
+                <>
+                  {' '}
+                  <a href={t.href}>See DevControl →</a>
+                </>
+              )}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-tight" aria-labelledby="principles-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">
+          <span class="n">§03</span>Rules
+        </span>
+        <h2 id="principles-title">What doesn't bend.</h2>
+      </div>
+      <ul class="principles">
+        {principles.map((p) => (
+          <li>
+            <b>{p.title}</b>
+            <p>{p.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="container">
+      <div>
+        <span class="label">$ ./collaborate</span>
+        <h2 id="cta-title">Want this loop on your build?</h2>
+        <p>I join projects as a build partner — features, tests, reviews or a full delivery.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/services/">
+          See services →
+        </a>
+        <a class="btn" href="/#contact">
+          Contact
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -22,3 +22,21 @@ export const kindLabel = {
   academic: 'Academic',
   research: 'Research',
 } as const;
+
+/** Project stages, shown as coloured status chips. */
+export const stages = {
+  live: 'Live',
+  pilot: 'Pilot-ready',
+  building: 'In build',
+  engagement: 'Engagement',
+  complete: 'Complete',
+  research: 'Research',
+} as const;
+export type Stage = keyof typeof stages;
+
+export const nav = [
+  { href: '/work/', label: 'Work' },
+  { href: '/services/', label: 'Services' },
+  { href: '/workflow/', label: 'Workflow' },
+  { href: '/cv/', label: 'CV' },
+];

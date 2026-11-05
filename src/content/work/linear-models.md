@@ -3,6 +3,9 @@ title: Predictive modelling with linear methods
 summary: Predicted medical-appointment no-shows and concrete strength with Logistic Regression, Linear SVC, Ridge and Lasso.
 kind: academic
 status: Completed
+sector: Data science
+stage: complete
+short: Linear models
 year: "2026"
 stack: [Python, pandas, scikit-learn, Jupyter]
 featured: false

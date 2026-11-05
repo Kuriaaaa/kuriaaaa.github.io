@@ -3,6 +3,8 @@ title: Opening-range strategy research
 summary: TradingView Pine Script study that tests opening-range rules, position sizing and fixed targets.
 kind: research
 status: Research · not traded
+sector: Market research
+stage: research
 year: "2026"
 stack: [Pine Script v6, TradingView]
 order: 7

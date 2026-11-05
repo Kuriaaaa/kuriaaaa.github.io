@@ -3,6 +3,9 @@ title: Car dealership platform
 summary: Showroom website and back office for a Nairobi-area car dealership. It covers stock listings, test-drive booking, M-Pesa deposits and staff roles.
 kind: client
 status: Phase 1 built · launch pending
+sector: Automotive retail
+stage: building
+short: Dealership
 year: "2026"
 stack: [Next.js, TypeScript, PostgreSQL, Drizzle, Docker, M-Pesa Daraja]
 featured: true

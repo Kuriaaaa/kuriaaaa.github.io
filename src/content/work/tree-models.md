@@ -3,6 +3,8 @@ title: Tree-based modelling
 summary: Classified COVID risk and predicted car prices with Decision Trees, Random Forest and Gradient Boosting.
 kind: academic
 status: Analysis complete · write-up in progress
+sector: Data science
+stage: complete
 year: "2026"
 stack: [Python, scikit-learn, Random Forest, Gradient Boosting]
 order: 5

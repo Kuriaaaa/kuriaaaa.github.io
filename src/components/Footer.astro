@@ -1,13 +1,38 @@
 ---
 import { site } from '../site';
 ---
+
 <footer class="site-footer">
-  <div class="wrap">
-    <span>© {new Date().getFullYear()} {site.name}</span>
-    <nav aria-label="Footer">
-      <a href={site.github} rel="noopener">GitHub</a>
-      <a href={site.linkedin} rel="noopener">LinkedIn</a>
-      <a href="/privacy/">Privacy</a>
-    </nav>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <span class="label"><span class="n">§</span>end of file</span>
+        <h2>Got a system to build?</h2>
+        <p class="muted"><a href={`mailto:${site.email}`}>{site.email}</a></p>
+      </div>
+      <div>
+        <span class="label">Site</span>
+        <ul>
+          <li><a href="/work/">Work</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/workflow/">Workflow</a></li>
+          <li><a href="/cv/">CV</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">Elsewhere</span>
+        <ul>
+          <li><a href={site.github} rel="noopener me">GitHub ↗</a></li>
+          <li><a href={site.linkedin} rel="noopener me">LinkedIn ↗</a></li>
+          <li><a href={site.whatsapp} rel="noopener">WhatsApp ↗</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© {new Date().getFullYear()} {site.name}</span>
+      <span>Built in Kenya · Astro · no JavaScript, no trackers</span>
+    </div>
   </div>
 </footer>

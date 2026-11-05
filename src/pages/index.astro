@@ -1,72 +1,125 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import WorkCard from '../components/WorkCard.astro';
+import SystemsMap from '../components/SystemsMap.astro';
+import Ledger from '../components/Ledger.astro';
 import Contact from '../components/Contact.astro';
 import { site } from '../site';
 
-const featured = (await getCollection('work', (e) => e.data.featured))
-  .sort((a, b) => a.data.order - b.data.order);
+const professional = (await getCollection('work', (e) => ['experience', 'product', 'client'].includes(e.data.kind))).sort(
+  (a, b) => a.data.order - b.data.order,
+);
 
-const skills = ['Python', 'TypeScript', 'JavaScript', 'React', 'Next.js', 'PostgreSQL', 'SQL', 'REST APIs', 'Docker', 'Git & GitHub Actions', 'Odoo ERP'];
+const protocol = [
+  { title: 'Map', body: 'Sit with the people who will use it and write down how the work really runs.' },
+  { title: 'Build', body: 'Ship a working slice fast, then grow it with your team watching.' },
+  { title: 'Harden', body: 'Tests, roles, backups and security checks before real data goes in.' },
+  { title: 'Hand over', body: 'Docs, training and a system your staff can run without me.' },
+];
+
+const skills = [
+  'Python',
+  'TypeScript',
+  'JavaScript',
+  'React',
+  'Next.js',
+  'PostgreSQL',
+  'SQL',
+  'REST APIs',
+  'Docker',
+  'Git & GitHub Actions',
+  'Odoo ERP',
+  'Claude Code',
+];
 ---
-<Base>
-  <div class="wrap hero">
-    <div>
-      <p class="eyebrow">{site.role} · {site.location}</p>
-      <h1>I build software for <em>real operations.</em></h1>
-      <p class="lead">I'm <strong>{site.name}</strong>. I build the web systems businesses run on every day, from the database to the screen.</p>
-      <p class="availability">{site.availability}</p>
-      <div class="actions">
-        <a class="button primary" href="#work">See my work ↓</a>
-        <a class="button" href="/cv.pdf">Download CV</a>
-      </div>
-    </div>
-    <div class="portrait">
-      <img src="/images/portrait.jpg" alt={`Portrait of ${site.name}`} width="960" height="960" fetchpriority="high" />
-    </div>
-  </div>
 
-  <section class="section" id="work" aria-labelledby="work-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="work-title">Selected work</h2>
-        <p>A product I own, a client build, and ERP work from my attachment.</p>
+<Base>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="status-pill"><span class="pulse" aria-hidden="true"></span>Open for projects &amp; roles</span>
+        <h1>I build software for <span class="mark">real operations.</span></h1>
+        <p class="lead">
+          Gym front desks, car showrooms, multi-company ERPs, business messaging. I build the web systems businesses run on
+          every day, from the database to the screen.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/services/">Work with me →</a>
+          <a class="btn" href="/cv.pdf">Download CV</a>
+        </div>
+        <div class="id-line">
+          <img src="/images/portrait.jpg" alt={`Portrait of ${site.name}`} width="56" height="56" fetchpriority="high" />
+          <div>
+            <b>{site.name}</b>
+            <span>{site.role} · {site.location}</span>
+          </div>
+        </div>
       </div>
-      <div class="cards">
-        {featured.map((entry) => <WorkCard entry={entry} />)}
-      </div>
-      <p class="see-all"><a class="button" href="/work/">All projects →</a></p>
+      <SystemsMap work={professional} />
     </div>
   </section>
 
-  <section class="section" id="experience" aria-labelledby="exp-title">
-    <div class="wrap two-col">
-      <div>
-        <h2 id="exp-title">Experience &amp; education</h2>
-        <ol class="timeline">
-          <li>
-            <time>Sep – Oct 2026</time>
-            <h3>ERP audit &amp; data-quality trainee · Brimat Ventures Group</h3>
-            <p>Industrial attachment. Audited and cleaned one Odoo 19 system shared by four companies: customers, a 6,600-item catalogue, supplier bills and stock receiving. <a href="/work/erp-cleanup/">Read about the ERP clean-up</a></p>
-          </li>
-          <li>
-            <time>2026 – present</time>
-            <h3>Independent developer</h3>
-            <p>Built GymFlow end to end and a dealership platform for a client.</p>
-          </li>
-          <li>
-            <time>Graduating March 2027</time>
-            <h3>BSc Software Development · KCA University</h3>
-            <p>Coursework complete.</p>
-          </li>
-        </ol>
+  <section class="section ruled" id="work" aria-labelledby="work-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="label"><span class="n">§01</span>The ledger</span>
+        <h2 id="work-title">Systems in the field.</h2>
+        <a class="link-arrow" href="/work/">All projects →</a>
       </div>
-      <div>
-        <h2>Tools I use</h2>
-        <ul class="skills">{skills.map((s) => <li>{s}</li>)}</ul>
-        <p class="small">I have also worked with Java, C# and C++ in coursework.</p>
+      <Ledger work={professional} />
+    </div>
+  </section>
+
+  <section class="section ruled" aria-labelledby="protocol-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="label"><span class="n">§02</span>Protocol</span>
+        <h2 id="protocol-title">How a build runs.</h2>
+        <a class="link-arrow" href="/workflow/">My workflow →</a>
       </div>
+      <ol class="protocol">
+        {
+          protocol.map((s, i) => (
+            <li>
+              <span class="step">STEP {String(i + 1).padStart(2, '0')}</span>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section ruled" id="experience" aria-labelledby="exp-title">
+    <div class="container split">
+      <div>
+        <span class="label"><span class="n">§03</span>Record</span>
+        <h2 id="exp-title" class="page-title">Experience &amp; education.</h2>
+        <ul class="tags">{skills.map((s) => <li>{s}</li>)}</ul>
+        <p class="muted page-actions">I have also worked with Java, C# and C++ in coursework.</p>
+      </div>
+      <ol class="cv">
+        <li>
+          <span class="when">Sep – Oct 2026</span>
+          <span>
+            <a href="/work/erp-cleanup/">ERP audit &amp; data-quality trainee</a>
+            <span class="where"> · Brimat Ventures Group.</span> Industrial attachment. Audited and cleaned one Odoo 19 system
+            shared by four companies: customers, a 6,600-item catalogue, supplier bills and stock receiving.
+          </span>
+        </li>
+        <li>
+          <span class="when">2026 – present</span>
+          <span>
+            Independent developer<span class="where"> · </span>Built <a href="/work/gymflow/">GymFlow</a> end to end, a
+            <a href="/work/dealership/">dealership platform</a> for a client, and <a href="/work/fanovo/">Fanovo</a>.
+          </span>
+        </li>
+        <li>
+          <span class="when">March 2027</span>
+          <span>BSc Software Development<span class="where"> · KCA University.</span> Coursework complete.</span>
+        </li>
+      </ol>
     </div>
   </section>
 

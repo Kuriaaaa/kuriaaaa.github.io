@@ -1,0 +1,214 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site';
+
+const offers = [
+  {
+    title: 'Business systems',
+    body: 'Memberships, bookings, stock, back offices — the software a business runs on every day, with a workspace for each role.',
+    fit: 'Gyms, showrooms, clinics, shops, schools',
+    proof: { label: 'GymFlow · dealership platform', href: '/work/gymflow/' },
+  },
+  {
+    title: 'M-Pesa & payments',
+    body: 'Daraja STK push, callbacks verified against Safaricom, clear payment states and receipts your staff can trust.',
+    fit: 'Anyone taking deposits or payments online in Kenya',
+    proof: { label: 'Dealership M-Pesa deposits', href: '/work/dealership/' },
+  },
+  {
+    title: 'ERP & data clean-up',
+    body: 'Audit an Odoo system, remove duplicates, rebuild the catalogue and leave rules that stop the mess returning.',
+    fit: 'Multi-branch retailers and distributors',
+    proof: { label: 'Multi-company ERP clean-up', href: '/work/erp-cleanup/' },
+  },
+  {
+    title: 'Messaging & automation',
+    body: 'SMS, email and WhatsApp flows with consent, opt-outs and quiet hours handled properly under Kenyan law.',
+    fit: 'Businesses that talk to many customers',
+    proof: { label: 'Fanovo', href: '/work/fanovo/' },
+  },
+  {
+    title: 'Rescue & harden',
+    body: 'Take an app that works "mostly" and give it tests, role checks, backups, security scanning and a clean deploy.',
+    fit: 'Founders with an MVP that needs to be real',
+    proof: { label: 'GymFlow hardening', href: '/work/gymflow/' },
+  },
+  {
+    title: 'Build partner',
+    body: 'Extra hands for developers and agencies: features, tests, code review or a second opinion on architecture.',
+    fit: 'Teams with more build than people',
+    proof: { label: 'My workflow', href: '/workflow/' },
+  },
+];
+
+const steps = [
+  { title: 'Call', body: 'A free 30-minute call about what you need and how you work today.' },
+  { title: 'Scope', body: 'A written scope with milestones and a fixed quote. No surprises.' },
+  { title: 'Build', body: 'Weekly demos on a live link, so you see progress, not promises.' },
+  { title: 'Launch', body: 'Tests, backups and security checks, then go-live with you.' },
+  { title: 'Handover', body: 'Docs, staff training and an agreed support window.' },
+];
+
+const included = [
+  'Source code in your own GitHub account',
+  'A live preview link from week one',
+  'Automated tests and type checks',
+  'Deployment, backups and monitoring set up',
+  'Role-based access where staff share a system',
+  'Plain-language docs and a staff guide',
+];
+
+const faq = [
+  {
+    q: 'Do you work with clients outside Kenya?',
+    a: "Yes. I work remotely with clear written updates and weekly demos, and I'm comfortable across time zones.",
+  },
+  {
+    q: 'How do you price?',
+    a: 'After a short call I send a written scope with a fixed quote per milestone. Ongoing work can be a monthly retainer.',
+  },
+  {
+    q: 'Who owns the code?',
+    a: 'You do. It lives in your repository from the start, and you keep everything when the project ends.',
+  },
+  {
+    q: 'Can you join an existing codebase or team?',
+    a: 'Yes. I read before I write: I start with a short review of the code, then pick up tickets your way.',
+  },
+  {
+    q: 'Do you use AI to build?',
+    a: 'Yes — Claude is part of my daily toolkit, and every change is still tested and reviewed by me. The workflow page explains how.',
+  },
+];
+---
+
+<Base
+  title="Services"
+  description="Hire Chege John Brian Kuria to build business systems, M-Pesa payments, ERP clean-ups, messaging platforms — or as a build partner on yours."
+>
+  <section class="page-head">
+    <div class="container split">
+      <div>
+        <span class="label">
+          <span class="n">~/</span>services
+        </span>
+        <h1 class="page-title">Hire a builder who ships.</h1>
+      </div>
+      <div>
+        <p class="lead">
+          I take a business problem from the first conversation to a system people use every day — or join your build
+          and help you finish it.
+        </p>
+        <div class="btn-row page-actions">
+          <a class="btn btn-primary" href="/#contact">
+            Book a free call →
+          </a>
+          <a class="btn" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer">
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight" aria-labelledby="offers-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">
+          <span class="n">§01</span>What I build
+        </span>
+        <h2 id="offers-title">Six ways to work together.</h2>
+      </div>
+      <ul class="offers">
+        {offers.map((o, i) => (
+          <li>
+            <span class="code">S-{String(i + 1).padStart(2, '0')}</span>
+            <h3>{o.title}</h3>
+            <p>{o.body}</p>
+            <span class="fit">Good fit: {o.fit}</span>
+            <a class="proof" href={o.proof.href}>
+              Proof → {o.proof.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">
+          <span class="n">§02</span>Engagement
+        </span>
+        <h2 id="process-title">From call to handover.</h2>
+      </div>
+      <ol class="protocol five">
+        {steps.map((s, i) => (
+          <li>
+            <span class="step">STEP {String(i + 1).padStart(2, '0')}</span>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section-tight" aria-labelledby="included-title">
+    <div class="container split">
+      <div>
+        <span class="label">
+          <span class="n">§03</span>Included
+        </span>
+        <h2 id="included-title" class="page-title">
+          Every project ships with.
+        </h2>
+      </div>
+      <ul class="checklist">
+        {included.map((x) => (
+          <li>{x}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq-title">
+    <div class="container split">
+      <div>
+        <span class="label">
+          <span class="n">§04</span>FAQ
+        </span>
+        <h2 id="faq-title" class="page-title">
+          Before you ask.
+        </h2>
+      </div>
+      <div class="faq">
+        {faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="container">
+      <div>
+        <span class="label">$ ./start-project</span>
+        <h2 id="cta-title">Tell me what you're building.</h2>
+        <p>A short message is enough — what the business does, what's not working, and when you need it.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/#contact">
+          Start a project →
+        </a>
+        <a class="btn" href={`mailto:${site.email}`}>
+          Email
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

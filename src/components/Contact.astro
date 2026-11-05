@@ -2,41 +2,48 @@
 import { site } from '../site';
 const thanks = new URL('/thanks/', Astro.site).href;
 ---
-<section class="section contact" id="contact" aria-labelledby="contact-title">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 id="contact-title">Have a role or a project? <em>Let's talk.</em></h2>
-      <p>WhatsApp is usually the fastest way to reach me. I reply to email within a working day.</p>
-    </div>
-    <div class="contact-grid">
-      <ul class="contact-links">
-        <li><a href={site.whatsapp} rel="noopener">WhatsApp <small>+254 717 246 699</small></a></li>
-        <li><a href={`mailto:${site.email}`}>Email <small>{site.email}</small></a></li>
-        <li><a href={site.linkedin} rel="noopener">LinkedIn <small>Connect</small></a></li>
-        <li><a href={site.github} rel="noopener">GitHub <small>See the code</small></a></li>
+
+<section class="section ruled" id="contact" aria-labelledby="contact-title">
+  <div class="container split">
+    <div>
+      <span class="label"><span class="n">§04</span>Contact</span>
+      <h2 id="contact-title" class="page-title">Let's build.</h2>
+      <p class="lead">
+        A role, a project, or a build you need help finishing. WhatsApp is usually the fastest way to reach me; I reply to
+        email within a working day.
+      </p>
+      <ul class="direct">
+        <li><span class="label">WhatsApp</span><a href={site.whatsapp} rel="noopener">+254 717 246 699 ↗</a></li>
+        <li><span class="label">Email</span><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li><span class="label">LinkedIn</span><a href={site.linkedin} rel="noopener">Connect ↗</a></li>
+        <li><span class="label">GitHub</span><a href={site.github} rel="noopener">See the code ↗</a></li>
       </ul>
-      <form class="enquiry" action={site.formAction} method="post">
-        <input type="hidden" name="_subject" value="Portfolio enquiry" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_next" value={thanks} />
-        <label class="honey" aria-hidden="true">Leave empty<input name="_honey" tabindex="-1" autocomplete="off" /></label>
-        <div class="row">
-          <label>Name<input name="name" autocomplete="name" required /></label>
-          <label>Email<input name="email" type="email" autocomplete="email" required /></label>
-        </div>
-        <label>What's it about?
-          <select name="enquiry_type" required>
-            <option value="">Choose one</option>
-            <option>Job or internship</option>
-            <option>Freelance project</option>
-            <option>Something else</option>
-          </select>
-        </label>
-        <label>Message<textarea name="message" rows="4" required></textarea></label>
-        <label class="consent"><input type="checkbox" name="privacy_ok" value="yes" required />
-          <span>I agree my message is sent through FormSubmit so I can reply. <a href="/privacy/">Privacy notice</a></span></label>
-        <button class="button primary" type="submit">Send message →</button>
-      </form>
     </div>
+    <form class="form" action={site.formAction} method="post">
+      <input type="hidden" name="_subject" value="Portfolio enquiry" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_next" value={thanks} />
+      <label class="honey" aria-hidden="true">Leave empty<input name="_honey" tabindex="-1" autocomplete="off" /></label>
+      <label>Name<input name="name" autocomplete="name" required /></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required /></label>
+      <label
+        >What's it about?
+        <select name="enquiry_type" required>
+          <option value="">Choose one</option>
+          <option>Build a system for my business</option>
+          <option>M-Pesa or payments integration</option>
+          <option>Help on an existing build</option>
+          <option>Job or internship</option>
+          <option>Something else</option>
+        </select>
+      </label>
+      <label>Message<textarea name="message" rows="5" required></textarea></label>
+      <label class="consent"
+        ><input type="checkbox" name="privacy_ok" value="yes" required />
+        <span>I agree my message is sent through FormSubmit so I can reply. <a href="/privacy/">Privacy notice</a></span
+        ></label
+      >
+      <div><button class="btn btn-primary" type="submit">Send message →</button></div>
+    </form>
   </div>
 </section>

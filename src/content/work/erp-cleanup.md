@@ -3,6 +3,9 @@ title: Multi-company ERP clean-up
 summary: Audited and cleaned one Odoo 19 Enterprise system shared by four computer retail and wholesale companies. Customer, product and supplier data now work as one reliable record.
 kind: experience
 status: Industrial attachment · Sep – Oct 2026
+sector: Retail ERP
+stage: engagement
+short: ERP clean-up
 year: "2026"
 stack: [Odoo 19, Python/JSON-RPC, PowerShell, Excel automation, Data quality]
 featured: true

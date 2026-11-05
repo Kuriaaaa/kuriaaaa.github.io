@@ -3,6 +3,8 @@ title: GymFlow
 summary: Gym management platform where owners, front desk, trainers and members each get their own workspace. It covers memberships, check-ins, class bookings, payments and reports.
 kind: product
 status: Ready for a pilot gym
+sector: Fitness operations
+stage: pilot
 year: "2026"
 stack: [Python, PostgreSQL, JavaScript, REST API, GitHub Actions, Render]
 featured: true
