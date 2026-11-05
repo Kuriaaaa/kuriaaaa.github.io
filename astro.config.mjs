@@ -8,7 +8,7 @@ export default defineConfig({
   devToolbar: { enabled: false },
   // Never inline assets as data: URIs; the CSP only allows files from this site.
   vite: { build: { assetsInlineLimit: 0 } },
-  integrations: [sitemap({ filter: (page) => !page.includes('/404') })],
+  integrations: [sitemap({ filter: (page) => !page.includes('/404') && !page.includes('/thanks') })],
   build: {
     // Keep every stylesheet external so the strict CSP (style-src 'self') holds.
     inlineStylesheets: 'never',

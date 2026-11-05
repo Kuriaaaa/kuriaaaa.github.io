@@ -14,42 +14,47 @@
   --max: 1180px;
   --gutter: clamp(16px, 4vw, 40px);
 
-  --paper: #f3f0e8;
-  --paper-2: #e9e5d9;
-  --paper-3: #dfdacb;
-  --ink: #16150f;
-  --ink-2: #47443c;
-  --ink-3: #69655b;
-  --rule: rgba(22, 21, 15, 0.16);
-  --rule-strong: rgba(22, 21, 15, 0.42);
-  --signal: #e8481a;
-  --signal-ink: #b5330c;
-  --on-signal: #fff8f2;
-  --live: #23874d;
-  --pilot: #a86f00;
-  --build: #2f5fc4;
-  --engagement: #7a4fc2;
-  --grid: rgba(22, 21, 15, 0.045);
+  /* Nairobi sunset: warm cream paper, deep ink, vivid orange, highlighter yellow. */
+  --paper: #fbf7ee;
+  --paper-2: #f3ecdc;
+  --paper-3: #e8dfc9;
+  --ink: #14130d;
+  --ink-2: #3f3c34;
+  --ink-3: #5f5b51;
+  --rule: rgba(20, 19, 13, 0.14);
+  --rule-strong: rgba(20, 19, 13, 0.42);
+  --signal: #ff4d1a;
+  --signal-ink: #c2320a;
+  --on-signal: #14130d;
+  --sun: #ffc83d;
+  --sky: #2563eb;
+  --live: #116b34;
+  --pilot: #8a4f00;
+  --build: #1d4ed8;
+  --engagement: #7c3aed;
+  --grid: rgba(20, 19, 13, 0.05);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #11110f;
-    --paper-2: #1a1a17;
-    --paper-3: #24241f;
-    --ink: #eeebe1;
-    --ink-2: #bdb9ad;
-    --ink-3: #918d82;
-    --rule: rgba(238, 235, 225, 0.14);
-    --rule-strong: rgba(238, 235, 225, 0.4);
-    --signal: #ff6a3d;
-    --signal-ink: #ff8f69;
-    --on-signal: #160a05;
-    --live: #4cc47f;
-    --pilot: #e3a93a;
+    --paper: #0f0f13;
+    --paper-2: #18181f;
+    --paper-3: #24242d;
+    --ink: #f5f1e6;
+    --ink-2: #c9c4b7;
+    --ink-3: #a19c8f;
+    --rule: rgba(245, 241, 230, 0.13);
+    --rule-strong: rgba(245, 241, 230, 0.4);
+    --signal: #ff6b35;
+    --signal-ink: #ff9466;
+    --on-signal: #14130d;
+    --sun: #ffd04d;
+    --sky: #6ea0ff;
+    --live: #4ade80;
+    --pilot: #fbbf24;
     --build: #7aa2ff;
-    --engagement: #b896ff;
-    --grid: rgba(238, 235, 225, 0.035);
+    --engagement: #c4a1ff;
+    --grid: rgba(245, 241, 230, 0.035);
   }
 }
 
@@ -2283,4 +2288,226 @@ h3,
 .prose ul {
   margin: 0 0 1em;
   color: var(--ink-2);
+}
+
+/* =========================================================================
+   Colour pass — warmer, brighter, more contrast between bands
+   ========================================================================= */
+
+/* Highlighter: yellow on light paper, orange glow on dark. */
+.mark {
+  background: linear-gradient(transparent 58%, var(--sun) 58%, var(--sun) 92%, transparent 92%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .mark {
+    background: linear-gradient(
+      transparent 58%,
+      color-mix(in srgb, var(--signal) 55%, transparent) 58%,
+      color-mix(in srgb, var(--signal) 55%, transparent) 92%,
+      transparent 92%
+    );
+  }
+}
+
+/* Warm glow behind the hero and page heads. */
+.hero,
+.page-head,
+.dossier-head {
+  background:
+    radial-gradient(circle at 82% 28%, color-mix(in srgb, var(--signal) 16%, transparent), transparent 42%),
+    radial-gradient(circle at 8% 92%, color-mix(in srgb, var(--sun) 20%, transparent), transparent 38%);
+}
+
+.dossier-head {
+  background-size: 100% 100%;
+}
+
+/* Systems map: orange core, stage-coloured node tabs. */
+.map .core {
+  fill: var(--signal);
+}
+
+.map .core-text {
+  fill: var(--on-signal);
+}
+
+.map .ring {
+  stroke: var(--signal);
+  opacity: 0.6;
+}
+
+.map .node rect {
+  fill: var(--paper);
+}
+
+.map .node:hover rect,
+.map .node:focus-visible rect {
+  fill: var(--signal);
+  stroke: var(--ink);
+}
+
+.map .node:hover text,
+.map .node:focus-visible text {
+  fill: var(--on-signal) !important;
+}
+
+.map .node:hover .node-sub,
+.map .node:focus-visible .node-sub {
+  fill: var(--on-signal) !important;
+}
+
+/* Status chips get a tinted pill. */
+.stage {
+  padding: 4px 10px 4px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  font-weight: 600;
+}
+
+.status-pill {
+  border-color: color-mix(in srgb, var(--live) 45%, transparent);
+  background: color-mix(in srgb, var(--live) 10%, var(--paper));
+}
+
+/* Buttons: ink by default, orange on hover with ink text (passes contrast). */
+.btn-primary:hover {
+  border-color: var(--ink);
+  background: var(--signal);
+  color: var(--on-signal);
+  box-shadow: 4px 4px 0 var(--ink);
+  transform: translate(-2px, -2px);
+}
+
+.btn:not(.btn-primary):hover {
+  box-shadow: 4px 4px 0 var(--signal);
+  transform: translate(-2px, -2px);
+}
+
+/* Ledger rows warm up on hover. */
+.ledger a:hover {
+  background: color-mix(in srgb, var(--signal) 9%, var(--paper));
+}
+
+.ledger .no {
+  color: var(--signal-ink);
+  font-weight: 600;
+}
+
+/* Protocol steps: numbered in orange, sunny on hover. */
+.protocol li {
+  transition: background 0.2s;
+}
+
+.protocol li:hover {
+  background: color-mix(in srgb, var(--sun) 16%, var(--paper));
+}
+
+.protocol .step {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 2px;
+  background: var(--signal);
+  color: var(--on-signal);
+  font-weight: 700;
+}
+
+/* Tags and toolkit chips get a little colour. */
+.tags li {
+  border-color: transparent;
+  background: var(--paper-2);
+}
+
+/* CTA band: full orange. */
+.cta-band {
+  background: var(--signal);
+  color: var(--on-signal);
+}
+
+.cta-band .label,
+.cta-band p {
+  color: color-mix(in srgb, var(--on-signal) 80%, transparent);
+}
+
+.cta-band .btn {
+  border-color: var(--on-signal);
+  color: var(--on-signal);
+}
+
+.cta-band .btn:hover {
+  background: var(--on-signal);
+  color: var(--signal);
+  box-shadow: 4px 4px 0 var(--paper);
+}
+
+.cta-band .btn-primary {
+  border-color: var(--on-signal);
+  background: var(--on-signal);
+  color: var(--paper);
+}
+
+.cta-band .btn-primary:hover {
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 var(--on-signal);
+}
+
+/* Footer: an ink band to close the page. */
+.site-footer {
+  border-top: 0;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.site-footer .label,
+.site-footer .muted,
+.footer-base {
+  color: color-mix(in srgb, var(--paper) 70%, transparent);
+}
+
+.site-footer a:hover {
+  color: var(--signal);
+}
+
+.footer-base {
+  border-top-color: color-mix(in srgb, var(--paper) 18%, transparent);
+}
+
+/* Dossier details. */
+.dossier-head h1 .dot,
+.next-dossier:hover strong {
+  color: var(--signal);
+}
+
+.plate {
+  box-shadow: 8px 8px 0 color-mix(in srgb, var(--sun) 70%, transparent);
+}
+
+.form {
+  box-shadow: 8px 8px 0 var(--signal);
+}
+
+.adr li,
+.principles li {
+  border-top: 4px solid var(--signal);
+}
+
+.offers > li:hover {
+  background: color-mix(in srgb, var(--sun) 14%, var(--paper));
+}
+
+.faq summary::after {
+  color: var(--signal);
+}
+
+/* Grid children may shrink below their content (keeps code blocks from widening the page). */
+@media (max-width: 860px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.split > *,
+.hero-grid > * {
+  min-width: 0;
 }
