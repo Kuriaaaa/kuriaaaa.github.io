@@ -3,60 +3,60 @@ import Base from '../layouts/Base.astro';
 
 const loop = [
   { title: 'Spec', body: 'Write down what "done" means: users, rules, edge cases, the numbers that matter.' },
-  { title: 'Plan', body: 'Work through the plan with Claude against the real codebase before a line changes.' },
-  { title: 'Build', body: 'Small, reviewable diffs with Claude Code — features, migrations and the tests for them.' },
-  { title: 'Verify', body: 'Type checks, unit tests and browser tests run locally, then again in CI.' },
-  { title: 'Ship', body: 'I review every diff, CI deploys, and monitoring watches what went live.' },
+  { title: 'Plan', body: 'Map the data, the roles and the risks before a line of code changes.' },
+  { title: 'Build', body: 'Small, reviewable changes — features, migrations and the tests for them, together.' },
+  { title: 'Verify', body: 'Type checks and automated tests run locally, then again in CI, plus checks on real phones.' },
+  { title: 'Ship', body: 'Every change is reviewed, CI deploys, and monitoring watches what went live.' },
 ];
 
-const tools = [
+const practices = [
   {
-    name: 'Claude Code',
-    body: 'My pair programmer in the terminal and desktop app: reading unfamiliar code, building features, writing tests, running builds and reviewing diffs. This site was rebuilt in a Claude Code session.',
+    name: 'Version control & CI',
+    body: 'Every change lives in Git. Builds and tests run automatically before anything is deployed, so a broken change never reaches users.',
   },
   {
-    name: 'Claude API, inside products',
-    body: 'DevControl sends a stack trace and the matching source files to Claude, which explains the cause and proposes a fix. Suggestions only — nothing changes code on its own.',
+    name: 'Monitoring',
+    body: 'The systems I run are watched for uptime, SSL expiry and errors, with alerts when something breaks — tracked in DevControl.',
     href: '/work/devcontrol/',
   },
   {
     name: 'Handover notes in the repo',
-    body: "My projects keep notes for humans and for Claude sessions — how to run it, what's done, what's next — so work picks up where it stopped.",
+    body: "Each project keeps plain notes — how to run it, what's done, what's next — so anyone can pick up where work stopped.",
   },
 ];
 
 const principles = [
   {
-    title: 'AI drafts, tests decide.',
-    body: 'Code is accepted when it passes the checks and my review, not because it looks right.',
+    title: 'Tests decide.',
+    body: 'Code ships when it passes the checks and review, not because it looks right.',
   },
   {
     title: 'Secrets stay out.',
-    body: 'Client data, keys and passwords never go into a prompt. Demos run on fictional data.',
+    body: 'Client data, keys and passwords stay in the systems they belong to. Demos run on fictional data.',
   },
   {
-    title: 'Small diffs, always.',
+    title: 'Small changes, always.',
     body: 'Changes stay small enough to read in one sitting, so nothing slips past review.',
   },
 ];
 ---
 
 <Base
-  title="Workflow"
-  description="How Chege John Brian Kuria builds: Claude Code and the Claude API as daily tools, with tests and human review deciding what ships."
+  title="Process"
+  description="How Chege John Brian Kuria builds: a five-step loop on every project, with tests, review and monitoring deciding what ships."
 >
   <section class="page-head">
     <div class="container split">
       <div>
         <span class="label">
-          <span class="n">~/</span>workflow
+          <span class="n">~/</span>process
         </span>
-        <h1 class="page-title">Built with Claude. Verified by me.</h1>
+        <h1 class="page-title">Small-team speed. Careful by default.</h1>
       </div>
       <div>
         <p class="lead">
-          AI lets one developer move like a small team. The trick is keeping the quality of a careful one. This is the
-          loop I use on every project.
+          How I take a build from the first conversation to a system people rely on. The same loop runs on every
+          project, big or small.
         </p>
       </div>
     </div>
@@ -86,11 +86,9 @@ const principles = [
     <div class="container split">
       <div>
         <span class="label">
-          <span class="n">§02</span>Toolkit
+          <span class="n">§02</span>Practices
         </span>
-        <h2 id="tools-title" class="page-title">
-          Where Claude fits.
-        </h2>
+        <h2 id="tools-title" class="page-title">What every project gets.</h2>
         <pre
           class="terminal"
           aria-label="Example release checks"
@@ -100,7 +98,7 @@ const principles = [
   ✓ csp        strict, self-hosted fonts only</pre>
       </div>
       <ul class="cv">
-        {tools.map((t) => (
+        {practices.map((t) => (
           <li>
             <span class="when">{t.name}</span>
             <span>

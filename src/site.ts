@@ -37,6 +37,6 @@ export type Stage = keyof typeof stages;
 export const nav = [
   { href: '/work/', label: 'Work' },
   { href: '/services/', label: 'Services' },
-  { href: '/workflow/', label: 'Workflow' },
+  { href: '/workflow/', label: 'Process' },
   { href: '/cv/', label: 'CV' },
 ];

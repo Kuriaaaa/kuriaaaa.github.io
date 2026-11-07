@@ -53,8 +53,8 @@ When an account exists, add it to `src/site.ts` and to the footer in `src/compon
 > car dealership; an industrial attachment auditing a multi-company Odoo ERP; and Fanovo, a multi-channel messaging
 > platform.
 >
-> I work in small, tested steps with weekly demos, and I use Claude Code in a workflow where tests and review decide
-> what ships. Open to freelance projects, build partnerships and developer roles.
+> I work in small, tested steps with weekly demos, and tests and review decide what ships. Open to freelance projects,
+> build partnerships and developer roles.
 >
 > Portfolio: chege.is-a.dev
 
@@ -70,8 +70,8 @@ only.
 2. **Decision posts** — "Hiding a button isn't security: server-side role checks", "Postgres as a queue with
    `FOR UPDATE SKIP LOCKED`".
 3. **Explainers** — how M-Pesa STK push works, what Kenya's Data Protection Act means for SMS marketing.
-4. **How I build with AI** — honest Claude Code sessions on your own repos: the prompt, the diff, the test that caught a
-   mistake.
+4. **Behind the build** — a bug a test caught, a feature going from sketch to shipped, a refactor that made something
+   faster.
 
 ### First 8 posts
 
@@ -81,13 +81,12 @@ only.
 4. M-Pesa STK push explained in one diagram (generic, no client code).
 5. Fanovo: Postgres as a message queue.
 6. SMS consent under the Data Protection Act — STOP, ACHA and SITISHA replies.
-7. DevControl: Claude explaining a stack trace from one of your own projects.
+7. DevControl: one dashboard for uptime, SSL expiry and errors across your own projects.
 8. "I'm taking on two projects this month" → link `/services/`.
 
 Cadence: **3 posts a week + 1 longer video a fortnight.**
 
-Once accounts exist, the Postiz or Metricool connectors in this workspace can queue posts — ask Claude to draft a week
-for your review.
+Once accounts exist, a scheduler such as Postiz or Metricool can queue a week of posts in one sitting.
 
 ---
 

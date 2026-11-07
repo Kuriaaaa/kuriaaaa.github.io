@@ -1,12 +1,12 @@
 ---
 title: DevControl
-summary: A personal control centre for a developer. Every project, its tasks, live uptime, error tracking and a readiness score, with Claude proposing fixes for new errors.
+summary: A personal control centre for a developer. Every project, its tasks, live uptime, error tracking and a readiness score on one screen.
 kind: product
 status: Phases 1 and 2 of 4 built
 sector: Developer tooling
 stage: building
 year: "2026"
-stack: [Next.js, React, TypeScript, PostgreSQL, Drizzle ORM, Claude API]
+stack: [Next.js, React, TypeScript, PostgreSQL, Drizzle ORM]
 order: 9
 ---
 
@@ -19,7 +19,6 @@ I run several systems at once. I needed one screen that answers "what needs my a
 - **Imports from GitHub:** pick repositories and each becomes a project with a guessed type and a launch checklist.
 - **Watches what's live:** HTTP checks from every minute to every hour, with response time, uptime and SSL expiry. An outage opens an urgent task; a recovery closes it.
 - **Tracks errors:** one snippet per app (browser, Node.js or Python) sends errors in. They are grouped by cause and alert on first sight and on regressions.
-- **Explains errors with Claude:** Claude reads the stack trace and the matching source files and proposes a fix. Suggestions only; nothing changes the code on its own.
 - **Measures readiness:** each project type has a launch checklist. Items that can be checked from live data tick themselves.
 
 ## How it's built
