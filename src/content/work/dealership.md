@@ -10,7 +10,7 @@ year: "2026"
 stack: [Next.js, TypeScript, PostgreSQL, Drizzle, Docker, M-Pesa Daraja]
 featured: true
 order: 2
-cover: /images/covers/dealership.svg
+cover: ../../assets/covers/dealership.svg
 coverAlt: Illustration of a car listing page with a test-drive booking card
 ---
 

@@ -16,8 +16,9 @@ npm run build    # output in dist/
 | Name, contact links, availability line | `src/site.ts` |
 | Projects (one Markdown file each) | `src/content/work/*.md` |
 | Homepage | `src/pages/index.astro` |
-| Styles (one file, light + dark) | `src/styles/global.css` |
-| Images and PDFs | `public/` |
+| Styles (one file, cascade layers, light + dark) | `src/styles/global.css` |
+| Images (optimised to WebP at build) | `src/assets/` |
+| PDFs, share image, files served as-is | `public/` |
 
 **Add a project:** copy an existing file in `src/content/work/`, edit the
 front matter, and set `featured: true` to show it on the homepage (keep it to three).

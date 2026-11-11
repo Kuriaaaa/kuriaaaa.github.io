@@ -2,7 +2,6 @@
 // Fig. 1: the systems I've built, wired to me, plus one open slot for the next client.
 // Pure SVG + CSS (no JavaScript), so it passes the strict CSP and works with motion turned off.
 import type { CollectionEntry } from 'astro:content';
-import { stages } from '../site';
 
 interface Props {
   work: CollectionEntry<'work'>[];
@@ -26,7 +25,6 @@ const nodes = [
     title: p.data.short ?? p.data.title,
     sub: p.data.sector,
     dot: `dot-${p.data.stage}`,
-    label: `${p.data.title} — ${p.data.sector}, ${stages[p.data.stage]}`,
     open: false,
   })),
   {
@@ -34,7 +32,6 @@ const nodes = [
     title: 'Your system',
     sub: 'Open slot',
     dot: 'dot-open',
-    label: 'Your system — see services',
     open: true,
   },
 ].map((n, i) => ({ ...n, ...slots[i] }));
@@ -42,7 +39,7 @@ const nodes = [
 
 <figure class="plate map">
   <svg viewBox="0 0 400 420" role="group" aria-label="Systems map: projects connected to Chege John Brian Kuria">
-    {nodes.map((n) => <path class="edge" d={n.d} />)}
+    {nodes.map((n) => <path class="edge" d={n.d} pathLength="1" />)}
     {nodes.map((n, i) => <path class:list={['flow', { slow: i % 2 === 1 }]} d={n.d} />)}
     <circle class="ring" cx="200" cy="210" r="58"></circle>
     <circle class="core" cx="200" cy="210" r="40"></circle>
@@ -50,7 +47,7 @@ const nodes = [
     <text class="core-sub" x="200" y="290" text-anchor="middle">KIAMBU · KE</text>
     {
       nodes.map((n) => (
-        <a class:list={['node', { open: n.open }]} href={n.href} aria-label={n.label}>
+        <a class:list={['node', { open: n.open }]} href={n.href}>
           <rect x={n.x - W / 2} y={n.y - H / 2} width={W} height={H} rx="3" />
           <circle class={n.dot} cx={n.x - W / 2 + 13} cy={n.y - 7} r="4" />
           <text class="node-title" x={n.x - W / 2 + 24} y={n.y - 2}>

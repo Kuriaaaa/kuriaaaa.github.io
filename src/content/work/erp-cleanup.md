@@ -10,7 +10,7 @@ year: "2026"
 stack: [Odoo 19, Python/JSON-RPC, PowerShell, Excel automation, Data quality]
 featured: true
 order: 3
-cover: /images/covers/erp.svg
+cover: ../../assets/covers/erp.svg
 coverAlt: Diagram of a warehouse and three shops sharing one ERP database
 ---
 

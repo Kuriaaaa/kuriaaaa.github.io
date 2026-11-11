@@ -9,7 +9,7 @@ year: "2026"
 stack: [Python, PostgreSQL, JavaScript, REST API, GitHub Actions, Render]
 featured: true
 order: 1
-cover: /images/gymflow/owner-workspace.jpg
+cover: ../../assets/gymflow/owner-workspace.jpg
 coverAlt: GymFlow owner dashboard showing revenue, members and attendance
 links:
   - { label: Try the live demo, href: "https://kuriaaaa.github.io/gymflow-v1-demo/" }
@@ -50,7 +50,7 @@ The public demo runs in your browser on made-up data. Nothing is sent to a serve
 
 ## Screens
 
-![Owner workspace](/images/gymflow/owner-workspace.jpg)
-![Front-desk workspace](/images/gymflow/receptionist-workspace.jpg)
-![Trainer workspace](/images/gymflow/trainer-workspace.jpg)
-![Member workspace](/images/gymflow/member-workspace.jpg)
+![Owner workspace](../../assets/gymflow/owner-workspace.jpg)
+![Front-desk workspace](../../assets/gymflow/receptionist-workspace.jpg)
+![Trainer workspace](../../assets/gymflow/trainer-workspace.jpg)
+![Member workspace](../../assets/gymflow/member-workspace.jpg)

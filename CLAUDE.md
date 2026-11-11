@@ -14,3 +14,8 @@ Personal portfolio of Chege John Brian Kuria (GitHub `Kuriaaaa`). **This repo is
 - Never publish employer or client figures, customer or staff names, or system screenshots. The car dealership client
   stays anonymous ("Nairobi-area car dealership") until its MD agrees. The private CV with referees is never published.
 - Still open: Enforce HTTPS in the Pages settings (if not already ticked), FormSubmit hashed alias, optional GoatCounter.
+- Styles: `src/styles/global.css` is organised in `@layer`s (tokens, base, layout, components, pages, motion). Keep
+  `animation-timeline` in its own rule, apart from the `animation` shorthand: the minifier merges them into a
+  declaration browsers reject.
+- Images live in `src/assets/` and go through Astro (`<Image>` or relative Markdown paths). `public/og.png` is the
+  1200×630 share image.

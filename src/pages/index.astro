@@ -4,6 +4,8 @@ import Base from '../layouts/Base.astro';
 import SystemsMap from '../components/SystemsMap.astro';
 import Ledger from '../components/Ledger.astro';
 import Contact from '../components/Contact.astro';
+import { Image } from 'astro:assets';
+import portrait from '../assets/portrait.jpg';
 import { site } from '../site';
 
 const professional = (await getCollection('work', (e) => ['experience', 'product', 'client'].includes(e.data.kind))).sort(
@@ -47,7 +49,7 @@ const skills = [
           <a class="btn" href="/cv.pdf">Download CV</a>
         </div>
         <div class="id-line">
-          <img src="/images/portrait.jpg" alt={`Portrait of ${site.name}`} width="56" height="56" fetchpriority="high" />
+          <Image src={portrait} alt={`Portrait of ${site.name}`} width={112} height={112} loading="eager" />
           <div>
             <b>{site.name}</b>
             <span>{site.role} · {site.location}</span>
@@ -74,7 +76,7 @@ const skills = [
       <div class="section-head">
         <span class="label"><span class="n">§02</span>Protocol</span>
         <h2 id="protocol-title">How a build runs.</h2>
-        <a class="link-arrow" href="/workflow/">My workflow →</a>
+        <a class="link-arrow" href="/workflow/">My process →</a>
       </div>
       <ol class="protocol">
         {

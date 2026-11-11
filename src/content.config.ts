@@ -4,7 +4,7 @@ import { z } from 'astro/zod';
 
 const work = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/work' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     // One sentence a recruiter can read in five seconds.
     summary: z.string(),
@@ -18,7 +18,7 @@ const work = defineCollection({
     stack: z.array(z.string()),
     featured: z.boolean().default(false),
     order: z.number().default(99),
-    cover: z.string().optional(),
+    cover: image().optional(),
     coverAlt: z.string().optional(),
     links: z
       .array(z.object({ label: z.string(), href: z.string() }))

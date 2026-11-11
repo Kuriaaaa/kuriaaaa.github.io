@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import Stage from '../../components/Stage.astro';
 import { kindLabel } from '../../site';
@@ -16,9 +17,11 @@ const { entry, index, next } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
 const no = String(index + 1).padStart(2, '0');
+// Photos double as the share image; SVG illustrations fall back to the site-wide one.
+const og = d.cover && d.cover.format !== 'svg' ? (await getImage({ src: d.cover, width: 1200, format: 'jpg' })).src : undefined;
 ---
 
-<Base title={d.title} description={d.summary} image={d.cover?.endsWith('.jpg') ? d.cover : undefined}>
+<Base title={d.title} description={d.summary} image={og}>
   <article>
     <header class="dossier-head container">
       <nav class="crumbs" aria-label="Breadcrumb">
@@ -74,7 +77,14 @@ const no = String(index + 1).padStart(2, '0');
       d.cover && (
         <div class="container">
           <figure class="plate">
-            <img class="cover" src={d.cover} alt={d.coverAlt ?? ''} width="1425" height="990" />
+            <Image
+              class="cover"
+              src={d.cover}
+              alt={d.coverAlt ?? ''}
+              widths={[640, 960, 1425]}
+              sizes="(max-width: 1260px) 100vw, 1180px"
+              loading="eager"
+            />
             <figcaption>
               <span>
                 Fig. {no}.1 — {d.coverAlt}
