@@ -14,6 +14,8 @@ const work = defineCollection({
     stage: z.enum(['live', 'pilot', 'building', 'engagement', 'complete', 'research']),
     // Short label for the homepage systems map.
     short: z.string().optional(),
+    // Handwritten margin note beside the title. Only real, publishable results.
+    note: z.string().optional(),
     year: z.string(),
     stack: z.array(z.string()),
     featured: z.boolean().default(false),

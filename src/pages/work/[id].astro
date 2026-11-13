@@ -22,7 +22,7 @@ const og = d.cover && d.cover.format !== 'svg' ? (await getImage({ src: d.cover,
 ---
 
 <Base title={d.title} description={d.summary} image={og}>
-  <article>
+  <article class="dossier">
     <header class="dossier-head container">
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href="/work/">Dossiers</a><span aria-hidden="true">/</span><span>No. {no}</span><span aria-hidden="true">/</span
@@ -30,6 +30,7 @@ const og = d.cover && d.cover.format !== 'svg' ? (await getImage({ src: d.cover,
       </nav>
       <h1>{d.title}<span class="dot">.</span></h1>
       <p class="lead">{d.summary}</p>
+      {d.note && <p class="margin-note">{d.note}</p>}
       {
         d.links.length > 0 && (
           <div class="btn-row page-actions">

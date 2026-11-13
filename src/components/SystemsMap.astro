@@ -37,6 +37,7 @@ const nodes = [
 ].map((n, i) => ({ ...n, ...slots[i] }));
 ---
 
+<div class="map-wrap">
 <figure class="plate map">
   <svg viewBox="0 0 400 420" role="group" aria-label="Systems map: projects connected to Chege John Brian Kuria">
     {nodes.map((n) => <path class="edge" d={n.d} pathLength="1" />)}
@@ -65,3 +66,5 @@ const nodes = [
     <span>{nodes.length - 1} systems · 1 open</span>
   </figcaption>
 </figure>
+  <p class="margin-note" aria-hidden="true">↑ your system goes here</p>
+</div>

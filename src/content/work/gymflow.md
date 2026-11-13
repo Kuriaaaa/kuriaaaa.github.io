@@ -5,6 +5,7 @@ kind: product
 status: Ready for a pilot gym
 sector: Fitness operations
 stage: pilot
+note: 86 tests, green before every deploy.
 year: "2026"
 stack: [Python, PostgreSQL, JavaScript, REST API, GitHub Actions, Render]
 featured: true

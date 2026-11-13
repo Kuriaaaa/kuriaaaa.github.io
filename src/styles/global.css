@@ -1,9 +1,11 @@
-@import '@fontsource-variable/manrope';
-@import '@fontsource-variable/dm-sans';
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/source-serif-4';
+@import '@fontsource-variable/caveat';
 
 /* =========================================================================
-   FIELD DOSSIER
-   Paper and ink, ruled lines, mono annotations, one signal colour.
+   LAB NOTEBOOK
+   Graph paper, fountain ink, a highlighter, and a red pen for margin notes.
+   Red is for handwritten notes only; yellow marks key phrases and hovers.
    Zero JavaScript: motion is CSS only and every effect degrades gracefully.
 
    Layers, lowest priority first. Later layers win without specificity fights.
@@ -17,10 +19,11 @@
 
 @layer tokens {
   :root {
-    color-scheme: light dark;
+    color-scheme: light;
 
-    --display: 'Manrope Variable', 'DM Sans Variable', ui-sans-serif, system-ui, sans-serif;
-    --font: 'DM Sans Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+    --font: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif;
+    --hand: 'Caveat Variable', 'Segoe Print', cursive;
     --mono: ui-monospace, 'Cascadia Code', 'SF Mono', Consolas, Menlo, monospace;
 
     --max: 1180px;
@@ -30,56 +33,39 @@
     --radius: 3px;
     --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 
-    /* Nairobi sunset: warm cream paper, deep ink, vivid orange, highlighter yellow. */
-    --paper: #fbf7ee;
-    --paper-2: #f3ecdc;
-    --paper-3: #e8dfc9;
-    --ink: #14130d;
-    --ink-2: #3f3c34;
-    --ink-3: #5f5b51;
-    --rule: rgb(20 19 13 / 0.14);
-    --rule-strong: rgb(20 19 13 / 0.42);
-    --grid: rgb(20 19 13 / 0.05);
-    --signal: #ff4d1a;
-    --signal-ink: #c2320a;
-    --on-signal: #14130d;
-    --sun: #ffc83d;
-    --highlight: var(--sun);
-    --night: #14130d;
-    --on-night: #fbf7ee;
+    /* The house palette. */
+    --graph-paper: #eaf1f8;
+    --fountain-ink: #1d3a8a;
+    --highlighter: #ffe45c;
+    --red-pen: #c2412d;
+    --pencil: #4a4a4a;
 
-    --live: #116b34;
-    --pilot: #8a4f00;
-    --building: #1d4ed8;
-    --engagement: #7c3aed;
-    --complete: var(--ink-2);
-    --research: #7c3aed;
-  }
+    /* Roles. */
+    --paper: var(--graph-paper);
+    --paper-2: #dde7f3;
+    --paper-3: #cfdcec;
+    --sheet: #f7fafd;
+    --ink: var(--fountain-ink);
+    --ink-2: var(--pencil);
+    --ink-3: #5a6270;
+    --rule: rgb(29 58 138 / 0.18);
+    --rule-strong: rgb(29 58 138 / 0.45);
+    --grid: rgb(29 58 138 / 0.09);
+    --signal: var(--highlighter);
+    --signal-ink: var(--fountain-ink);
+    --on-signal: var(--fountain-ink);
+    --sun: var(--highlighter);
+    --highlight: var(--highlighter);
+    --night: #16295f;
+    --on-night: #eaf1f8;
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper: #0f0f13;
-      --paper-2: #18181f;
-      --paper-3: #24242d;
-      --ink: #f5f1e6;
-      --ink-2: #c9c4b7;
-      --ink-3: #a19c8f;
-      --rule: rgb(245 241 230 / 0.13);
-      --rule-strong: rgb(245 241 230 / 0.4);
-      --grid: rgb(245 241 230 / 0.035);
-      --signal: #ff6b35;
-      --signal-ink: #ff9466;
-      --sun: #ffd04d;
-      --highlight: color-mix(in srgb, var(--signal) 55%, transparent);
-      --night: #08080b;
-      --on-night: #f5f1e6;
-
-      --live: #4ade80;
-      --pilot: #fbbf24;
-      --building: #7aa2ff;
-      --engagement: #c4a1ff;
-      --research: #c4a1ff;
-    }
+    /* Stages are told apart by their label, not by extra colours. */
+    --live: var(--ink);
+    --pilot: var(--ink);
+    --building: var(--ink);
+    --engagement: var(--ink);
+    --complete: var(--ink-3);
+    --research: var(--ink-3);
   }
 }
 
@@ -130,10 +116,10 @@
     background-color: var(--paper);
     background-image:
       linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-    background-size: 32px 32px;
-    color: var(--ink);
+    background-size: 16px 16px;
+    color: var(--ink-2);
     font-family: var(--font);
-    font-size: 17px;
+    font-size: 18px;
     line-height: 1.6;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -142,16 +128,17 @@
   h1,
   h2,
   h3 {
+    color: var(--ink);
     font-family: var(--display);
-    font-weight: 750;
-    letter-spacing: -0.035em;
+    font-weight: 800;
+    letter-spacing: -0.02em;
     line-height: 1.02;
     text-wrap: balance;
   }
 
   a {
-    color: inherit;
-    text-decoration-color: var(--signal);
+    color: var(--ink);
+    text-decoration-color: var(--rule-strong);
     text-decoration-thickness: 1.5px;
     text-underline-offset: 3px;
 
@@ -161,7 +148,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--signal);
+    outline: 2px solid var(--ink);
     outline-offset: 3px;
   }
 
@@ -232,15 +219,6 @@
     }
   }
 
-  /* Page heads share one warm glow. */
-  .hero,
-  .page-head,
-  .dossier-head {
-    background:
-      radial-gradient(circle at 82% 28%, color-mix(in srgb, var(--signal) 16%, transparent), transparent 42%),
-      radial-gradient(circle at 8% 92%, color-mix(in srgb, var(--sun) 20%, transparent), transparent 38%);
-  }
-
   .hero {
     padding-block: clamp(40px, 6vw, 80px) clamp(48px, 6vw, 72px);
   }
@@ -303,7 +281,7 @@
 
   .mark {
     padding-inline: 0.06em;
-    background: linear-gradient(transparent 58%, var(--highlight) 58% 92%, transparent 92%);
+    background: linear-gradient(transparent 55%, var(--highlight) 55% 90%, transparent 90%);
   }
 
   .link-arrow {
@@ -326,7 +304,9 @@
     & li {
       padding: 3px 8px;
       border-radius: 2px;
-      background: var(--paper-2);
+      border: 1px solid var(--rule);
+      background: var(--sheet);
+      color: var(--ink);
       font-family: var(--mono);
       font-size: 11.5px;
     }
@@ -452,7 +432,8 @@
       }
 
       &[aria-current='page'] {
-        box-shadow: inset 0 -2px 0 var(--signal);
+        box-shadow: inset 0 -4px 0 var(--highlighter);
+        color: var(--ink);
       }
     }
 
@@ -516,8 +497,8 @@
         padding: 8px;
         border: 1.5px solid var(--ink);
         border-radius: var(--radius);
-        background: var(--paper);
-        box-shadow: 6px 6px 0 var(--signal);
+        background: var(--sheet);
+        box-shadow: 6px 6px 0 var(--highlighter);
 
         & a {
           padding: 12px;
@@ -537,14 +518,22 @@
     background: var(--night);
     color: var(--on-night);
 
+    & h2 {
+      color: var(--on-night);
+    }
+
     & .label,
     & .muted,
     & .footer-base {
       color: color-mix(in srgb, var(--on-night) 70%, transparent);
     }
 
+    & a {
+      color: var(--on-night);
+    }
+
     & a:hover {
-      color: var(--signal);
+      color: var(--highlighter);
     }
   }
 
@@ -601,7 +590,8 @@
     padding: 6px 12px 6px 10px;
     border: 1px solid color-mix(in srgb, var(--live) 45%, transparent);
     border-radius: 999px;
-    background: color-mix(in srgb, var(--live) 10%, var(--paper));
+    background: var(--sheet);
+    color: var(--ink);
     font-family: var(--mono);
     font-size: 12px;
     letter-spacing: 0.06em;
@@ -660,8 +650,8 @@
     position: relative;
     padding: 18px;
     border: 1.5px solid var(--ink);
-    background: var(--paper);
-    box-shadow: 8px 8px 0 color-mix(in srgb, var(--sun) 70%, transparent);
+    background: var(--sheet);
+    box-shadow: 8px 8px 0 var(--highlighter);
 
     &::before,
     &::after {
@@ -669,7 +659,7 @@
       position: absolute;
       width: 14px;
       height: 14px;
-      border: 0 solid var(--signal);
+      border: 0 solid var(--ink);
     }
 
     &::before {
@@ -728,7 +718,7 @@
 
   .map .flow {
     fill: none;
-    stroke: var(--signal);
+    stroke: var(--ink);
     stroke-width: 1.8;
     stroke-dasharray: 3 11;
     stroke-linecap: round;
@@ -736,17 +726,17 @@
 
   .map .ring {
     fill: none;
-    stroke: var(--signal);
+    stroke: var(--ink);
     stroke-dasharray: 2 6;
     opacity: 0.6;
   }
 
   .map .core {
-    fill: var(--signal);
+    fill: var(--ink);
   }
 
   .map .core-text {
-    fill: var(--on-signal);
+    fill: var(--sheet);
     font-family: var(--mono);
     font-size: 17px;
     font-weight: 700;
@@ -761,7 +751,7 @@
 
   .map .node {
     & rect {
-      fill: var(--paper);
+      fill: var(--sheet);
       stroke: var(--ink);
       stroke-width: 1.5;
       transition: fill 0.18s;
@@ -812,7 +802,7 @@
   .dot-engagement { fill: var(--engagement); }
   .dot-complete { fill: var(--complete); }
   .dot-research { fill: var(--research); }
-  .dot-open { fill: var(--signal); }
+  .dot-open { fill: var(--highlighter); stroke: var(--ink); stroke-width: 1.2; }
 
   /* ---------- Ledger: one ruled row per project ---------- */
   .ledger {
@@ -839,13 +829,13 @@
         inset-block: 0;
         left: 0;
         width: 3px;
-        background: var(--signal);
+        background: var(--ink);
         scale: 1 0;
         transition: scale 0.2s var(--ease);
       }
 
       &:hover {
-        background: color-mix(in srgb, var(--signal) 9%, var(--paper));
+        background: color-mix(in srgb, var(--highlighter) 35%, var(--paper));
 
         &::before {
           scale: 1 1;
@@ -941,7 +931,7 @@
       transition: background 0.2s;
 
       &:hover {
-        background: color-mix(in srgb, var(--sun) 16%, var(--paper));
+        background: color-mix(in srgb, var(--highlighter) 30%, var(--paper));
       }
     }
 
@@ -985,8 +975,8 @@
 
   /* ---------- CTA band ---------- */
   .cta-band {
-    background: var(--signal);
-    color: var(--on-signal);
+    background: var(--ink);
+    color: var(--on-night);
 
     & .container {
       display: grid;
@@ -1003,13 +993,14 @@
 
     & h2 {
       margin-top: 12px;
+      color: var(--on-night);
       font-size: clamp(2.2rem, 5.4vw, 4.4rem);
-      letter-spacing: -0.045em;
+      letter-spacing: -0.03em;
     }
 
     & .label,
     & p {
-      color: color-mix(in srgb, var(--on-signal) 80%, transparent);
+      color: color-mix(in srgb, var(--on-night) 82%, transparent);
     }
 
     & p {
@@ -1018,24 +1009,22 @@
     }
 
     & .btn {
-      border-color: var(--on-signal);
-      color: var(--on-signal);
+      border-color: var(--on-night);
+      color: var(--on-night);
 
       &:hover {
-        background: var(--on-signal);
-        color: var(--signal);
-        box-shadow: 4px 4px 0 var(--paper);
+        box-shadow: 4px 4px 0 var(--highlighter);
       }
     }
 
     & .btn-primary {
-      background: var(--on-signal);
-      color: #fbf7ee;
+      border-color: var(--highlighter);
+      background: var(--highlighter);
+      color: var(--ink);
 
       &:hover {
-        background: #fbf7ee;
-        color: var(--on-signal);
-        box-shadow: 4px 4px 0 var(--on-signal);
+        border-color: var(--sheet);
+        background: var(--sheet);
       }
     }
   }
@@ -1091,9 +1080,10 @@
     padding: clamp(20px, 3vw, 32px);
     border: 1.5px solid var(--ink);
     background: var(--paper);
-    box-shadow: 8px 8px 0 var(--signal);
+    box-shadow: 8px 8px 0 var(--highlighter);
 
     & label {
+      color: var(--ink);
       display: grid;
       gap: 6px;
       font-family: var(--mono);
@@ -1108,15 +1098,15 @@
       padding: 10px 12px;
       border: 1.5px solid var(--rule-strong);
       border-radius: 2px;
-      background: var(--paper);
-      color: var(--ink);
-      font: 16px / 1.4 var(--font);
+      background: var(--sheet);
+      color: var(--ink-2);
+      font: 17px / 1.4 var(--font);
       letter-spacing: 0;
       text-transform: none;
 
       &:focus {
         border-color: var(--ink);
-        outline: 2px solid var(--signal);
+        outline: 2px solid var(--highlighter);
         outline-offset: 1px;
       }
     }
@@ -1140,7 +1130,7 @@
         min-height: 18px;
         margin-top: 3px;
         padding: 0;
-        accent-color: var(--signal);
+        accent-color: var(--ink);
       }
     }
 
@@ -1181,6 +1171,7 @@
 
     & strong {
       color: var(--ink);
+      font-weight: 650;
     }
 
     & li {
@@ -1203,8 +1194,8 @@
       overflow-x: auto;
       padding: 18px 20px;
       border: 1.5px solid var(--ink);
-      border-left: 4px solid var(--signal);
-      background: var(--paper-2);
+      border-left: 4px solid var(--ink);
+      background: var(--sheet);
       font-size: 14px;
       line-height: 1.6;
 
@@ -1305,7 +1296,7 @@
       line-height: 0.92;
 
       & .dot {
-        color: var(--signal);
+        color: var(--ink);
       }
     }
   }
@@ -1386,7 +1377,7 @@
     }
 
     &:hover strong {
-      color: var(--signal);
+      color: var(--ink);
       translate: 6px 0;
     }
   }
@@ -1408,7 +1399,7 @@
       transition: background 0.2s;
 
       &:hover {
-        background: color-mix(in srgb, var(--sun) 14%, var(--paper));
+        background: color-mix(in srgb, var(--highlighter) 30%, var(--paper));
       }
     }
 
@@ -1494,7 +1485,7 @@
 
       &::after {
         content: '+';
-        color: var(--signal);
+        color: var(--ink);
         font-family: var(--mono);
         font-size: 1.3rem;
         line-height: 1;
@@ -1522,8 +1513,8 @@
     & li {
       padding: 22px;
       border: 1.5px solid var(--ink);
-      border-top: 4px solid var(--signal);
-      background: var(--paper);
+      border-top: 4px solid var(--ink);
+      background: var(--sheet);
     }
 
     & b {
@@ -1546,6 +1537,82 @@
 
   .legal {
     padding-bottom: var(--space-section);
+  }
+}
+
+/* =========================================================================
+   Lab-notebook signatures: numbered entries, numbered figures, margin notes.
+   ========================================================================= */
+@layer pages {
+  /* Case-study prose reads as numbered notebook entries beside a margin rule. */
+  .dossier .content {
+    counter-reset: entry fig;
+    padding-left: clamp(16px, 3vw, 32px);
+    border-left: 2px solid var(--rule-strong);
+
+    & h2 {
+      counter-increment: entry;
+
+      &::before {
+        content: 'Entry ' counter(entry, decimal-leading-zero);
+        display: block;
+        margin-bottom: 8px;
+        color: var(--ink-3);
+        font-family: var(--mono);
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+    }
+
+    /* Markdown images become numbered figures. */
+    & p:has(> img) {
+      counter-increment: fig;
+
+      &::after {
+        content: 'Fig. ' counter(fig, decimal-leading-zero);
+        display: block;
+        color: var(--ink-3);
+        font-family: var(--mono);
+        font-size: 11.5px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+    }
+
+    & img {
+      margin-bottom: 8px;
+      border-color: var(--ink);
+      box-shadow: 6px 6px 0 var(--highlighter);
+    }
+  }
+
+  /* Handwritten, in red pen: the only place red is used. Keep these rare and true. */
+  .margin-note {
+    max-width: 22ch;
+    color: var(--red-pen);
+    font-family: var(--hand);
+    font-size: clamp(1.45rem, 2.4vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.05;
+    rotate: -3deg;
+  }
+
+  .dossier-head .margin-note {
+    margin: 22px 0 0 clamp(0px, 4vw, 48px);
+  }
+
+  .map-wrap {
+    display: grid;
+    gap: 18px;
+    min-width: 0;
+
+    & .margin-note {
+      justify-self: end;
+      margin-right: 8%;
+      rotate: 2deg;
+    }
   }
 }
 
@@ -1589,7 +1656,7 @@
         position: absolute;
         inset: auto 0 -1px;
         height: 2px;
-        background: var(--signal);
+        background: var(--ink);
         transform-origin: left;
         animation: progress 1ms linear both;
       }

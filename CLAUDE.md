@@ -14,6 +14,9 @@ Personal portfolio of Chege John Brian Kuria (GitHub `Kuriaaaa`). **This repo is
 - Never publish employer or client figures, customer or staff names, or system screenshots. The car dealership client
   stays anonymous ("Nairobi-area car dealership") until its MD agrees. The private CV with referees is never published.
 - Still open: Enforce HTTPS in the Pages settings (if not already ticked), FormSubmit hashed alias, optional GoatCounter.
+- Look: "Lab Notebook" (graph paper #EAF1F8, fountain ink #1D3A8A, highlighter #FFE45C, pencil #4A4A4A; Bricolage
+  Grotesque, Source Serif 4, Caveat). Red pen #C2412D is for handwritten `.margin-note`s only (frontmatter `note:`),
+  and only for true, publishable results.
 - Styles: `src/styles/global.css` is organised in `@layer`s (tokens, base, layout, components, pages, motion). Keep
   `animation-timeline` in its own rule, apart from the `animation` shorthand: the minifier merges them into a
   declaration browsers reject.

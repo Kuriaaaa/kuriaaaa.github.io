@@ -5,6 +5,7 @@ kind: research
 status: Research · alerts only
 sector: Market research
 stage: research
+note: Alerts only. It never trades.
 year: "2026"
 stack: [Python, SQLite, Pine Script, Push notifications]
 order: 6
