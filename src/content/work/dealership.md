@@ -2,7 +2,7 @@
 title: Car dealership platform
 summary: Showroom website and back office for a Nairobi-area car dealership. It covers stock listings, test-drive booking, M-Pesa deposits and staff roles.
 kind: client
-status: Phase 1 built · launch pending
+status: Code complete · private client demo live
 sector: Automotive retail
 stage: building
 short: Dealership
@@ -36,8 +36,9 @@ The dealership needed a website buyers can browse on their phones. It also neede
 
 - Next.js 16 with TypeScript. PostgreSQL through Drizzle ORM. Files are stored in an object store (Cloudflare R2).
 - Every upload is virus-scanned (ClamAV in Docker).
-- CI runs tests against a real database. It also runs code scanning (CodeQL), dependency updates and backup jobs.
+- An encrypted document vault for staff files.
+- 34 automated tests run in CI against a real database. It also runs code scanning (CodeQL), dependency updates and backup jobs.
 
 ## Where it stands
 
-Phase 1 is built and tested. Launch is waiting on the client's domain, branding and stock. The client's name will be added here with their permission.
+The site is built and tested, and a private demo is live for the client. Lighthouse scores 100 for accessibility on every page. Launch is ready on the code side: health checks, error alerts, backup restore checks and a pre-launch check script are in place. It is waiting on the client's domain and accounts. The client's name will be added here with their permission.
